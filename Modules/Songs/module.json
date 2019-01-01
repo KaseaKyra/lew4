@@ -1,0 +1,18 @@
+{
+    "name": "Songs",
+    "alias": "songs",
+    "description": "",
+    "keywords": [],
+    "version": "1.0.0",
+	"active": 1,
+    "order": 1,
+    "providers": [
+        "Modules\\Songs\\Providers\\SongsServiceProvider",
+        "Modules\\Songs\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        
+    ],
+    "requires": []
+}
