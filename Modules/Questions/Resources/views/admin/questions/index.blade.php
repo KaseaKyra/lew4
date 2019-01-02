@@ -50,12 +50,12 @@
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.questions.question.edit', [$question->id]) }}">
-                                        {{ $question->question_content }}
+                                        {{ strip_tags(str_limit($question->question_content))  }}
                                     </a>
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.questions.question.edit', [$question->id]) }}">
-                                        {{ $question->answer }}
+                                        {{ strip_tags(str_limit($question->answer))  }}
                                     </a>
                                 </td>
                                 <td>

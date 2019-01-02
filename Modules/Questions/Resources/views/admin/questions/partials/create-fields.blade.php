@@ -5,6 +5,7 @@
     </p>
 </div>
 --}}
+{{--
 <div class="box-body">
     <div class="form-group">
         <label for="listening_id" class="text-capitalize">Listening</label>
@@ -22,4 +23,17 @@
         <label for="answer" class="text-capitalize">answer</label>
         <input type="text" class="form-control" id="answer" name="answer">
     </div>
+</div>
+--}}
+<div class="box-body">
+    <div class="form-group">
+        <label for="listening_id" class="text-capitalize">Listening</label>
+        <select class="form-control" id="listening_id" name="listening_id">
+            @foreach($listenings as $listening)
+                <option value="{{$listening->id}}">{{$listening->name}}</option>
+            @endforeach
+        </select>
+    </div>
+    {!! Form:: normalTextarea('question_content', 'Question Content', $errors) !!}
+    {!! Form:: normalTextarea('answer', 'Answer', $errors) !!}
 </div>

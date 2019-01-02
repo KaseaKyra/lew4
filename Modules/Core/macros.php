@@ -141,9 +141,9 @@ Form::macro('i18nCheckbox', function ($name, $title, ViewErrorBag $errors, $lang
  * @param array $choice The choice of the select
  * @param null|array $object The entity of the field
  *
- * @return HtmlString
+ * @return HtmlString i18nSelect
  */
-Form::macro('i18nSelect', function ($name, $title, ViewErrorBag $errors, $lang, array $choice, $object = null, array $options = []) {
+Form::macro('normalSelect', function ($name, $title, ViewErrorBag $errors, $lang, array $choice, $object = null, array $options = []) {
     if (array_key_exists('multiple', $options)) {
         $nameForm = "{$lang}[$name][]";
     } else {
