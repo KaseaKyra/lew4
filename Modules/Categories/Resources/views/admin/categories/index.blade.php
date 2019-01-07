@@ -2,12 +2,12 @@
 
 @section('content-header')
     <h1>
-        {{ trans('songs::songs.title.songs') }}
+        {{ trans('categories::categories.title.categories') }}
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('dashboard.index') }}"><i
                         class="fa fa-dashboard"></i> {{ trans('core::core.breadcrumb.home') }}</a></li>
-        <li class="active">{{ trans('songs::songs.title.songs') }}</li>
+        <li class="active">{{ trans('categories::categories.title.categories') }}</li>
     </ol>
 @stop
 
@@ -16,9 +16,9 @@
         <div class="col-xs-12">
             <div class="row">
                 <div class="btn-group pull-right" style="margin: 0 15px 15px 0;">
-                    <a href="{{ route('admin.songs.song.create') }}" class="btn btn-primary btn-flat"
+                    <a href="{{ route('admin.categories.category.create') }}" class="btn btn-primary btn-flat"
                        style="padding: 4px 10px;">
-                        <i class="fa fa-pencil"></i> {{ trans('songs::songs.button.create song') }}
+                        <i class="fa fa-pencil"></i> {{ trans('categories::categories.button.create category') }}
                     </a>
                 </div>
             </div>
@@ -32,56 +32,50 @@
                             <thead>
                             <tr>
                                 {{--<th>{{ trans('core::core.table.created at') }}</th>--}}
-                                <th class="text-capitalize">id</th>
-                                <th class="text-capitalize">name</th>
-                                <th class="text-capitalize">link</th>
-                                <th class="text-capitalize">lyric</th>
-                                <th class="text-capitalize">description</th>
-                                <th class="text-capitalize">created at</th>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Router Name</th>
+                                <th>Create at</th>
                                 <th data-sortable="false">{{ trans('core::core.table.actions') }}</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <?php if (isset($songs)): ?>
-                            <?php foreach ($songs as $song): ?>
+                            <?php if (isset($categories)): ?>
+                            <?php foreach ($categories as $category): ?>
                             <tr>
                                 <td>
-                                    <a href="{{ route('admin.songs.song.edit', [$song->id]) }}">
-                                        {{ $song->id }}
+                                    <a href="{{ route('admin.categories.category.edit', [$category->id]) }}">
+                                        {{ $category->id }}
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin.songs.song.edit', [$song->id]) }}">
-                                        {{ $song->name }}
+                                    <a href="{{ route('admin.categories.category.edit', [$category->id]) }}">
+                                        {{ $category->name }}
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin.songs.song.edit', [$song->id]) }}">
-                                        {{ $song->link }}
+                                    <a href="{{ route('admin.categories.category.edit', [$category->id]) }}">
+                                        {{ strip_tags(str_limit($category->description)) }}
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin.songs.song.edit', [$song->id]) }}">
-                                        {{ strip_tags(str_limit($song->lyric, 150)) }}
+                                    <a href="{{ route('admin.categories.category.edit', [$category->id]) }}">
+                                        {{ $category->router_name }}
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin.songs.song.edit', [$song->id]) }}">
-                                        {{ strip_tags(str_limit($song->decription, 150)) }}
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="{{ route('admin.songs.song.edit', [$song->id]) }}">
-                                        {{ $song->created_at }}
+                                    <a href="{{ route('admin.categories.category.edit', [$category->id]) }}">
+                                        {{ $category->created_at }}
                                     </a>
                                 </td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="{{ route('admin.songs.song.edit', [$song->id]) }}"
+                                        <a href="{{ route('admin.categories.category.edit', [$category->id]) }}"
                                            class="btn btn-default btn-flat"><i class="fa fa-pencil"></i></a>
                                         <button class="btn btn-danger btn-flat" data-toggle="modal"
                                                 data-target="#modal-delete-confirmation"
-                                                data-action-target="{{ route('admin.songs.song.destroy', [$song->id]) }}">
+                                                data-action-target="{{ route('admin.categories.category.destroy', [$category->id]) }}">
                                             <i class="fa fa-trash"></i></button>
                                     </div>
                                 </td>
@@ -112,7 +106,7 @@
 @section('shortcuts')
     <dl class="dl-horizontal">
         <dt><code>c</code></dt>
-        <dd>{{ trans('songs::songs.title.create song') }}</dd>
+        <dd>{{ trans('categories::categories.title.create category') }}</dd>
     </dl>
 @stop
 
@@ -121,7 +115,7 @@
         $(document).ready(function () {
             $(document).keypressAction({
                 actions: [
-                    {key: 'c', route: "<?= route('admin.songs.song.create') ?>"}
+                    {key: 'c', route: "<?= route('admin.categories.category.create') ?>"}
                 ]
             });
         });

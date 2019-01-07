@@ -11,5 +11,5 @@ class Song extends Model
 
     protected $table = 'songs__songs';
     public $translatedAttributes = [];
-    protected $fillable = ['name', 'lyric', 'link', 'description'];
+    protected $fillable = ['id', 'name', 'lyric', 'link', 'description'];
 }

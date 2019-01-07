@@ -1,0 +1,94 @@
+/**
+ * 'bgc-1: dark-orange;
+ * 'bgc-2: light-orange;
+ * txt-cl-1:orange;
+ * txt-cl-2:white;
+ */
+* {
+    padding: 0;
+    margin: 0;
+}
+/*remove text-decoration*/
+.td:hover {
+    text-decoration: none;
+}
+/*text-color */
+.txt-cl-1 {
+    color: #c14300;
+}
+.img-bd-cl {
+    border-color: #c14300;
+    border-width: 2px;
+}
+.bgc-1 {
+    background-color: #c34e00;
+}
+.bgc-2 {
+    background-color: #fde5b5;
+}
+.img__hover:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.txt-cl-2, .txt-cl-2:hover {
+    color: #fff;
+}
+/**
+ * CSS HEADER
+ */
+.top-bar {
+    font-size: 13px;
+    height: 40px;
+    line-height: 40px;
+}
+.top-bar a {
+    display: block;
+}
+/*main menu*/
+.hd__img {
+    max-width: 60px;
+    max-height: 60px;
+}
+.hd--bg {
+    background-color: #fea203;
+}
+/*CSS - LIST*/
+.l__img {
+    width: 300px;
+    height: 200px;
+}
+/**
+ * CSS - SONG
+ */
+#s__btn {
+    display: block;
+}
+#s__content {
+    display: none;
+}
+/**
+CAROUSEL
+ */
+.blog .carousel-indicators {
+    left: 0;
+    top: auto;
+    bottom: -40px;
+}
+/* The colour of the indicators */
+.blog .carousel-indicators li {
+    background: #a3a3a3;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+}
+.blog .carousel-indicators .active {
+    background: #707070;
+}
+
+.car-img {
+    height: 200px;
+    width: 250px;
+}
+
+.index-p__cl {
+    color: #000;
+}

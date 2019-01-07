@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Frontend\Providers;
+namespace Modules\Categories\Providers;
 
 use Modules\Core\Providers\RoutingServiceProvider as CoreRoutingServiceProvider;
 
@@ -10,14 +10,14 @@ class RouteServiceProvider extends CoreRoutingServiceProvider
      * The root namespace to assume when generating URLs to actions.
      * @var string
      */
-    protected $namespace = 'Modules\Frontend\Http\Controllers';
+    protected $namespace = 'Modules\Categories\Http\Controllers';
 
     /**
      * @return string
      */
     protected function getFrontendRoute()
     {
-        return __DIR__ . '/../Http/frontendRoutes.php';
+        return false;
     }
 
     /**
