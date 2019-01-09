@@ -33,7 +33,7 @@
                 <div class="col-md-6">
                     <li>
                         <figure>
-                            <div><img src="img/index/7.jpg" alt="img05"></div>
+                            <div><img src="img/index/5.jpg" alt="img05"></div>
                             <figcaption>
                                 <h3>Songs</h3>
                                 <span>Lew</span>
@@ -125,7 +125,7 @@
                 <div class="col-md-6">            {{-- pic 6--}}
                     <li>
                         <figure>
-                            <div><img src="img/index/5.jpg" alt="img03"></div>
+                            <div><img src="img/index/4.jpg" alt="img03"></div>
                             <figcaption>
                                 <h3>Blog</h3>
                                 <span>Lew</span>

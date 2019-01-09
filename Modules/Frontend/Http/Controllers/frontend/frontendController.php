@@ -8,13 +8,16 @@
 
 namespace Modules\Frontend\Http\Controllers\frontend;
 
+use Illuminate\Support\Facades\DB;
 use Modules\Categories\Repositories\CategoryRepository;
 use Modules\Grammar\Repositories\GrammarRepository;
 use Modules\Listening\Repositories\ListeningRepository;
 use Modules\Songs\Repositories\SongRepository;
 use Modules\Stories\Repositories\StoryRepository;
 use Modules\User\Repositories\UserRepository;
-use Nwidart\Modules\Routing\Controller;
+/*use Nwidart\Modules\Routing\Controller;*/
+
+use App\Http\Controllers\Controller;
 
 class frontendController extends Controller
 {
@@ -56,17 +59,22 @@ class frontendController extends Controller
     public function getSongList()
     {
         $songs = $this->song->all();
-        return view('frontend::frontend.song_list', compact('songs'));
+        $categories = $this->category->all();
+        return view('frontend::frontend.song_list', compact('songs', 'categories'));
     }
 
     public function getListeningList()
     {
-        return view('frontend::frontend.listening_list');
+        $listenings = $this->listening->all();
+        $categories = $this->category->all();
+        return view('frontend::frontend.listening_list', compact('listenings', 'categories'));
     }
 
     public function getStoryList()
     {
-        return view('frontend::frontend.story_list');
+        $stories = $this->story->all();
+        $categories = $this->category->all();
+        return view('frontend::frontend.story_list', compact('stories', 'categories'));
     }
 
     public function getGame()
@@ -76,12 +84,33 @@ class frontendController extends Controller
 
     public function getGrammarList()
     {
-        return view('frontend::frontend.grammar_list');
+        $grammars = $this->grammar->all();
+        $categories = $this->category->all();
+        return view('frontend::frontend.grammar_list', compact('grammars', 'categories'));
     }
 
     public function getSongById($id)
     {
-        return view('frontend::frontend.song', compact('id'));
+        $song = $this->song->find($id);
+        return view('frontend::frontend.song', compact('song'));
+    }
+
+    public function getStoryById($id)
+    {
+        $story = $this->story->find($id);
+        return view('frontend::frontend.story', compact('story'));
+    }
+
+    public function getListeningById($id)
+    {
+        $listening = $this->listening->find($id);
+        return view('frontend::frontend.listening', compact('listening'));
+    }
+
+    public function getGrammarById($id)
+    {
+        $grammar = $this->grammar->find($id);
+        return view('frontend::frontend.grammar', compact( 'grammar'));
     }
 
     public function login()

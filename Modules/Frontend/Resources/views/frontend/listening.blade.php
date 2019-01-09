@@ -108,4 +108,23 @@
         </div>
     </div> <!-- row 2 -->
     {{--</div>  <!-- container -->--}}
+    <div id="main_window">
+        <div id="left_pane">
+            <h5>Draggables</h5>
+            <div id="available_metrics_filter">
+                <ul id="available_metrics_list"> </ul>
+            </div>
+        </div>
+        <div id="right_pane">
+            <h5>Droppable</h5>
+            <div id="selected_metrics">
+                <ul id="selected_metrics_list">
+                    <li id="next_metric">Next Draggable</li>
+                </ul>
+            </div>
+            <div id="remove_metric">
+                Remove Draggable
+            </div>
+        </div>
+    </div>
 @stop

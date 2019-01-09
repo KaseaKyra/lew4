@@ -30,7 +30,9 @@ class SongsServiceProvider extends ServiceProvider
 
         $this->app['events']->listen(LoadingBackendTranslations::class, function (LoadingBackendTranslations $event) {
             $event->load('songs', array_dot(trans('songs::songs')));
+            $event->load('alphabets', array_dot(trans('songs::alphabets')));
             // append translations
+
 
         });
     }
@@ -66,7 +68,20 @@ class SongsServiceProvider extends ServiceProvider
                 return new \Modules\Songs\Repositories\Cache\CacheSongDecorator($repository);
             }
         );
+        $this->app->bind(
+            'Modules\Songs\Repositories\alphabetRepository',
+            function () {
+                $repository = new \Modules\Songs\Repositories\Eloquent\EloquentalphabetRepository(new \Modules\Songs\Entities\alphabet());
+
+                if (! config('app.cache')) {
+                    return $repository;
+                }
+
+                return new \Modules\Songs\Repositories\Cache\CachealphabetDecorator($repository);
+            }
+        );
 // add bindings
+
 
     }
 }

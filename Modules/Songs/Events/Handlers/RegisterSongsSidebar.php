@@ -52,7 +52,17 @@ class RegisterSongsSidebar implements \Maatwebsite\Sidebar\SidebarExtender
                         $this->auth->hasAccess('songs.songs.index')
                     );
                 });
+                $item->item(trans('songs::alphabets.title.alphabets'), function (Item $item) {
+                    $item->icon('fa fa-copy');
+                    $item->weight(0);
+                    $item->append('admin.songs.alphabet.create');
+                    $item->route('admin.songs.alphabet.index');
+                    $item->authorize(
+                        $this->auth->hasAccess('songs.alphabets.index')
+                    );
+                });
 // append
+
 
             });
         });

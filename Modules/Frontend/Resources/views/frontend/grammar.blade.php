@@ -7,10 +7,12 @@
  */
 ?>
 
+@extends('frontend::frontend.layouts.master')
+
 @section('title')
     grammar
 @stop
 
 @section('content')
-
+    {{ substr(strip_tags($grammar->content), 0) }}
 @stop
