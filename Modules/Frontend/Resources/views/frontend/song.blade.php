@@ -26,7 +26,7 @@
                 <div class="mt-3 bgc-2 py-2 index-p__cl">
                     <a id="s__btn"><i class="fas fa-caret-right mx-2"></i>Playing Game</a>
                     <div id="s__content">
-                        {!! Form::open(['route' => ['submitLyric'], 'method' => 'post']) !!}
+                        {!! Form::open(['route' => ['frontend.check.song'], 'method' => 'post']) !!}
                         <input type="hidden" name="id" value="{{$song->id}}">
                         <div class="m-5">
                             {{strip_tags($song->lyric)}}

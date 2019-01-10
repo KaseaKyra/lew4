@@ -24,4 +24,5 @@ $router->get('/grammar-item/{id}', 'frontend\\frontendController@getGrammarById'
 //.listening');
 //$router->get('/song-list','frontend\\frontendController@loadSong')->name('frontend.load.song');
 //$router->post('/login','frontend\\frontendController@login')->name('login');
-$router->post('/check-Song', 'frontend\\frontendController@checkSongAnswer')->name('submitLyric');
+$router->post('/check-song', 'frontend\\frontendController@checkSongAnswer')->name('frontend.check.song');
+$router->post('/check-listening', 'frontend\\frontendController@checkListeningAnswer')->name('frontend.check.listening');
