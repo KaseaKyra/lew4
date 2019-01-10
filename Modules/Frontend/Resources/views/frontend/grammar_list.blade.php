@@ -31,7 +31,7 @@
                 <div class="row">
                     @foreach($grammars as $grammar)
                         <div class="col-md-3 text-center hvr-grow">
-                            <a href="{{route('frontend.item.grammar', [$grammar->id, $grammar->name])}}" class="td"
+                            <a href="{{route('frontend.item.grammar', $grammar->id)}}" class="td"
                                target="_blank">
                                 <img src="img/grammar/{{$grammar->id}}.jpg" alt="{{$grammar->name}}"
                                      class="img-thumbnai">

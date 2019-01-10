@@ -8,16 +8,19 @@
 
 namespace Modules\Frontend\Http\Controllers\frontend;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Modules\Answer\Repositories\AnswerRepository;
 use Modules\Categories\Repositories\CategoryRepository;
 use Modules\Grammar\Repositories\GrammarRepository;
 use Modules\Listening\Repositories\ListeningRepository;
 use Modules\Songs\Repositories\SongRepository;
 use Modules\Stories\Repositories\StoryRepository;
 use Modules\User\Repositories\UserRepository;
+use App\Http\Controllers\Controller;
+
 /*use Nwidart\Modules\Routing\Controller;*/
 
-use App\Http\Controllers\Controller;
 
 class frontendController extends Controller
 {
@@ -27,6 +30,7 @@ class frontendController extends Controller
     private $grammar;
     private $user;
     private $category;
+    private $answer;
 
     public function __construct(
         SongRepository $song,
@@ -34,7 +38,8 @@ class frontendController extends Controller
         StoryRepository $story,
         GrammarRepository $grammar,
         UserRepository $user,
-        CategoryRepository $category
+        CategoryRepository $category,
+        AnswerRepository $answer
     )
     {
         $this->song = $song;
@@ -43,6 +48,7 @@ class frontendController extends Controller
         $this->grammar = $grammar;
         $this->user = $user;
         $this->category = $category;
+        $this->answer = $answer;
     }
 
     public function index()
@@ -110,7 +116,49 @@ class frontendController extends Controller
     public function getGrammarById($id)
     {
         $grammar = $this->grammar->find($id);
-        return view('frontend::frontend.grammar', compact( 'grammar'));
+        return view('frontend::frontend.grammar', compact('grammar'));
+    }
+
+    public function checkSongAnswer(Request $request)
+    {
+        //dd($request->a1);
+        // dd($request->all());
+        //dd($this->song->find($request->id)->load('answer'));
+        //if ($request->a1 == $answer->a1)
+        //dd($answer);
+        //dd($this->song->find($request->id)->load('answer'));
+        //dd($answer->a1);
+        /*echo ($a1);*/
+
+        $answer = $this->song->find($request->id)->answer;
+        $a1 = $this->cleanString($request->a1);
+        $a2 = $this->cleanString($request->a2) ;
+        $a3 = $this->cleanString($request->a3);
+        $a4 = $this->cleanString($request->a4);
+        $a5 = $this->cleanString($request->a5);
+
+        if ($answer->a1 === $a1) {
+            if ($answer->a2 === $a2) {
+                if ($answer->a3 === $a3) {
+                    if ($answer->a4 === $a4) {
+                        if ($answer->a5 === $a5) {
+                            return view('frontend::frontend.game');
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private function cleanString($string)
+    {
+        $string = strtolower($string);
+
+        $string = trim($string);
+
+        //$string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+
+        return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
     }
 
     public function login()

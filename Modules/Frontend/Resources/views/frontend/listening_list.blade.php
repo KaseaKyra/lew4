@@ -37,7 +37,7 @@
                                         </div>--}}
                     @foreach($listenings as $listening)
                         <div class="col-md-3 text-center hvr-grow">
-                            <a href="{{route('frontend.item.listening', [$listening->id, $listening->name])}}"
+                            <a href="{{route('frontend.item.listening', $listening->id)}}"
                                class="td"
                                target="_blank">
                                 <img src="img/listenings/{{$listening->id}}.jpg" alt="{{$listening->name}}"

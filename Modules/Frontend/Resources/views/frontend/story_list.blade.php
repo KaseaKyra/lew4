@@ -38,7 +38,7 @@
                                         </div>--}}
                     @foreach($stories as $story)
                         <div class="col-md-3 text-center hvr-grow">
-                            <a href="{{route('frontend.item.story', [$story->id, $story->name])}}" class="td">
+                            <a href="{{route('frontend.item.story', $story->id)}}" class="td">
                                 <img src="img/stories/{{$story->id}}.jpg" alt="{{$story->name}}" class="img-thumbnail">
                                 <p class="my-3 font-weight-bold txt-cl-1">{{$story->name}}</p>
                             </a>

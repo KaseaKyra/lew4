@@ -28,7 +28,7 @@
                 <div class="col-md-2 text-center">
                     <li class="nav-item active">
                         <a class="nav-link" href="{{route('frontend.index')}}">
-                            <img src="img/header/menu-icon_home.png" class="hd__img">
+                            <img src="{{asset('img/header/menu-icon_home.png')}}" class="hd__img">
                             <span class="font-weight-bold">LEW</span>
                             <span class="sr-only">(current)</span>
                         </a>
@@ -37,7 +37,7 @@
                 <div class="col-md-2 text-center">
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('frontend.list.song')}}">
-                            <img src="img/header/menu-icon_listen.png" class="hd__img">
+                            <img src="{{asset('img/header/menu-icon_listen.png')}}" class="hd__img">
                             <span class="font-weight-bold">Songs</span>
                         </a>
                     </li>
@@ -45,7 +45,7 @@
                 <div class="col-md-2 text-center">
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('frontend.list.listening')}}">
-                            <img src="img/header/menu-icon_speak.png" class="hd__img">
+                            <img src="{{asset('img/header/menu-icon_speak.png')}}" class="hd__img">
                             <span class="font-weight-bold">Listening</span>
                         </a>
                     </li>
@@ -53,7 +53,7 @@
                 <div class="col-md-2 text-center">
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('frontend.list.story')}}">
-                            <img src="img/header/menu-icon_read.png" class="hd__img">
+                            <img src="{{asset('img/header/menu-icon_read.png')}}" class="hd__img">
                             <span class="font-weight-bold">Stories</span>
                         </a>
                     </li>
@@ -61,7 +61,7 @@
                 <div class="col-md-2 text-center">
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('frontend.game')}}">
-                            <img src="img/header/menu-icon_game.png" class="hd__img">
+                            <img src="{{asset('img/header/menu-icon_game.png')}}" class="hd__img">
                             <span class="font-weight-bold">Games</span>
                         </a>
                     </li>
@@ -69,7 +69,7 @@
                 <div class="text-center">
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('frontend.list.grammar')}}">
-                            <img src="img/header/menu-icon_grammer.png" class="hd__img">
+                            <img src="{{asset('img/header/menu-icon_grammer.png')}}" class="hd__img">
                             <span class="font-weight-bold">Grammar</span>
                         </a>
                     </li>

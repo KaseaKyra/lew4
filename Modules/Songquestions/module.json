@@ -1,0 +1,18 @@
+{
+    "name": "Songquestions",
+    "alias": "songquestions",
+    "description": "",
+    "keywords": [],
+    "version": "1.0.0",
+	"active": 1,
+    "order": 1,
+    "providers": [
+        "Modules\\Songquestions\\Providers\\SongquestionsServiceProvider",
+        "Modules\\Songquestions\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        
+    ],
+    "requires": []
+}

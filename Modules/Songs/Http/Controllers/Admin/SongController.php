@@ -68,6 +68,7 @@ class SongController extends AdminBaseController
      */
     public function edit(Song $song)
     {
+//        dd($this->song->find(8)->load('answer'));
         return view('songs::admin.songs.edit', compact('song'));
     }
 
