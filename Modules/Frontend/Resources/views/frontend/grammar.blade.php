@@ -14,5 +14,91 @@
 @stop
 
 @section('content')
-    {{ substr(strip_tags($grammar->content), 0) }}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <p class="index-p__cl font-weight-bold">{{strip_tags($rule->description)}}</p>
+                <h4 class="index-p__cl font-weight-bold">{{strip_tags($rule->title)}}</h4>
+                <div class="mt-3">
+                    <h5 class="txt-cl-1">Examples</h5>
+                    <p class="index-p__cl">{{strip_tags($rule->example)}}</p>
+                </div>
+                <div class="mt-3">
+                    <h5 class="txt-cl-1">Remember</h5>
+                    <p class="index-p__cl">{{strip_tags($rule->remember)}}</p>
+                </div>
+                <div class="mt-3">
+                    <h5 class="txt-cl-1">Be careful</h5>
+                    <p class="index-p__cl">{{strip_tags($rule->be_careful)}}</p>
+                </div>
+                <div class="mt-3">
+                    <h5 class="txt-cl-1">We say We don't say</h5>
+                    <p class="index-p__cl">{{strip_tags($rule->we_say)}}</p>
+                </div>
+                {{--PLAYING GAMES--}}
+                <div class="my-3 bgc-2 py-2 index-p__cl">
+                    <a id="s__btn"><i class="fas fa-caret-right mx-2"></i>Playing Games</a>
+                    <div id="s__content">
+                        {!! Form::open(['route' => ['frontend.check.listening'], 'method' => 'post']) !!}
+                        <input type="hidden" name="id" value="{{$rule->id}}">
+                        <div class="l__body m-5">
+                            <div id="">
+                                <p class="q1 font-weight-bold">1. a / house / we / small / have
+                                </p>
+                                <p class=" ml-4 text-center">
+                                    <input type="text" class="text-center gra_w" name="i1" id="i1">
+                                    <input type="text" class="text-center gra_w" name="i2" id="i2">
+                                    <input type="text" class="text-center gra_w" name="i3" id="i3">
+                                    <input type="text" class="text-center gra_w" name="i4" id="i4">
+                                    <input type="text" class="text-center gra_w" name="i5" id="i5">
+                                </p>
+                            </div> <!-- question1 -->
+                        </div>
+                        <div class="form-group clearfix l__footer m-5">
+                            <button type="submit" class="btn btn-primary float-right ml-3" name="check" id="check">
+                                Check
+                            </button>
+                            <button type="submit" class="btn btn-primary float-right" name="redo" id="redo"><i
+                                        class="fas fa-redo mr-1"></i>Re-do
+                            </button>
+                        </div>
+                        {!! Form::close() !!}
+                    </div>
+                </div> <!-- song's game -->
+            </div> <!-- col-md-9 -->
+            <!-- DANH MỤC BÀI VIẾT -->
+            <div class="col-md-3">
+                <div class="card img-bd-cl">
+                    <div class="card-header text-uppercase font-weight-bold bgc-2 img-bd-cl">
+                        Featured
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cras justo odio</li>
+                    </ul>
+                </div>
+            </div>
+        </div> <!-- row 1 -->
+        <!-- COMMENT -->
+        <div class="row mt-5">
+            <div class="col-md-9">
+                <div>
+                    <p>Viết bình luận</p>
+                </div>
+                <form class="mb-5" method="post" action="" id="comments">
+                    <div class="form-group col-md-5">
+                        <input type="text" class="form-control" id="name" name="name"
+                               aria-describedby="emailHelp" placeholder="Name">
+                    </div>
+                    <div class="form-group col-md-5">
+                        <input type="email" class="form-control" id="email" name="email"
+                               placeholder="Email">
+                    </div>
+                    <div class="form-group ml-3">
+                        <textarea cols="" rows="4" class="form-control" placeholder="Viết bình luận ..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary ml-3" name="submit">Gửi bài viết</button>
+                </form>
+            </div>
+        </div> <!-- row 2 -->
+    </div>
 @stop

@@ -14,6 +14,8 @@ use Modules\Answer\Repositories\AnswerRepository;
 use Modules\Categories\Repositories\CategoryRepository;
 use Modules\Grammar\Repositories\GrammarRepository;
 use Modules\Listening\Repositories\ListeningRepository;
+use Modules\Questions\Repositories\QuestionRepository;
+use Modules\Rules\Repositories\RuleRepository;
 use Modules\Songs\Repositories\SongRepository;
 use Modules\Stories\Repositories\StoryRepository;
 use Modules\User\Repositories\UserRepository;
@@ -31,6 +33,8 @@ class frontendController extends Controller
     private $user;
     private $category;
     private $answer;
+    private $question;
+    private $rule;
 
     public function __construct(
         SongRepository $song,
@@ -39,7 +43,9 @@ class frontendController extends Controller
         GrammarRepository $grammar,
         UserRepository $user,
         CategoryRepository $category,
-        AnswerRepository $answer
+        AnswerRepository $answer,
+        QuestionRepository $question,
+        RuleRepository $rule
     )
     {
         $this->song = $song;
@@ -49,6 +55,8 @@ class frontendController extends Controller
         $this->user = $user;
         $this->category = $category;
         $this->answer = $answer;
+        $this->question = $question;
+        $this->rule = $rule;
     }
 
     public function index()
@@ -57,10 +65,10 @@ class frontendController extends Controller
         return view('frontend::frontend.index', compact('categories'));
     }
 
-    public function checkSong()
-    {
-        dd(123);
-    }
+    /*    public function checkSong()
+        {
+            dd(123);
+        }*/
 
     public function getSongList()
     {
@@ -90,33 +98,38 @@ class frontendController extends Controller
 
     public function getGrammarList()
     {
-        $grammars = $this->grammar->all();
+        //$grammars = $this->grammar->all();
+        $rules = $this->rule->all();
         $categories = $this->category->all();
-        return view('frontend::frontend.grammar_list', compact('grammars', 'categories'));
+        return view('frontend::frontend.grammar_list', compact('rules', 'categories'));
     }
 
-    public function getSongById($id)
+    public function getSongById(Request $request)
     {
-        $song = $this->song->find($id);
+        $song = $this->song->find($request->id);
         return view('frontend::frontend.song', compact('song'));
     }
 
-    public function getStoryById($id)
+    public function getStoryById(Request $request)
     {
-        $story = $this->story->find($id);
+        $story = $this->story->find($request->id);
         return view('frontend::frontend.story', compact('story'));
     }
 
-    public function getListeningById($id)
+    public function getListeningById(Request $request)
     {
-        $listening = $this->listening->find($id);
-        return view('frontend::frontend.listening', compact('listening'));
+        $listening = $this->listening->find($request->id);
+        //dd($listening);
+        //$questions = $this->question->where('question_id', $request->id);
+        $questions = DB::table('questions_questions')->where('listening_id', $request->id)->get();
+        dd($questions);
+        return view('frontend::frontend.listening', compact('listening', 'questions'));
     }
 
-    public function getGrammarById($id)
+    public function getGrammarById(Request $request)
     {
-        $grammar = $this->grammar->find($id);
-        return view('frontend::frontend.grammar', compact('grammar'));
+        $rule = $this->rule->find($request->id);
+        return view('frontend::frontend.grammar', compact('rule'));
     }
 
     public function checkSongAnswer(Request $request)
@@ -132,7 +145,7 @@ class frontendController extends Controller
 
         $answer = $this->song->find($request->id)->answer;
         $a1 = $this->cleanString($request->a1);
-        $a2 = $this->cleanString($request->a2) ;
+        $a2 = $this->cleanString($request->a2);
         $a3 = $this->cleanString($request->a3);
         $a4 = $this->cleanString($request->a4);
         $a5 = $this->cleanString($request->a5);
@@ -153,9 +166,7 @@ class frontendController extends Controller
     private function cleanString($string)
     {
         $string = strtolower($string);
-
         $string = trim($string);
-
         //$string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
 
         return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.

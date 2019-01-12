@@ -11,7 +11,7 @@
  Target Server Version : 50719
  File Encoding         : 65001
 
- Date: 09/01/2019 09:55:48
+ Date: 12/01/2019 17:20:12
 */
 
 SET NAMES utf8mb4;
@@ -36,6 +36,42 @@ CREATE TABLE `activations`  (
 -- Records of activations
 -- ----------------------------
 INSERT INTO `activations` VALUES (1, 1, 'CIeEclUFCTyihosWZbFLqG4LsAKycmCS', 1, '2019-01-01 08:31:52', '2019-01-01 08:31:52', '2019-01-01 08:31:52');
+
+-- ----------------------------
+-- Table structure for answer__answer_translations
+-- ----------------------------
+DROP TABLE IF EXISTS `answer__answer_translations`;
+CREATE TABLE `answer__answer_translations`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `answer_id` int(10) UNSIGNED NOT NULL,
+  `locale` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `answer__answer_translations_answer_id_locale_unique`(`answer_id`, `locale`) USING BTREE,
+  INDEX `answer__answer_translations_locale_index`(`locale`) USING BTREE,
+  CONSTRAINT `answer__answer_translations_answer_id_foreign` FOREIGN KEY (`answer_id`) REFERENCES `answer__answers` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for answer__answers
+-- ----------------------------
+DROP TABLE IF EXISTS `answer__answers`;
+CREATE TABLE `answer__answers`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `a1` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `a2` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `a3` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `a4` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `a5` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `song_id` tinyint(4) NOT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of answer__answers
+-- ----------------------------
+INSERT INTO `answer__answers` VALUES (1, 'thousand', 'down', 'hill', 'fast', 'gate', 8, '2019-01-09 15:31:12', '2019-01-10 04:25:44');
 
 -- ----------------------------
 -- Table structure for categories__categories
@@ -74,6 +110,42 @@ CREATE TABLE `categories__category_translations`  (
   INDEX `categories__category_translations_locale_index`(`locale`) USING BTREE,
   CONSTRAINT `categories__category_translations_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories__categories` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for choose__choose_translations
+-- ----------------------------
+DROP TABLE IF EXISTS `choose__choose_translations`;
+CREATE TABLE `choose__choose_translations`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `choose_id` int(10) UNSIGNED NOT NULL,
+  `locale` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `choose__choose_translations_choose_id_locale_unique`(`choose_id`, `locale`) USING BTREE,
+  INDEX `choose__choose_translations_locale_index`(`locale`) USING BTREE,
+  CONSTRAINT `choose__choose_translations_choose_id_foreign` FOREIGN KEY (`choose_id`) REFERENCES `choose__chooses` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for choose__chooses
+-- ----------------------------
+DROP TABLE IF EXISTS `choose__chooses`;
+CREATE TABLE `choose__chooses`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `question_id` int(11) NOT NULL,
+  `option1` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `option2` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `option3` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of choose__chooses
+-- ----------------------------
+INSERT INTO `choose__chooses` VALUES (1, 4, '10:00', '11:00', '12:00', '2019-01-10 09:02:29', '2019-01-10 09:13:50');
+INSERT INTO `choose__chooses` VALUES (2, 5, 'Ho Chi Minh city', 'Hanoi', 'Danang', '2019-01-10 09:15:35', '2019-01-10 09:15:35');
+INSERT INTO `choose__chooses` VALUES (3, 3, '10', '20', '30', '2019-01-10 09:15:51', '2019-01-10 09:15:51');
 
 -- ----------------------------
 -- Table structure for dashboard__widgets
@@ -171,6 +243,43 @@ CREATE TABLE `grammar__grammars`  (
 -- Records of grammar__grammars
 -- ----------------------------
 INSERT INTO `grammar__grammars` VALUES (2, 'Adjectives', '<h1 style=\"line-height: 1.5em; font-size: 1.5em; margin-top: 0.375em; margin-bottom: 0.375em; font-family: bangwhackpow, Sniglet-Regular, arial, Verdana, Tahoma, sans-serif; letter-spacing: 0.3px; color: rgb(0, 0, 0); background-color: rgb(254, 247, 229);\">Grammar Rule</h1>\r\n\r\n<h2 style=\"line-height: 2em; margin-top: 0.5em; margin-bottom: 0.5em; font-family: bangwhackpow, Sniglet-Regular, arial, Verdana, Tahoma, sans-serif; letter-spacing: 0.3px; color: rgb(223, 70, 0); background-color: rgb(254, 247, 229);\">Examples</h2>\r\n\r\n<p style=\"margin: 1em 0px; color: rgb(0, 0, 0); font-family: Sniglet-Regular, arial, Verdana, Tahoma, sans-serif; font-size: 14px; background-color: rgb(254, 247, 229);\"><em>We have a&nbsp;<strong>small&nbsp;</strong>car.<br />\r\nI saw a&nbsp;<strong>white</strong>&nbsp;bird.<br />\r\nShe watched an&nbsp;<strong>old</strong>&nbsp;film.</em></p>\r\n\r\n<h2 style=\"line-height: 2em; margin-top: 0.5em; margin-bottom: 0.5em; font-family: bangwhackpow, Sniglet-Regular, arial, Verdana, Tahoma, sans-serif; letter-spacing: 0.3px; color: rgb(223, 70, 0); background-color: rgb(254, 247, 229);\">Remember!</h2>\r\n\r\n<p style=\"margin: 1em 0px; color: rgb(0, 0, 0); font-family: Sniglet-Regular, arial, Verdana, Tahoma, sans-serif; font-size: 14px; background-color: rgb(254, 247, 229);\">Adjectives don&#39;t have a plural form.<br />\r\n<em>We have two&nbsp;<strong>small&nbsp;</strong>car<strong>s</strong>.<br />\r\nI saw five&nbsp;<strong>white</strong>&nbsp;bird<strong>s</strong>.<br />\r\nShe watched some&nbsp;<strong>old</strong>&nbsp;film<strong>s</strong>.</em></p>\r\n\r\n<h2 style=\"line-height: 2em; margin-top: 0.5em; margin-bottom: 0.5em; font-family: bangwhackpow, Sniglet-Regular, arial, Verdana, Tahoma, sans-serif; letter-spacing: 0.3px; color: rgb(223, 70, 0); background-color: rgb(254, 247, 229);\">Be careful!</h2>\r\n\r\n<p style=\"margin: 1em 0px; color: rgb(0, 0, 0); font-family: Sniglet-Regular, arial, Verdana, Tahoma, sans-serif; font-size: 14px; background-color: rgb(254, 247, 229);\">Size before colour.<br />\r\n<em>We have a&nbsp;<strong>small, blue</strong>&nbsp;car.<br />\r\nI saw a<strong>&nbsp;large, white</strong>&nbsp;bird.</em></p>\r\n\r\n<h2 style=\"line-height: 2em; margin-top: 0.5em; margin-bottom: 0.5em; font-family: bangwhackpow, Sniglet-Regular, arial, Verdana, Tahoma, sans-serif; letter-spacing: 0.3px; color: rgb(223, 70, 0); background-color: rgb(254, 247, 229);\">We say... We don&rsquo;t say...</h2>\r\n\r\n<p style=\"margin: 1em 0px; color: rgb(0, 0, 0); font-family: Sniglet-Regular, arial, Verdana, Tahoma, sans-serif; font-size: 14px; background-color: rgb(254, 247, 229);\"><em>We have a&nbsp;small, blue&nbsp;car. (NOT&nbsp;We have a small and blue car.)<br />\r\nI saw five large, white birds. (NOT I saw five large and white birds.)</em></p>', '2019-01-08 10:24:46', '2019-01-08 10:34:26');
+
+-- ----------------------------
+-- Table structure for inputs__input_translations
+-- ----------------------------
+DROP TABLE IF EXISTS `inputs__input_translations`;
+CREATE TABLE `inputs__input_translations`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `input_id` int(10) UNSIGNED NOT NULL,
+  `locale` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `inputs__input_translations_input_id_locale_unique`(`input_id`, `locale`) USING BTREE,
+  INDEX `inputs__input_translations_locale_index`(`locale`) USING BTREE,
+  CONSTRAINT `inputs__input_translations_input_id_foreign` FOREIGN KEY (`input_id`) REFERENCES `inputs__inputs` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for inputs__inputs
+-- ----------------------------
+DROP TABLE IF EXISTS `inputs__inputs`;
+CREATE TABLE `inputs__inputs`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `grammar_id` int(11) NOT NULL,
+  `answer` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `i1` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `i2` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `i3` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `i4` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `i5` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of inputs__inputs
+-- ----------------------------
+INSERT INTO `inputs__inputs` VALUES (1, 0, 'a / house / we / small / have', 'we', 'have', 'a', 'small', 'house', '2019-01-12 09:19:45', '2019-01-12 09:19:45');
 
 -- ----------------------------
 -- Table structure for listening__listening_translations
@@ -342,7 +451,7 @@ CREATE TABLE `migrations`  (
   `migration` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 51 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 67 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of migrations
@@ -397,6 +506,50 @@ INSERT INTO `migrations` VALUES (47, '2019_01_07_072919832839_create_categories_
 INSERT INTO `migrations` VALUES (48, '2019_01_07_072920185308_create_categories_category_translations_table', 10);
 INSERT INTO `migrations` VALUES (49, '2019_01_07_083932_add_router_name_colums_to_categories_table', 11);
 INSERT INTO `migrations` VALUES (50, '2019_01_07_084226_add_router_name_colums_to_categories_categories_table', 11);
+INSERT INTO `migrations` VALUES (51, '2019_01_08_101136294441_create_songs_alphabets_table', 12);
+INSERT INTO `migrations` VALUES (52, '2019_01_08_101136603307_create_songs_alphabet_translations_table', 12);
+INSERT INTO `migrations` VALUES (55, '2019_01_09_150926350434_create_answer_answers_table', 13);
+INSERT INTO `migrations` VALUES (56, '2019_01_09_150926642040_create_answer_answer_translations_table', 13);
+INSERT INTO `migrations` VALUES (57, '2019_01_10_073642905055_create_options_options_table', 14);
+INSERT INTO `migrations` VALUES (58, '2019_01_10_073643235614_create_options_option_translations_table', 14);
+INSERT INTO `migrations` VALUES (59, '2019_01_10_084356568566_create_choose_chooses_table', 15);
+INSERT INTO `migrations` VALUES (60, '2019_01_10_084356837326_create_choose_choose_translations_table', 15);
+INSERT INTO `migrations` VALUES (61, '2019_01_12_060606355740_create_rules_rules_table', 16);
+INSERT INTO `migrations` VALUES (62, '2019_01_12_060606674204_create_rules_rule_translations_table', 16);
+INSERT INTO `migrations` VALUES (63, '2019_01_12_082918288256_create_inputs_inputs_table', 17);
+INSERT INTO `migrations` VALUES (64, '2019_01_12_082918557657_create_inputs_input_translations_table', 17);
+INSERT INTO `migrations` VALUES (65, '2019_01_12_092935465356_create_sortings_sortings_table', 18);
+INSERT INTO `migrations` VALUES (66, '2019_01_12_092935734951_create_sortings_sorting_translations_table', 18);
+
+-- ----------------------------
+-- Table structure for options__option_translations
+-- ----------------------------
+DROP TABLE IF EXISTS `options__option_translations`;
+CREATE TABLE `options__option_translations`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `option_id` int(10) UNSIGNED NOT NULL,
+  `locale` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `options__option_translations_option_id_locale_unique`(`option_id`, `locale`) USING BTREE,
+  INDEX `options__option_translations_locale_index`(`locale`) USING BTREE,
+  CONSTRAINT `options__option_translations_option_id_foreign` FOREIGN KEY (`option_id`) REFERENCES `options__options` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for options__options
+-- ----------------------------
+DROP TABLE IF EXISTS `options__options`;
+CREATE TABLE `options__options`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `listening_id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL,
+  `option1` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `option2` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `option3` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for page__page_translations
@@ -459,7 +612,7 @@ CREATE TABLE `persistences`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `persistences_code_unique`(`code`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 107 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of persistences
@@ -508,6 +661,68 @@ INSERT INTO `persistences` VALUES (41, 1, 'ZFTLRPpzf5oRZgxaJ36S6o3fpGbDczri', '2
 INSERT INTO `persistences` VALUES (42, 1, 'olsfBY6pyTsKFhzKoHZwkbjl177qfcRO', '2019-01-08 10:21:57', '2019-01-08 10:21:57');
 INSERT INTO `persistences` VALUES (43, 1, 'k0zdcDnTHGvK78Bmx6NjoRpsS5Uq8Mps', '2019-01-08 10:22:08', '2019-01-08 10:22:08');
 INSERT INTO `persistences` VALUES (44, 1, 'W6PFbt6hEmUKdBvFldiTFm6p18eBsRXq', '2019-01-08 10:22:09', '2019-01-08 10:22:09');
+INSERT INTO `persistences` VALUES (45, 1, 'wWMQETS96Mv8joFjTD5nunEfLkmSuIlN', '2019-01-09 04:56:39', '2019-01-09 04:56:39');
+INSERT INTO `persistences` VALUES (46, 1, 'af0gD1HwCc64rY4hR3oPby18CjAK1El4', '2019-01-09 13:42:35', '2019-01-09 13:42:35');
+INSERT INTO `persistences` VALUES (47, 1, 'Bjv8b32mQh1E2ED2T2HIeK3wMWoYEJPD', '2019-01-09 14:28:41', '2019-01-09 14:28:41');
+INSERT INTO `persistences` VALUES (48, 1, 'xNA1132bD6HEiL8eDjSGaYRhC34TyKZv', '2019-01-09 14:28:54', '2019-01-09 14:28:54');
+INSERT INTO `persistences` VALUES (49, 1, 'yGbySCqIGPxSYnYuefe5MWqNbslCWoqI', '2019-01-09 14:28:54', '2019-01-09 14:28:54');
+INSERT INTO `persistences` VALUES (50, 1, 'jU4nVPxx1YExJeCfdmIckhI4ws54Jtor', '2019-01-09 14:29:04', '2019-01-09 14:29:04');
+INSERT INTO `persistences` VALUES (51, 1, 'azLpscMHtZEXZuDWkyyyYDQwzMNDSXks', '2019-01-09 14:29:06', '2019-01-09 14:29:06');
+INSERT INTO `persistences` VALUES (52, 1, 'hNEnI3XJgrWD6razfrGHJ7G9AO2k5QOh', '2019-01-09 14:29:12', '2019-01-09 14:29:12');
+INSERT INTO `persistences` VALUES (53, 1, 'KIapRTg3GnBy4amPHQGwRWOJ2DIqWV9X', '2019-01-09 15:17:51', '2019-01-09 15:17:51');
+INSERT INTO `persistences` VALUES (54, 1, '9oPGaUmQUJc3yOrR6hBM2cY7SccCAZRK', '2019-01-09 15:17:56', '2019-01-09 15:17:56');
+INSERT INTO `persistences` VALUES (55, 1, 'n6hKb2fH6gXJZG6sCGIlZuTwjzuedgL5', '2019-01-09 15:17:56', '2019-01-09 15:17:56');
+INSERT INTO `persistences` VALUES (56, 1, 'A0RICFEwiIet3uxVNr78oSpFoAbQE9ue', '2019-01-09 15:17:56', '2019-01-09 15:17:56');
+INSERT INTO `persistences` VALUES (57, 1, 'iP00pnMw712KUg0RhoFrgpe4LGysymgw', '2019-01-09 15:18:21', '2019-01-09 15:18:21');
+INSERT INTO `persistences` VALUES (58, 1, '3Rcu91tvgjsVNZSsInAtaMjF53XSSf1P', '2019-01-09 15:18:26', '2019-01-09 15:18:26');
+INSERT INTO `persistences` VALUES (59, 1, 'XvBagOHcVVgVEVSEEO0hmbruxb0JSvkM', '2019-01-09 15:18:26', '2019-01-09 15:18:26');
+INSERT INTO `persistences` VALUES (60, 1, 'wdbPcO7dWX9iZN4XuzLE6q9aCYRNPjJg', '2019-01-09 15:18:38', '2019-01-09 15:18:38');
+INSERT INTO `persistences` VALUES (61, 1, 'mPOClGwP4lOpi5uDyUp2OjuC2g6lXZII', '2019-01-09 15:18:40', '2019-01-09 15:18:40');
+INSERT INTO `persistences` VALUES (62, 1, '8sHN50dFP6BRevU6MuwkxjVOkDyIWAH0', '2019-01-09 15:19:13', '2019-01-09 15:19:13');
+INSERT INTO `persistences` VALUES (63, 1, 'DGU55ZxPtYm76Jeb1pbaC66FJQnJUDQQ', '2019-01-09 17:02:50', '2019-01-09 17:02:50');
+INSERT INTO `persistences` VALUES (64, 1, 'Npb0zRokRKxw0ZOp4n3QEVqhq23O1dvv', '2019-01-09 17:02:54', '2019-01-09 17:02:54');
+INSERT INTO `persistences` VALUES (65, 1, '6QUHn8u6PXTRNqcepLG85uzbuDfNat0B', '2019-01-09 17:02:54', '2019-01-09 17:02:54');
+INSERT INTO `persistences` VALUES (66, 1, 'cpNG6C4KNrldLXEVRERGDVv1bso1nZ3x', '2019-01-09 17:03:13', '2019-01-09 17:03:13');
+INSERT INTO `persistences` VALUES (67, 1, 'lqp3ohwOGdSWA9MzNVIpXZwZz5D6YUmu', '2019-01-09 17:03:14', '2019-01-09 17:03:14');
+INSERT INTO `persistences` VALUES (68, 1, 'bTLyMNd80aH1cb8ZzGgwN3nr5Lw0sPcz', '2019-01-10 03:29:57', '2019-01-10 03:29:57');
+INSERT INTO `persistences` VALUES (69, 1, 'acKTd9rZq82ROjtvUF72qo39ub8pwCjr', '2019-01-10 03:30:05', '2019-01-10 03:30:05');
+INSERT INTO `persistences` VALUES (70, 1, 'ZYKJDD6Jg5NuWLf0IXV7VscrHxCzF0Cu', '2019-01-10 08:08:26', '2019-01-10 08:08:26');
+INSERT INTO `persistences` VALUES (71, 1, 'M6o1qfgZWWhe47AzCBj034eq2uoqOxx8', '2019-01-10 08:08:37', '2019-01-10 08:08:37');
+INSERT INTO `persistences` VALUES (72, 1, 'DraHMWaY6upZYxMLQqiQOG4rMNlwS37I', '2019-01-10 08:08:40', '2019-01-10 08:08:40');
+INSERT INTO `persistences` VALUES (73, 1, 'BIn9RK59zMl2NA6c3xRtiG0sbO62TlpP', '2019-01-10 08:08:40', '2019-01-10 08:08:40');
+INSERT INTO `persistences` VALUES (74, 1, 'o71mz4BQGH52M46DT2WiqWYhAIKAInbf', '2019-01-10 08:08:54', '2019-01-10 08:08:54');
+INSERT INTO `persistences` VALUES (75, 1, '7GL6QZAEoV9sxVUQwb30pfYj5oBpHzwx', '2019-01-10 08:08:56', '2019-01-10 08:08:56');
+INSERT INTO `persistences` VALUES (76, 1, 'f1Aj0Tqixop1C4hfPw22Twu1JnWzz2q3', '2019-01-10 08:10:06', '2019-01-10 08:10:06');
+INSERT INTO `persistences` VALUES (77, 1, 'aYAN0kPjKYJtDWQpqmmUi2GHldu9W0kR', '2019-01-10 09:00:17', '2019-01-10 09:00:17');
+INSERT INTO `persistences` VALUES (78, 1, 'RTTCMIRvxVfoW3tg47tslBJsb9jG771m', '2019-01-10 09:00:28', '2019-01-10 09:00:28');
+INSERT INTO `persistences` VALUES (79, 1, 'x5yWyAHnPbETQdpHEqwUYG05BlF7FXr3', '2019-01-10 09:00:32', '2019-01-10 09:00:32');
+INSERT INTO `persistences` VALUES (80, 1, 'h618tab0KnieXoeTZFThtYhozKv16nwY', '2019-01-10 09:00:32', '2019-01-10 09:00:32');
+INSERT INTO `persistences` VALUES (81, 1, '1hGHtiDwmM1vYaCm8rDni89js0h1Xs1X', '2019-01-10 09:00:41', '2019-01-10 09:00:41');
+INSERT INTO `persistences` VALUES (82, 1, 'P06JURxHkMPMCCMAeM2LOumvRrtkDJ9f', '2019-01-10 09:00:42', '2019-01-10 09:00:42');
+INSERT INTO `persistences` VALUES (83, 1, 'KXmXmIs4mD5E26yuhronmtqzlOCzklhA', '2019-01-10 09:00:46', '2019-01-10 09:00:46');
+INSERT INTO `persistences` VALUES (84, 1, 'mxDAMSMvtauReNjpmTed94uhk6MabH0O', '2019-01-11 02:45:27', '2019-01-11 02:45:27');
+INSERT INTO `persistences` VALUES (85, 1, '9rJzDHNXtz3oE1iKMB6cgX26LwNnb0Bw', '2019-01-12 05:03:44', '2019-01-12 05:03:44');
+INSERT INTO `persistences` VALUES (86, 1, 'Y1Qe4aHXjCdFY6Z2uEw06FmPL2d1qSOQ', '2019-01-12 06:45:50', '2019-01-12 06:45:50');
+INSERT INTO `persistences` VALUES (87, 1, 'CUJ3bcbtBf1Gow2kxMI8IkLNPGpcGnQH', '2019-01-12 06:45:59', '2019-01-12 06:45:59');
+INSERT INTO `persistences` VALUES (88, 1, 'M0rUXWDaV62x4rRRNvOf60b4E3LX05La', '2019-01-12 06:46:10', '2019-01-12 06:46:10');
+INSERT INTO `persistences` VALUES (89, 1, '0CrG0GIJHRhgaWMXojEw1IoXL489W6DW', '2019-01-12 06:46:15', '2019-01-12 06:46:15');
+INSERT INTO `persistences` VALUES (90, 1, 'KNcII1Eb52y3YV8F5CFwZ7yxSAicIGzU', '2019-01-12 06:46:15', '2019-01-12 06:46:15');
+INSERT INTO `persistences` VALUES (91, 1, 'DZ5d5eaVnPQ6wn3W47WNgVEATdalYsX4', '2019-01-12 06:46:29', '2019-01-12 06:46:29');
+INSERT INTO `persistences` VALUES (92, 1, 'Hf0K6YESBzk5K8s7EqzbsPEazXwOUlsx', '2019-01-12 06:46:30', '2019-01-12 06:46:30');
+INSERT INTO `persistences` VALUES (93, 1, 'a9P6EkjXgzmLY2I3qqsakdLsB6bZfOYw', '2019-01-12 06:46:45', '2019-01-12 06:46:45');
+INSERT INTO `persistences` VALUES (94, 1, 'Z9k0KFD7sTKaIuoyvnAGV1jF5pl6WAvx', '2019-01-12 08:14:46', '2019-01-12 08:14:46');
+INSERT INTO `persistences` VALUES (95, 1, 'dlUwmCfRJeX238SI0UDjRndxvBS6qrZT', '2019-01-12 08:53:31', '2019-01-12 08:53:31');
+INSERT INTO `persistences` VALUES (96, 1, 'cTdH7QfP5hC5ViOStSfyF77mOCf4ZnqV', '2019-01-12 08:53:35', '2019-01-12 08:53:35');
+INSERT INTO `persistences` VALUES (97, 1, 'UpMf1MaFLa4EYDjsLwzKRr8Vvl2bRh2V', '2019-01-12 08:53:35', '2019-01-12 08:53:35');
+INSERT INTO `persistences` VALUES (98, 1, 'CGD2LkK6A9AhBem20hffeErpg2a3FKXB', '2019-01-12 08:53:45', '2019-01-12 08:53:45');
+INSERT INTO `persistences` VALUES (99, 1, '5b35CWCWaD8vKFxKo779S23ipQflbD5j', '2019-01-12 08:53:47', '2019-01-12 08:53:47');
+INSERT INTO `persistences` VALUES (100, 1, 'Cx6JrexVBt0F7JTrhCqtg1vnQkbmwARb', '2019-01-12 08:53:52', '2019-01-12 08:53:52');
+INSERT INTO `persistences` VALUES (101, 1, 'q2AF6OkpVGQZkGgjXNl2yBlXH03S6Be0', '2019-01-12 09:40:44', '2019-01-12 09:40:44');
+INSERT INTO `persistences` VALUES (102, 1, 'ZmfWLK1GmskYuzrp9u9Ia8eHpvDBy40N', '2019-01-12 09:40:47', '2019-01-12 09:40:47');
+INSERT INTO `persistences` VALUES (103, 1, 'bcE63Hw4v3s5bSFfkI29EofLPf00toPf', '2019-01-12 09:40:47', '2019-01-12 09:40:47');
+INSERT INTO `persistences` VALUES (104, 1, 'Ti31gSsJSgOGJwalk6nfEG292uA3bdZl', '2019-01-12 09:40:56', '2019-01-12 09:40:56');
+INSERT INTO `persistences` VALUES (105, 1, 'lgiR2DaaKIjk4ihwEhylyQrtkIbuL1RP', '2019-01-12 09:40:57', '2019-01-12 09:40:57');
+INSERT INTO `persistences` VALUES (106, 1, 'z775lkxwBKfvlpib4E08AImrix3ab04g', '2019-01-12 09:41:09', '2019-01-12 09:41:09');
 
 -- ----------------------------
 -- Table structure for questions__question_translations
@@ -535,13 +750,14 @@ CREATE TABLE `questions__questions`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of questions__questions
 -- ----------------------------
-INSERT INTO `questions__questions` VALUES (1, 2, 'khoong nois noiijgjdofigd', 'sdksldgjklsgjhdfkgjhdksgfdjkhdfsghjkldfshjkldfgshjklfsdghjklfsdghjkdfsgjhklfsdgjkhl edited', '2019-01-01 16:55:17', '2019-01-01 16:55:29');
-INSERT INTO `questions__questions` VALUES (2, 3, '<p>how old are you?</p>', '<p>I am 20 years old.</p>', '2019-01-02 04:18:18', '2019-01-02 04:20:57');
+INSERT INTO `questions__questions` VALUES (3, 4, '<p>How old are you?</p>', '<p>I am 20.</p>', '2019-01-10 09:01:51', '2019-01-10 09:01:51');
+INSERT INTO `questions__questions` VALUES (4, 4, '<p>What time is it?</p>', '<p>It&#39;s 10:00.</p>', '2019-01-10 09:04:06', '2019-01-10 09:04:06');
+INSERT INTO `questions__questions` VALUES (5, 4, '<p>Where do you live?</p>', '<p>Hanoi</p>', '2019-01-10 09:12:13', '2019-01-10 09:12:13');
 
 -- ----------------------------
 -- Table structure for reminders
@@ -611,8 +827,44 @@ CREATE TABLE `roles`  (
 -- ----------------------------
 -- Records of roles
 -- ----------------------------
-INSERT INTO `roles` VALUES (1, 'admin', 'Admin', '{\"categories.categories.index\":true,\"categories.categories.create\":true,\"categories.categories.edit\":true,\"categories.categories.destroy\":true,\"core.sidebar.group\":true,\"dashboard.index\":true,\"dashboard.update\":true,\"dashboard.reset\":true,\"frontend.frontends.index\":true,\"frontend.frontends.create\":true,\"frontend.frontends.edit\":true,\"frontend.frontends.destroy\":true,\"games.games.index\":true,\"games.games.create\":true,\"games.games.edit\":true,\"games.games.destroy\":true,\"grammar.grammars.index\":true,\"grammar.grammars.create\":true,\"grammar.grammars.edit\":true,\"grammar.grammars.destroy\":true,\"listening.listenings.index\":true,\"listening.listenings.create\":true,\"listening.listenings.edit\":true,\"listening.listenings.destroy\":true,\"media.medias.index\":true,\"media.medias.create\":true,\"media.medias.edit\":true,\"media.medias.destroy\":true,\"media.folders.index\":true,\"media.folders.create\":true,\"media.folders.edit\":true,\"media.folders.destroy\":true,\"menu.menus.index\":true,\"menu.menus.create\":true,\"menu.menus.edit\":true,\"menu.menus.destroy\":true,\"menu.menuitems.index\":true,\"menu.menuitems.create\":true,\"menu.menuitems.edit\":true,\"menu.menuitems.destroy\":true,\"page.pages.index\":true,\"page.pages.create\":true,\"page.pages.edit\":true,\"page.pages.destroy\":true,\"questions.questions.index\":true,\"questions.questions.create\":true,\"questions.questions.edit\":true,\"questions.questions.destroy\":true,\"setting.settings.index\":true,\"setting.settings.edit\":true,\"songs.songs.index\":true,\"songs.songs.create\":true,\"songs.songs.edit\":true,\"songs.songs.destroy\":true,\"songs.alphabets.index\":true,\"songs.alphabets.create\":true,\"songs.alphabets.edit\":true,\"songs.alphabets.destroy\":true,\"stories.stories.index\":true,\"stories.stories.create\":true,\"stories.stories.edit\":true,\"stories.stories.destroy\":true,\"tag.tags.index\":true,\"tag.tags.create\":true,\"tag.tags.edit\":true,\"tag.tags.destroy\":true,\"translation.translations.index\":true,\"translation.translations.edit\":true,\"translation.translations.import\":true,\"translation.translations.export\":true,\"user.users.index\":true,\"user.users.create\":true,\"user.users.edit\":true,\"user.users.destroy\":true,\"user.roles.index\":true,\"user.roles.create\":true,\"user.roles.edit\":true,\"user.roles.destroy\":true,\"account.api-keys.index\":true,\"account.api-keys.create\":true,\"account.api-keys.destroy\":true,\"workshop.sidebar.group\":true,\"workshop.modules.index\":true,\"workshop.modules.show\":true,\"workshop.modules.update\":true,\"workshop.modules.disable\":true,\"workshop.modules.enable\":true,\"workshop.modules.publish\":true,\"workshop.themes.index\":true,\"workshop.themes.show\":true,\"workshop.themes.publish\":true}', '2019-01-01 08:31:15', '2019-01-08 10:22:08');
+INSERT INTO `roles` VALUES (1, 'admin', 'Admin', '{\"answer.answers.index\":true,\"answer.answers.create\":true,\"answer.answers.edit\":true,\"answer.answers.destroy\":true,\"categories.categories.index\":true,\"categories.categories.create\":true,\"categories.categories.edit\":true,\"categories.categories.destroy\":true,\"choose.chooses.index\":true,\"choose.chooses.create\":true,\"choose.chooses.edit\":true,\"choose.chooses.destroy\":true,\"core.sidebar.group\":true,\"dashboard.index\":true,\"dashboard.update\":true,\"dashboard.reset\":true,\"frontend.frontends.index\":true,\"frontend.frontends.create\":true,\"frontend.frontends.edit\":true,\"frontend.frontends.destroy\":true,\"games.games.index\":true,\"games.games.create\":true,\"games.games.edit\":true,\"games.games.destroy\":true,\"grammar.grammars.index\":true,\"grammar.grammars.create\":true,\"grammar.grammars.edit\":true,\"grammar.grammars.destroy\":true,\"inputs.inputs.index\":true,\"inputs.inputs.create\":true,\"inputs.inputs.edit\":true,\"inputs.inputs.destroy\":true,\"listening.listenings.index\":true,\"listening.listenings.create\":true,\"listening.listenings.edit\":true,\"listening.listenings.destroy\":true,\"media.medias.index\":true,\"media.medias.create\":true,\"media.medias.edit\":true,\"media.medias.destroy\":true,\"media.folders.index\":true,\"media.folders.create\":true,\"media.folders.edit\":true,\"media.folders.destroy\":true,\"menu.menus.index\":true,\"menu.menus.create\":true,\"menu.menus.edit\":true,\"menu.menus.destroy\":true,\"menu.menuitems.index\":true,\"menu.menuitems.create\":true,\"menu.menuitems.edit\":true,\"menu.menuitems.destroy\":true,\"options.options.index\":true,\"options.options.create\":true,\"options.options.edit\":true,\"options.options.destroy\":true,\"page.pages.index\":true,\"page.pages.create\":true,\"page.pages.edit\":true,\"page.pages.destroy\":true,\"questions.questions.index\":true,\"questions.questions.create\":true,\"questions.questions.edit\":true,\"questions.questions.destroy\":true,\"rules.rules.index\":true,\"rules.rules.create\":true,\"rules.rules.edit\":true,\"rules.rules.destroy\":true,\"setting.settings.index\":true,\"setting.settings.edit\":true,\"songs.songs.index\":true,\"songs.songs.create\":true,\"songs.songs.edit\":true,\"songs.songs.destroy\":true,\"songs.alphabets.index\":true,\"songs.alphabets.create\":true,\"songs.alphabets.edit\":true,\"songs.alphabets.destroy\":true,\"sortings.sortings.index\":true,\"sortings.sortings.create\":true,\"sortings.sortings.edit\":true,\"sortings.sortings.destroy\":true,\"stories.stories.index\":true,\"stories.stories.create\":true,\"stories.stories.edit\":true,\"stories.stories.destroy\":true,\"tag.tags.index\":true,\"tag.tags.create\":true,\"tag.tags.edit\":true,\"tag.tags.destroy\":true,\"translation.translations.index\":true,\"translation.translations.edit\":true,\"translation.translations.import\":true,\"translation.translations.export\":true,\"user.users.index\":true,\"user.users.create\":true,\"user.users.edit\":true,\"user.users.destroy\":true,\"user.roles.index\":true,\"user.roles.create\":true,\"user.roles.edit\":true,\"user.roles.destroy\":true,\"account.api-keys.index\":true,\"account.api-keys.create\":true,\"account.api-keys.destroy\":true,\"workshop.sidebar.group\":true,\"workshop.modules.index\":true,\"workshop.modules.show\":true,\"workshop.modules.update\":true,\"workshop.modules.disable\":true,\"workshop.modules.enable\":true,\"workshop.modules.publish\":true,\"workshop.themes.index\":true,\"workshop.themes.show\":true,\"workshop.themes.publish\":true}', '2019-01-01 08:31:15', '2019-01-12 09:40:56');
 INSERT INTO `roles` VALUES (2, 'user', 'User', NULL, '2019-01-01 08:31:15', '2019-01-01 08:31:15');
+
+-- ----------------------------
+-- Table structure for rules__rule_translations
+-- ----------------------------
+DROP TABLE IF EXISTS `rules__rule_translations`;
+CREATE TABLE `rules__rule_translations`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `rule_id` int(10) UNSIGNED NOT NULL,
+  `locale` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `rules__rule_translations_rule_id_locale_unique`(`rule_id`, `locale`) USING BTREE,
+  INDEX `rules__rule_translations_locale_index`(`locale`) USING BTREE,
+  CONSTRAINT `rules__rule_translations_rule_id_foreign` FOREIGN KEY (`rule_id`) REFERENCES `rules__rules` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for rules__rules
+-- ----------------------------
+DROP TABLE IF EXISTS `rules__rules`;
+CREATE TABLE `rules__rules`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `title` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `example` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `be_careful` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `we_say` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of rules__rules
+-- ----------------------------
+INSERT INTO `rules__rules` VALUES (1, 'Adjectives', '<p>We have a small car.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>I saw a white bird.</p>\r\n\r\n<p>She watched an old film.</p>', '<p>Adjectives don&#39;t have a plural form.</p>\r\n\r\n<p>We have two small cars.</p>\r\n\r\n<p>I saw five white birds.</p>\r\n\r\n<p>She watched some old films.</p>', '<p>Size before colour.</p>\r\n\r\n<p>We have a small, blue car.</p>\r\n\r\n<p>I saw a large, white bird.</p>', '<p>We have a small, blue car. (NOT We have a small and blue car.)</p>\r\n\r\n<p>I saw five large, white birds. (NOT I saw five large and white birds.)</p>', '<p>Do you want to practise using adjectives in English?</p>', '2019-01-12 07:01:41', '2019-01-12 07:36:10');
 
 -- ----------------------------
 -- Table structure for setting__setting_translations
@@ -653,6 +905,31 @@ INSERT INTO `setting__settings` VALUES (1, 'core::template', 'Flatly', 0, '2019-
 INSERT INTO `setting__settings` VALUES (2, 'core::locales', '[\"en\"]', 0, '2019-01-01 08:32:39', '2019-01-01 08:32:39');
 
 -- ----------------------------
+-- Table structure for songs__alphabet_translations
+-- ----------------------------
+DROP TABLE IF EXISTS `songs__alphabet_translations`;
+CREATE TABLE `songs__alphabet_translations`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `alphabet_id` int(10) UNSIGNED NOT NULL,
+  `locale` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `songs__alphabet_translations_alphabet_id_locale_unique`(`alphabet_id`, `locale`) USING BTREE,
+  INDEX `songs__alphabet_translations_locale_index`(`locale`) USING BTREE,
+  CONSTRAINT `songs__alphabet_translations_alphabet_id_foreign` FOREIGN KEY (`alphabet_id`) REFERENCES `songs__alphabets` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for songs__alphabets
+-- ----------------------------
+DROP TABLE IF EXISTS `songs__alphabets`;
+CREATE TABLE `songs__alphabets`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
 -- Table structure for songs__song_translations
 -- ----------------------------
 DROP TABLE IF EXISTS `songs__song_translations`;
@@ -688,10 +965,49 @@ INSERT INTO `songs__songs` VALUES (1, 'A bear named Sue', 'none', '<p>I have a b
 INSERT INTO `songs__songs` VALUES (2, 'Abracadabra', 'none', '<p>I make two circles, then one more Touch my nose and then the floor Here&rsquo;s the first spell we will try Abracadabra! You will fly! Just two circles in the air One down here and one up there Touch your shoulder, then your shoe Abracadabra! You turn blue! I think I know what&rsquo;s going wrong So chant with me &ndash; sing along! One, two, three, four circles in the air Abracadabra! You&rsquo;ve got no hair! Let&rsquo;s hold it together, here we go! Make big circles head to toe Touch your chin, then your nose Abracadabra! And your head grows! Let&rsquo;s try one more time and see If a spell will work for me Touch your elbow, then your knee Abracadabra! You&rsquo;re a bumblebee! The spells don&rsquo;t work but we&rsquo;re OK It isn&rsquo;t real, it&rsquo;s only play We&rsquo;ve had some fun with our silly game Abracadabra! And we&rsquo;re just the same.&nbsp;</p>', NULL, '2019-01-05 09:59:53', '2019-01-05 09:59:53');
 INSERT INTO `songs__songs` VALUES (3, 'Bean bag hello', 'none', '<p>Bean bag hello Bean bag hello Let&rsquo;s have a go at bean bag hello Bean bag hello Bean bag hello Let&rsquo;s have a go at bean bag hello. My name is Claire My name is Claire My name is Claire Now I&rsquo;ll pass the bag to Leroy. Pass the bag and say your name. Pass the bag and say your name. My name is Leroy My name is Leroy My name is Leroy Now I&rsquo;ll pass the bag to Jamie. Pass the bag and say your name. Pass the bag and say your name. My name is Jamie My name is Jamie My name is Jamie Now I&rsquo;ll pass the bag to Fatima. Pass the bag and say your name. Pass the bag and say your name. Bean bag hello Bean bag hello Let&rsquo;s have a go at bean bag hello Bean bag hello Bean bag hello Let&rsquo;s have a go at bean bag hello</p>', NULL, '2019-01-05 10:00:56', '2019-01-05 10:00:56');
 INSERT INTO `songs__songs` VALUES (4, 'Chocolate cake', 'none', '<p>Words have rhythms We can use our sticks and drums To tap out the rhythms of the words Let&rsquo;s tap out the rhythms of a really delicious meal. What shall we start with? How about &hellip;? Chicken rice and peas, chicken rice and peas Chicken rice and peas, chicken rice and peas Chicken rice and peas, chicken rice and peas Hands up who likes chicken rice and peas Yummy, yummy, yummy Put it in my tummy I like, you like, chicken rice and peas. Chicken rice and peas, chicken rice and peas Hands up who likes chicken rice and peas Yummy, yummy, yummy Put it in my tummy I like, you like, chicken rice and peas. Chicken rice and peas, chicken rice and peas Hands up who likes chicken rice and peas Yummy, yummy, yummy Put it in my tummy I like, you like, chicken rice and peas. I&rsquo;m so thirsty. What shall we have to drink? How about &hellip;? Blackcurrant juice, blackcurrant juice Blackcurrant juice, blackcurrant juice Blackcurrant juice, blackcurrant juice Hands up who likes blackcurrant juice Yummy, yummy, yummy Put it in my tummy I like, you like, blackcurrant juice. Blackcurrant juice, blackcurrant juice Hands up who likes blackcurrant juice</p>', NULL, '2019-01-05 10:02:07', '2019-01-05 10:02:07');
-INSERT INTO `songs__songs` VALUES (5, 'Dinosaur 1–10', 'n', '<p>Can you remember The magic Mesozoic numbers? The dinosaur one to ten Can you remember The magic Mesozoic numbers? The dinosaur one to ten. A velociraptor has got one claw A baryonyx has got more A troodon&rsquo;s got two long legs He steals other creatures&rsquo; eggs A triceratops is a quadruped with three big horns upon his head His four legs are short and strong His head is big and very long. Can you remember The magic Mesozoic numbers? The dinosaur one to ten Can you remember The magic Mesozoic numbers? The dinosaur one to ten. A Tyrannosaurus Rex is grey He eats creatures every day He is five metres high He can run, but he can&rsquo;t fly An iguanodon eats leaves and plants He lives on six continents A pteranodon can fly His wingspan&rsquo;s seven metres wide.</p>', NULL, '2019-01-05 10:03:13', '2019-01-05 10:03:13');
-INSERT INTO `songs__songs` VALUES (6, 'Don\'t put your trousers in your head', 'none', '<p>Don&#39;t put your trousers on your head, Fred You know you should put your legs in those Fasten up your buttons and your zip, Pip That&#39;s the way to wear your clothes. Velcro fasteners, buttons or zip Got to do them up or you will trip If you run around with shoes undone You&#39;re going to fall and it&#39;s not much fun! Don&#39;t put the zipper round the back, Jack The hood will cover up your face And don&#39;t wear gloves upon your feet, Pete You&#39;ll be last in every race. Velcro fasteners, buttons or zip Got to do them up or you will trip If you run around with shoes undone You&#39;re going to fall and it&#39;s not much fun! A belt for your skirt is very handy, Mandy It stops it falling to your knees And when you know just what to do, Sue You&#39;ll be as neat as you can be. Velcro fasteners, buttons or zip Got to do them up or you will trip If you run around with shoes undone You&#39;re going to fall and it&#39;s not much fun! Don&#39;t put your trousers on your head!</p>', NULL, '2019-01-05 10:04:25', '2019-01-06 15:16:52');
-INSERT INTO `songs__songs` VALUES (7, 'Flying from the sun to the stars', 'none', '<p>We&rsquo;re flying from the sun to the stars Through this solar system of ours. Mercury, Venus, Earth and Mars Flying from the sun to the stars. Mercury&rsquo;s hot and Venus is bright Earth is where we live and Mars is red at night Flying from the sun to the stars. Jupiter, Saturn, Uranus and Neptune Last of all is little biddy Pluto. Flying from the sun to the stars Through this solar system of ours Flying from the sun to the stars. Mercury, Venus, Earth and Mars Flying from the sun to the stars. Mercury&rsquo;s hot and Venus is bright Earth is where we live and Mars is red at night Flying from the sun to the stars Jupiter, Saturn, Uranus and Neptune Last of all is little biddy Pluto. Flying from the sun to the stars Flying from the sun to the stars Flying from the sun to the stars Flying from the sun to the stars Flying from the sun to the stars Flying from the sun to the stars.</p>', NULL, '2019-01-05 10:15:58', '2019-01-05 10:15:58');
-INSERT INTO `songs__songs` VALUES (8, 'Grand Old Duke', 'KGvEQTQaTbQ', '<p>Oh the Grand Old Duke of York He had ten thousand men He marched them up to the top of the hill And he marched them down again. And when they were up they were up And when they were down they were down And when they were only halfway up They were neither up nor down. Oh the Grand Old Duke of York He had ten thousand men They tiptoed up to the top of the hill To see the dragon in his den. But when the dragon saw them it roared When the dragon saw them it roared When the dragon saw them it roared so loud They came running down again. Run, run, don&rsquo;t wait! Run, run, don&rsquo;t wait! Run, run as fast as you can And can the last one shut the gate? &lsquo;Ssshhh,&rsquo; the Duchess said &lsquo;Ssshhh,&rsquo; the Duchess said The Grand Old Duke and all of his men Are hiding in their beds.</p>', NULL, '2019-01-05 10:16:39', '2019-01-08 06:48:50');
+INSERT INTO `songs__songs` VALUES (5, 'People work', 'U8v16WEVszM', '<p>Nigel Naylor, he&#39;s a tailor He makes trousers, suits and shirts Penny Proctor, she&#39;s a doctor Comes to see you when it hurts. Peter Palmer, he&#39;s a farmer He&#39;s got cows and pigs and sheep Wendy Witter, babysitter Minds the kids when they&#39;re asleep. People work in the country People work in the town People work day and night To make the world go round. Mabel Meacher, language teacher Teaches English, French and Greek Gary Gummer, he&#39;s a plumber Call him when you&#39;ve got a leak. Patty Prentice, she&#39;s a dentist Keeps your teeth both clean and white Ronnie Ryman, he&#39;s a fireman Comes when there&#39;s a fire to fight. People work in the country People work in the town People work day and night To make the world go round. People work in the country People work in the town People work day and night To make the world go round.</p>', NULL, '2019-01-05 10:03:13', '2019-01-10 06:40:44');
+INSERT INTO `songs__songs` VALUES (6, 'Don\'t put your trousers in your head', 'MF5pbroiSoA', '<p>Don&#39;t put your trousers on your head, Fred You know you should put your legs in those Fasten up your buttons and your zip, Pip That&#39;s the way to wear your clothes. Velcro fasteners, buttons or zip Got to do them up or you will trip If you run around with shoes undone You&#39;re going to fall and it&#39;s not much fun! Don&#39;t put the zipper round the back, Jack The hood will cover up your face And don&#39;t wear gloves upon your feet, Pete You&#39;ll be last in every race. Velcro fasteners, buttons or zip Got to do them up or you will trip If you run around with shoes undone You&#39;re going to fall and it&#39;s not much fun! A belt for your skirt is very handy, Mandy It stops it falling to your knees And when you know just what to do, Sue You&#39;ll be as neat as you can be. Velcro fasteners, buttons or zip Got to do them up or you will trip If you run around with shoes undone You&#39;re going to fall and it&#39;s not much fun! Don&#39;t put your trousers on your head!</p>', NULL, '2019-01-05 10:04:25', '2019-01-10 06:28:47');
+INSERT INTO `songs__songs` VALUES (7, 'Flying from the sun to the stars', '_Q9mBoqlzKQ', '<p>We&rsquo;re flying from the sun to the stars Through this solar system of ours. Mercury, Venus, Earth and Mars Flying from the sun to the stars. Mercury&rsquo;s hot and Venus is bright Earth is where we live and Mars is red at night Flying from the sun to the stars. Jupiter, Saturn, Uranus and Neptune Last of all is little biddy Pluto. Flying from the sun to the stars Through this solar system of ours Flying from the sun to the stars. Mercury, Venus, Earth and Mars Flying from the sun to the stars. Mercury&rsquo;s hot and Venus is bright Earth is where we live and Mars is red at night Flying from the sun to the stars Jupiter, Saturn, Uranus and Neptune Last of all is little biddy Pluto. Flying from the sun to the stars Flying from the sun to the stars Flying from the sun to the stars Flying from the sun to the stars Flying from the sun to the stars Flying from the sun to the stars.</p>', NULL, '2019-01-05 10:15:58', '2019-01-10 06:25:11');
+INSERT INTO `songs__songs` VALUES (8, 'Grand Old Duke', 'KGvEQTQaTbQ', '<p>Oh the Grand Old Duke of York He had ten (1).......... men He marched them up to the top of the hill And he marched them down again.</p>\r\n\r\n<p>And when they were up they were up And when they were down they were (2).......... And when they were only halfway up They were neither up nor down. Oh the Grand Old Duke of York He had ten thousand men They tiptoed up to the top of the (3).......... To see the dragon in his den.</p>\r\n\r\n<p>But when the dragon saw them it roared When the dragon saw them it roared When the dragon saw them it roared so loud They came running down again. Run, run, don&rsquo;t wait! Run, run, don&rsquo;t wait! Run, run as (4).......... as you can And can the last one shut the (5)..........? &lsquo;Ssshhh,&rsquo; the Duchess said &lsquo;Ssshhh,&rsquo; the Duchess said</p>\r\n\r\n<p>The Grand Old Duke and all of his men Are hiding in their beds.</p>', NULL, '2019-01-05 10:16:39', '2019-01-10 03:57:48');
+
+-- ----------------------------
+-- Table structure for sortings__sorting_translations
+-- ----------------------------
+DROP TABLE IF EXISTS `sortings__sorting_translations`;
+CREATE TABLE `sortings__sorting_translations`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `sorting_id` int(10) UNSIGNED NOT NULL,
+  `locale` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `sortings__sorting_translations_sorting_id_locale_unique`(`sorting_id`, `locale`) USING BTREE,
+  INDEX `sortings__sorting_translations_locale_index`(`locale`) USING BTREE,
+  CONSTRAINT `sortings__sorting_translations_sorting_id_foreign` FOREIGN KEY (`sorting_id`) REFERENCES `sortings__sortings` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for sortings__sortings
+-- ----------------------------
+DROP TABLE IF EXISTS `sortings__sortings`;
+CREATE TABLE `sortings__sortings`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `rule_id` int(11) NOT NULL,
+  `question` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `i1` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `i2` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `i3` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `i4` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `i5` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sortings__sortings
+-- ----------------------------
+INSERT INTO `sortings__sortings` VALUES (1, 1, 'a / house / we / small / have', 'we', 'have', 'a', 'small', 'house', '2019-01-12 09:42:03', '2019-01-12 09:49:06');
+INSERT INTO `sortings__sortings` VALUES (2, 1, 'bird / a / I / saw / white', 'i', 'saw', 'a', 'white', 'bird', '2019-01-12 09:45:40', '2019-01-12 09:49:39');
+INSERT INTO `sortings__sortings` VALUES (3, 1, 'an / we / old / film / watched', 'we', 'watched', 'an', 'old', 'film', '2019-01-12 09:52:16', '2019-01-12 09:52:16');
 
 -- ----------------------------
 -- Table structure for stories__stories
@@ -859,6 +1175,6 @@ CREATE TABLE `users`  (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, 'dinhyensamagada98@gmail.com', '$2y$10$2fmPEE/CRL8z9Do.PuStZ.T0ObA00oKNOxQlLo4T20lngDPuMpHa6', NULL, '2019-01-08 10:22:09', 'kasea', 'kyra', '2019-01-01 08:31:51', '2019-01-08 10:22:09');
+INSERT INTO `users` VALUES (1, 'dinhyensamagada98@gmail.com', '$2y$10$2fmPEE/CRL8z9Do.PuStZ.T0ObA00oKNOxQlLo4T20lngDPuMpHa6', NULL, '2019-01-12 09:41:09', 'kasea', 'kyra', '2019-01-01 08:31:51', '2019-01-12 09:41:09');
 
 SET FOREIGN_KEY_CHECKS = 1;

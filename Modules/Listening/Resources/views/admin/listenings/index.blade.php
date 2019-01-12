@@ -32,6 +32,7 @@
                             <thead>
                             <tr>
                                 {{--<th>{{ trans('core::core.table.created at') }}</th>--}}
+                                <th class="text-capitalize">id</th>
                                 <th class="text-capitalize">name</th>
                                 <th class="text-capitalize">link</th>
                                 <th class="text-capitalize">description</th>
@@ -43,6 +44,11 @@
                             <?php if (isset($listenings)): ?>
                             <?php foreach ($listenings as $listening): ?>
                             <tr>
+                                <td>
+                                    <a href="{{ route('admin.listening.listening.edit', [$listening->id]) }}">
+                                        {{ $listening->id }}
+                                    </a>
+                                </td>
                                 <td>
                                     <a href="{{ route('admin.listening.listening.edit', [$listening->id]) }}">
                                         {{ $listening->name }}

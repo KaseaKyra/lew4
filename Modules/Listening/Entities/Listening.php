@@ -4,6 +4,7 @@ namespace Modules\Listening\Entities;
 
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Questions\Entities\Question;
 
 class Listening extends Model
 {
@@ -11,5 +12,10 @@ class Listening extends Model
 
     protected $table = 'listening__listenings';
     public $translatedAttributes = [];
-    protected $fillable = ['name', 'link', 'description'];
+    protected $fillable = ['id',  'name', 'link', 'description'];
+
+    public function getQuestion()
+    {
+        return $this->hasMany(Question::class, 'listening_id', 'id');
+    }
 }

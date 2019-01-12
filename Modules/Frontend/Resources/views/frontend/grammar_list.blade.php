@@ -29,13 +29,13 @@
                     </div>
                 </div>
                 <div class="row">
-                    @foreach($grammars as $grammar)
+                    @foreach($rules as $rule)
                         <div class="col-md-3 text-center hvr-grow">
-                            <a href="{{route('frontend.item.grammar', $grammar->id)}}" class="td"
+                            <a href="{{route('frontend.item.grammar', $rule->id)}}" class="td"
                                target="_blank">
-                                <img src="img/grammar/{{$grammar->id}}.jpg" alt="{{$grammar->name}}"
+                                <img src="img/grammar/{{$rule->id}}.jpg" alt="{{$rule->title}}"
                                      class="img-thumbnai">
-                                <p class="my-3 font-weight-bold hd_font txt-cl-1">{{$grammar->name}}</p>
+                                <p class="my-3 font-weight-bold hd_font txt-cl-1">{{$rule->title}}</p>
                             </a>
                         </div>
                     @endforeach
