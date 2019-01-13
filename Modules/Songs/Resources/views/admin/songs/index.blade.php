@@ -62,12 +62,12 @@
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.songs.song.edit', [$song->id]) }}">
-                                        {{ strip_tags(str_limit($song->lyric, 150)) }}
+                                        {{ strip_tags(str_limit($song->lyric, 80)) }}
                                     </a>
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.songs.song.edit', [$song->id]) }}">
-                                        {{ strip_tags(str_limit($song->decription, 150)) }}
+                                        {{ strip_tags(str_limit($song->decription, 80)) }}
                                     </a>
                                 </td>
                                 <td>

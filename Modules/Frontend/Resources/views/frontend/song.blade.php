@@ -33,19 +33,19 @@
                         </div>
                         <div class="form-group mx-5">
                             <label for="a1" class="mr-3">Answer 1</label>
-                            <input type="text" class="" id="a1" name="a1"><br>
+                            <input type="text" class="text-center" id="a1" name="a1"><br>
                             <label for="a2" class="mr-3">Answer 2</label>
-                            <input type="text" class="" id="a2" name="a2"><br>
+                            <input type="text" class="text-center" id="a2" name="a2"><br>
                             <label for="a3" class="mr-3">Answer 3</label>
-                            <input type="text" class="" id="a3" name="a3"><br>
+                            <input type="text" class="text-center" id="a3" name="a3"><br>
                             <label for="a4" class="mr-3">Answer 4</label>
-                            <input type="text" class="" id="a4" name="a4"><br>
+                            <input type="text" class="text-center" id="a4" name="a4"><br>
                             <label for="a5" class="mr-3">Answer 5</label>
-                            <input type="text" class="" id="a5" name="a5">
+                            <input type="text" class="text-center" id="a5" name="a5">
                         </div>
                         <div class="form-group clearfix mx-5">
                             <button type="submit" class="btn btn-primary float-right ml-3" name="check" id="check">
-                                Check
+                                <i class="fas fa-check mr-1"></i>Check
                             </button>
                             <button type="submit" class="btn btn-primary float-right" name="redo" id="redo"><i
                                         class="fas fa-redo mr-1"></i>Re-do

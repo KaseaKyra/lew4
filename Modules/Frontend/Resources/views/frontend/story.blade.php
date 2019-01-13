@@ -19,7 +19,8 @@
             <div class="col-md-9">
                 <h2 class="font-weight-bold">Lorem ipsum dolor sit.</h2>
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tgbNymZ7vqY?playlist=tgbNymZ7vqY&loop=0" allowfullscreen>
+                    <iframe class="embed-responsive-item"
+                            src="https://www.youtube.com/embed/tgbNymZ7vqY?playlist=tgbNymZ7vqY&loop=0" allowfullscreen>
                     </iframe>
                 </div>
                 <div class="mt-3 bgc-2 py-2">
@@ -32,11 +33,19 @@
                                 <input type="text" class="form-control" id="s__id-3" name="s__name-3">
                                 <input type="text" class="form-control" id="s__id-4" name="s__name-4">
                                 <input type="text" class="form-control" id="s__id-5" name="s__name-5">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus excepturi recusandae nam magnam quam nihil eius soluta quae expedita illo accusamus, commodi explicabo sapiente, sit deleniti labore fugiat! Unde rem accusamus atque ipsum quis quidem obcaecati aspernatur, dolor veniam recusandae natus libero, porro repudiandae earum numquam repellat eius nihil? Sapiente, cumque sint amet. Nam, esse!
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus excepturi recusandae
+                                nam magnam quam nihil eius soluta quae expedita illo accusamus, commodi explicabo
+                                sapiente, sit deleniti labore fugiat! Unde rem accusamus atque ipsum quis quidem
+                                obcaecati aspernatur, dolor veniam recusandae natus libero, porro repudiandae earum
+                                numquam repellat eius nihil? Sapiente, cumque sint amet. Nam, esse!
                             </div>
                             <div class="form-group clearfix">
-                                <button type="submit" class="btn btn-primary float-right ml-3" name="check" id="check">Check</button>
-                                <button type="submit" class="btn btn-primary float-right" name="redo" id="redo"><i class="fas fa-redo mr-1"></i>Re-do</button>
+                                <button type="submit" class="btn btn-primary float-right ml-3" name="check" id="check">
+                                    <i class="fas fa-check mr-1"></i>Check
+                                </button>
+                                <button type="submit" class="btn btn-primary float-right" name="redo" id="redo">
+                                    <i class="fas fa-redo mr-1"></i>Re-do
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -77,7 +86,60 @@
             </div>
         </div> <!-- row 2 -->
     </div>  <!-- container -->
-
+    {{--<div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <form class="form" role="form">
+                    <ul name="gapfield-list" class="gapfield-list list-group ui-select-and-exchange"
+                        data-question-index="0">
+                        <li tabindex="0" class="list-group-item btn btn-default"><span
+                                    class="glyphicon pull-right glyphicon-hand-down"></span>She played with her friends.
+                        </li>
+                        <li tabindex="0" class="list-group-item btn btn-default"><span
+                                    class="glyphicon pull-right glyphicon-hand-down"></span>She talked about Ancient
+                            Egypt.
+                        </li>
+                        <li tabindex="0" class="list-group-item btn btn-default"><span
+                                    class="glyphicon pull-right glyphicon-hand-down"></span>Sarah invited her to a
+                            birthday party.
+                        </li>
+                        <li tabindex="0" class="list-group-item btn btn-default"><span
+                                    class="glyphicon pull-right glyphicon-hand-down"></span>She wrote a story.
+                        </li>
+                        <li tabindex="0" class="list-group-item btn btn-default"><span
+                                    class="glyphicon pull-right glyphicon-hand-down"></span>She had a maths test.
+                        </li>
+                        <li tabindex="0" class="list-group-item btn btn-default"><span
+                                    class="glyphicon pull-right glyphicon-hand-down"></span>Kitty watched a film on the
+                            pyramids.
+                        </li>
+                    </ul>
+                    <ul name="gapfield-list0"
+                        class="gapfield-list0 list-group gapfield-list-locked model-wrapper hidden"
+                        data-question-index="0">
+                        <li class="list-group-item btn btn-info ui-state-disabled dummy" data-dummy-item="true"><span
+                                    class="glyphicon pull-right"></span>Kitty watched a film on the pyramids.
+                        </li>
+                        <li class="list-group-item btn btn-info ui-state-disabled dummy" data-dummy-item="true"><span
+                                    class="glyphicon pull-right"></span>She talked about Ancient Egypt.
+                        </li>
+                        <li class="list-group-item btn btn-info ui-state-disabled dummy" data-dummy-item="true"><span
+                                    class="glyphicon pull-right"></span>She had a maths test.
+                        </li>
+                        <li class="list-group-item btn btn-info ui-state-disabled dummy" data-dummy-item="true"><span
+                                    class="glyphicon pull-right"></span>She played with her friends.
+                        </li>
+                        <li class="list-group-item btn btn-info ui-state-disabled dummy" data-dummy-item="true"><span
+                                    class="glyphicon pull-right"></span>Sarah invited her to a birthday party.
+                        </li>
+                        <li class="list-group-item btn btn-info ui-state-disabled dummy" data-dummy-item="true"><span
+                                    class="glyphicon pull-right"></span>She wrote a story.
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>--}}
 @stop
 
 

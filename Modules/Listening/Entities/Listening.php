@@ -14,7 +14,7 @@ class Listening extends Model
     public $translatedAttributes = [];
     protected $fillable = ['id',  'name', 'link', 'description'];
 
-    public function getQuestion()
+    public function question()
     {
         return $this->hasMany(Question::class, 'listening_id', 'id');
     }

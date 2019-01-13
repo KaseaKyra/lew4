@@ -32,28 +32,30 @@
                         {!! Form::open(['route' => ['frontend.check.listening'], 'method' => 'post']) !!}
                         <input type="hidden" name="id" value="{{$listening->id}}">
                         <div class="l__body m-5">
-                            <div id="l__question1">
-                                <p class="q1 font-weight-bold">1. Lorem ipsum dolor sit amet, consectetur
-                                    adipisicing elit. Esse maxime totam laborum delectus consequatur, labore!
-                                </p>
-                                <p class="qo1 ml-4">
-                                    <input type="checkbox" id="op1" role="checkbox"
-                                           data-telemetry-id="auto_report_cb"/>
-                                    <label for="op1" id="op1">option 1</label>
-                                    <br> <!-- ques1-option1 -->
-                                    <input type="checkbox" id="op2" role="checkbox"
-                                           data-telemetry-id="auto_report_cb"/>
-                                    <label for="op2" id="op2">option 2</label>
-                                    <br> <!-- ques1-option2 -->
-                                    <input type="checkbox" id="op3" role="checkbox"
-                                           data-telemetry-id="auto_report_cb"/>
-                                    <label for="op3" id="op3">option 3</label>
-                                </p>
-                            </div> <!-- question1 -->
+                            @foreach($questions as $question)
+                                <div id="l__question1">
+                                    <p class="q1 font-weight-bold">
+                                        {{strip_tags($question->question_content)}}
+                                    </p>
+                                    <p class="qo1 ml-4">
+                                        <input type="checkbox" id="op1" role="checkbox"
+                                               data-telemetry-id="auto_report_cb"/>
+                                        <label for="op1" id="op1">A: {{$question->choose->option1}}</label>
+                                        <br> <!-- ques1-option1 -->
+                                        <input type="checkbox" id="op2" role="checkbox"
+                                               data-telemetry-id="auto_report_cb"/>
+                                        <label for="op2" id="op2">B: {{$question->choose->option2}}</label>
+                                        <br> <!-- ques1-option2 -->
+                                        <input type="checkbox" id="op3" role="checkbox"
+                                               data-telemetry-id="auto_report_cb"/>
+                                        <label for="op3" id="op3">C: {{$question->choose->option3}}</label>
+                                    </p>
+                                </div> <!-- question1 -->
+                            @endforeach
                         </div>
                         <div class="form-group clearfix l__footer m-5">
                             <button type="submit" class="btn btn-primary float-right ml-3" name="check" id="check">
-                                Check
+                                <i class="fas fa-check mr-1"></i>Check
                             </button>
                             <button type="submit" class="btn btn-primary float-right" name="redo" id="redo"><i
                                         class="fas fa-redo mr-1"></i>Re-do

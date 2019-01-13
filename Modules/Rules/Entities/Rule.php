@@ -14,7 +14,7 @@ class Rule extends Model
     public $translatedAttributes = [];
     protected $fillable = ['title', 'example', 'remember', 'be_careful', 'we_say', 'description'];
 
-    public function getSorting()
+    public function sorting()
     {
         return $this->hasMany(Sorting::class, 'rule_id', 'id');
     }

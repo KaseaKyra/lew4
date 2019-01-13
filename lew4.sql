@@ -11,7 +11,7 @@
  Target Server Version : 50719
  File Encoding         : 65001
 
- Date: 12/01/2019 17:20:12
+ Date: 13/01/2019 14:33:06
 */
 
 SET NAMES utf8mb4;
@@ -245,43 +245,6 @@ CREATE TABLE `grammar__grammars`  (
 INSERT INTO `grammar__grammars` VALUES (2, 'Adjectives', '<h1 style=\"line-height: 1.5em; font-size: 1.5em; margin-top: 0.375em; margin-bottom: 0.375em; font-family: bangwhackpow, Sniglet-Regular, arial, Verdana, Tahoma, sans-serif; letter-spacing: 0.3px; color: rgb(0, 0, 0); background-color: rgb(254, 247, 229);\">Grammar Rule</h1>\r\n\r\n<h2 style=\"line-height: 2em; margin-top: 0.5em; margin-bottom: 0.5em; font-family: bangwhackpow, Sniglet-Regular, arial, Verdana, Tahoma, sans-serif; letter-spacing: 0.3px; color: rgb(223, 70, 0); background-color: rgb(254, 247, 229);\">Examples</h2>\r\n\r\n<p style=\"margin: 1em 0px; color: rgb(0, 0, 0); font-family: Sniglet-Regular, arial, Verdana, Tahoma, sans-serif; font-size: 14px; background-color: rgb(254, 247, 229);\"><em>We have a&nbsp;<strong>small&nbsp;</strong>car.<br />\r\nI saw a&nbsp;<strong>white</strong>&nbsp;bird.<br />\r\nShe watched an&nbsp;<strong>old</strong>&nbsp;film.</em></p>\r\n\r\n<h2 style=\"line-height: 2em; margin-top: 0.5em; margin-bottom: 0.5em; font-family: bangwhackpow, Sniglet-Regular, arial, Verdana, Tahoma, sans-serif; letter-spacing: 0.3px; color: rgb(223, 70, 0); background-color: rgb(254, 247, 229);\">Remember!</h2>\r\n\r\n<p style=\"margin: 1em 0px; color: rgb(0, 0, 0); font-family: Sniglet-Regular, arial, Verdana, Tahoma, sans-serif; font-size: 14px; background-color: rgb(254, 247, 229);\">Adjectives don&#39;t have a plural form.<br />\r\n<em>We have two&nbsp;<strong>small&nbsp;</strong>car<strong>s</strong>.<br />\r\nI saw five&nbsp;<strong>white</strong>&nbsp;bird<strong>s</strong>.<br />\r\nShe watched some&nbsp;<strong>old</strong>&nbsp;film<strong>s</strong>.</em></p>\r\n\r\n<h2 style=\"line-height: 2em; margin-top: 0.5em; margin-bottom: 0.5em; font-family: bangwhackpow, Sniglet-Regular, arial, Verdana, Tahoma, sans-serif; letter-spacing: 0.3px; color: rgb(223, 70, 0); background-color: rgb(254, 247, 229);\">Be careful!</h2>\r\n\r\n<p style=\"margin: 1em 0px; color: rgb(0, 0, 0); font-family: Sniglet-Regular, arial, Verdana, Tahoma, sans-serif; font-size: 14px; background-color: rgb(254, 247, 229);\">Size before colour.<br />\r\n<em>We have a&nbsp;<strong>small, blue</strong>&nbsp;car.<br />\r\nI saw a<strong>&nbsp;large, white</strong>&nbsp;bird.</em></p>\r\n\r\n<h2 style=\"line-height: 2em; margin-top: 0.5em; margin-bottom: 0.5em; font-family: bangwhackpow, Sniglet-Regular, arial, Verdana, Tahoma, sans-serif; letter-spacing: 0.3px; color: rgb(223, 70, 0); background-color: rgb(254, 247, 229);\">We say... We don&rsquo;t say...</h2>\r\n\r\n<p style=\"margin: 1em 0px; color: rgb(0, 0, 0); font-family: Sniglet-Regular, arial, Verdana, Tahoma, sans-serif; font-size: 14px; background-color: rgb(254, 247, 229);\"><em>We have a&nbsp;small, blue&nbsp;car. (NOT&nbsp;We have a small and blue car.)<br />\r\nI saw five large, white birds. (NOT I saw five large and white birds.)</em></p>', '2019-01-08 10:24:46', '2019-01-08 10:34:26');
 
 -- ----------------------------
--- Table structure for inputs__input_translations
--- ----------------------------
-DROP TABLE IF EXISTS `inputs__input_translations`;
-CREATE TABLE `inputs__input_translations`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `input_id` int(10) UNSIGNED NOT NULL,
-  `locale` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE INDEX `inputs__input_translations_input_id_locale_unique`(`input_id`, `locale`) USING BTREE,
-  INDEX `inputs__input_translations_locale_index`(`locale`) USING BTREE,
-  CONSTRAINT `inputs__input_translations_input_id_foreign` FOREIGN KEY (`input_id`) REFERENCES `inputs__inputs` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Table structure for inputs__inputs
--- ----------------------------
-DROP TABLE IF EXISTS `inputs__inputs`;
-CREATE TABLE `inputs__inputs`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `grammar_id` int(11) NOT NULL,
-  `answer` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `i1` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `i2` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `i3` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `i4` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `i5` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of inputs__inputs
--- ----------------------------
-INSERT INTO `inputs__inputs` VALUES (1, 0, 'a / house / we / small / have', 'we', 'have', 'a', 'small', 'house', '2019-01-12 09:19:45', '2019-01-12 09:19:45');
-
--- ----------------------------
 -- Table structure for listening__listening_translations
 -- ----------------------------
 DROP TABLE IF EXISTS `listening__listening_translations`;
@@ -451,7 +414,7 @@ CREATE TABLE `migrations`  (
   `migration` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 67 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 71 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of migrations
@@ -510,46 +473,56 @@ INSERT INTO `migrations` VALUES (51, '2019_01_08_101136294441_create_songs_alpha
 INSERT INTO `migrations` VALUES (52, '2019_01_08_101136603307_create_songs_alphabet_translations_table', 12);
 INSERT INTO `migrations` VALUES (55, '2019_01_09_150926350434_create_answer_answers_table', 13);
 INSERT INTO `migrations` VALUES (56, '2019_01_09_150926642040_create_answer_answer_translations_table', 13);
-INSERT INTO `migrations` VALUES (57, '2019_01_10_073642905055_create_options_options_table', 14);
-INSERT INTO `migrations` VALUES (58, '2019_01_10_073643235614_create_options_option_translations_table', 14);
 INSERT INTO `migrations` VALUES (59, '2019_01_10_084356568566_create_choose_chooses_table', 15);
 INSERT INTO `migrations` VALUES (60, '2019_01_10_084356837326_create_choose_choose_translations_table', 15);
 INSERT INTO `migrations` VALUES (61, '2019_01_12_060606355740_create_rules_rules_table', 16);
 INSERT INTO `migrations` VALUES (62, '2019_01_12_060606674204_create_rules_rule_translations_table', 16);
-INSERT INTO `migrations` VALUES (63, '2019_01_12_082918288256_create_inputs_inputs_table', 17);
-INSERT INTO `migrations` VALUES (64, '2019_01_12_082918557657_create_inputs_input_translations_table', 17);
 INSERT INTO `migrations` VALUES (65, '2019_01_12_092935465356_create_sortings_sortings_table', 18);
 INSERT INTO `migrations` VALUES (66, '2019_01_12_092935734951_create_sortings_sorting_translations_table', 18);
+INSERT INTO `migrations` VALUES (67, '2019_01_13_050758819147_create_orderings_orderings_table', 19);
+INSERT INTO `migrations` VALUES (68, '2019_01_13_050759138591_create_orderings_ordering_translations_table', 19);
+INSERT INTO `migrations` VALUES (69, '2019_01_13_050821877088_create_results_results_table', 19);
+INSERT INTO `migrations` VALUES (70, '2019_01_13_050822150006_create_results_result_translations_table', 19);
 
 -- ----------------------------
--- Table structure for options__option_translations
+-- Table structure for orderings__ordering_translations
 -- ----------------------------
-DROP TABLE IF EXISTS `options__option_translations`;
-CREATE TABLE `options__option_translations`  (
+DROP TABLE IF EXISTS `orderings__ordering_translations`;
+CREATE TABLE `orderings__ordering_translations`  (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `option_id` int(10) UNSIGNED NOT NULL,
+  `ordering_id` int(10) UNSIGNED NOT NULL,
   `locale` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE INDEX `options__option_translations_option_id_locale_unique`(`option_id`, `locale`) USING BTREE,
-  INDEX `options__option_translations_locale_index`(`locale`) USING BTREE,
-  CONSTRAINT `options__option_translations_option_id_foreign` FOREIGN KEY (`option_id`) REFERENCES `options__options` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
+  UNIQUE INDEX `orderings__ordering_translations_ordering_id_locale_unique`(`ordering_id`, `locale`) USING BTREE,
+  INDEX `orderings__ordering_translations_locale_index`(`locale`) USING BTREE,
+  CONSTRAINT `orderings__ordering_translations_ordering_id_foreign` FOREIGN KEY (`ordering_id`) REFERENCES `orderings__orderings` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Table structure for options__options
+-- Table structure for orderings__orderings
 -- ----------------------------
-DROP TABLE IF EXISTS `options__options`;
-CREATE TABLE `options__options`  (
+DROP TABLE IF EXISTS `orderings__orderings`;
+CREATE TABLE `orderings__orderings`  (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `listening_id` int(11) NOT NULL,
-  `question_id` int(11) NOT NULL,
-  `option1` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `option2` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `option3` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `story_id` int(11) NOT NULL,
+  `order1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order4` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order5` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order6` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order7` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order8` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of orderings__orderings
+-- ----------------------------
+INSERT INTO `orderings__orderings` VALUES (1, 2, '2', '1', '1', '1', '1', '1', '1', '1', '2019-01-13 05:40:39', '2019-01-13 05:48:53');
+INSERT INTO `orderings__orderings` VALUES (2, 2, '2', '14', '1', '1', '1', '1', '1', '1', '2019-01-13 05:42:48', '2019-01-13 05:46:15');
 
 -- ----------------------------
 -- Table structure for page__page_translations
@@ -612,7 +585,7 @@ CREATE TABLE `persistences`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `persistences_code_unique`(`code`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 107 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 116 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of persistences
@@ -723,6 +696,15 @@ INSERT INTO `persistences` VALUES (103, 1, 'bcE63Hw4v3s5bSFfkI29EofLPf00toPf', '
 INSERT INTO `persistences` VALUES (104, 1, 'Ti31gSsJSgOGJwalk6nfEG292uA3bdZl', '2019-01-12 09:40:56', '2019-01-12 09:40:56');
 INSERT INTO `persistences` VALUES (105, 1, 'lgiR2DaaKIjk4ihwEhylyQrtkIbuL1RP', '2019-01-12 09:40:57', '2019-01-12 09:40:57');
 INSERT INTO `persistences` VALUES (106, 1, 'z775lkxwBKfvlpib4E08AImrix3ab04g', '2019-01-12 09:41:09', '2019-01-12 09:41:09');
+INSERT INTO `persistences` VALUES (107, 1, 'pBCzfC209hJtOWXL6nDKolYI6BLSEuYU', '2019-01-12 12:54:51', '2019-01-12 12:54:51');
+INSERT INTO `persistences` VALUES (108, 1, 'GSAO1YLrPNJVwSwBN6FKS9zO1qDX975d', '2019-01-12 14:25:44', '2019-01-12 14:25:44');
+INSERT INTO `persistences` VALUES (109, 1, '8BNPUQpEcwdTqf1o6IyK1XtTCVqqNDpr', '2019-01-13 03:32:05', '2019-01-13 03:32:05');
+INSERT INTO `persistences` VALUES (110, 1, 'EY9bBS47ScK3oIDeAyJ12ZZyQ7JT13Qb', '2019-01-13 05:36:41', '2019-01-13 05:36:41');
+INSERT INTO `persistences` VALUES (111, 1, 'vaQ4tvHFoGfRNxjRfn6L3bTL3pwYR5wD', '2019-01-13 05:36:44', '2019-01-13 05:36:44');
+INSERT INTO `persistences` VALUES (112, 1, 'UAeRhIcXwcURZi2WSzXQjKJc0HBKboY1', '2019-01-13 05:36:44', '2019-01-13 05:36:44');
+INSERT INTO `persistences` VALUES (113, 1, 'ZAcyuKFQqpChivsGu9aaIsE9AdbfI6RJ', '2019-01-13 05:36:54', '2019-01-13 05:36:54');
+INSERT INTO `persistences` VALUES (114, 1, '5O52rWThOEOuLM6qmphf6y6dtDRwJD64', '2019-01-13 05:36:55', '2019-01-13 05:36:55');
+INSERT INTO `persistences` VALUES (115, 1, 'VM3eKmfL9N4giNzo2VtongXW6pO0Mtoc', '2019-01-13 05:36:59', '2019-01-13 05:36:59');
 
 -- ----------------------------
 -- Table structure for questions__question_translations
@@ -773,6 +755,45 @@ CREATE TABLE `reminders`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for results__result_translations
+-- ----------------------------
+DROP TABLE IF EXISTS `results__result_translations`;
+CREATE TABLE `results__result_translations`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `result_id` int(10) UNSIGNED NOT NULL,
+  `locale` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `results__result_translations_result_id_locale_unique`(`result_id`, `locale`) USING BTREE,
+  INDEX `results__result_translations_locale_index`(`locale`) USING BTREE,
+  CONSTRAINT `results__result_translations_result_id_foreign` FOREIGN KEY (`result_id`) REFERENCES `results__results` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for results__results
+-- ----------------------------
+DROP TABLE IF EXISTS `results__results`;
+CREATE TABLE `results__results`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `story_id` int(11) NOT NULL,
+  `result1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `result2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `result3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `result4` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `result5` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `result6` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `result7` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `result8` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of results__results
+-- ----------------------------
+INSERT INTO `results__results` VALUES (1, 2, '1', '3', '5', '7', '2', '4', '6', '8', '2019-01-13 07:24:32', '2019-01-13 07:24:32');
 
 -- ----------------------------
 -- Table structure for revisions
@@ -827,7 +848,7 @@ CREATE TABLE `roles`  (
 -- ----------------------------
 -- Records of roles
 -- ----------------------------
-INSERT INTO `roles` VALUES (1, 'admin', 'Admin', '{\"answer.answers.index\":true,\"answer.answers.create\":true,\"answer.answers.edit\":true,\"answer.answers.destroy\":true,\"categories.categories.index\":true,\"categories.categories.create\":true,\"categories.categories.edit\":true,\"categories.categories.destroy\":true,\"choose.chooses.index\":true,\"choose.chooses.create\":true,\"choose.chooses.edit\":true,\"choose.chooses.destroy\":true,\"core.sidebar.group\":true,\"dashboard.index\":true,\"dashboard.update\":true,\"dashboard.reset\":true,\"frontend.frontends.index\":true,\"frontend.frontends.create\":true,\"frontend.frontends.edit\":true,\"frontend.frontends.destroy\":true,\"games.games.index\":true,\"games.games.create\":true,\"games.games.edit\":true,\"games.games.destroy\":true,\"grammar.grammars.index\":true,\"grammar.grammars.create\":true,\"grammar.grammars.edit\":true,\"grammar.grammars.destroy\":true,\"inputs.inputs.index\":true,\"inputs.inputs.create\":true,\"inputs.inputs.edit\":true,\"inputs.inputs.destroy\":true,\"listening.listenings.index\":true,\"listening.listenings.create\":true,\"listening.listenings.edit\":true,\"listening.listenings.destroy\":true,\"media.medias.index\":true,\"media.medias.create\":true,\"media.medias.edit\":true,\"media.medias.destroy\":true,\"media.folders.index\":true,\"media.folders.create\":true,\"media.folders.edit\":true,\"media.folders.destroy\":true,\"menu.menus.index\":true,\"menu.menus.create\":true,\"menu.menus.edit\":true,\"menu.menus.destroy\":true,\"menu.menuitems.index\":true,\"menu.menuitems.create\":true,\"menu.menuitems.edit\":true,\"menu.menuitems.destroy\":true,\"options.options.index\":true,\"options.options.create\":true,\"options.options.edit\":true,\"options.options.destroy\":true,\"page.pages.index\":true,\"page.pages.create\":true,\"page.pages.edit\":true,\"page.pages.destroy\":true,\"questions.questions.index\":true,\"questions.questions.create\":true,\"questions.questions.edit\":true,\"questions.questions.destroy\":true,\"rules.rules.index\":true,\"rules.rules.create\":true,\"rules.rules.edit\":true,\"rules.rules.destroy\":true,\"setting.settings.index\":true,\"setting.settings.edit\":true,\"songs.songs.index\":true,\"songs.songs.create\":true,\"songs.songs.edit\":true,\"songs.songs.destroy\":true,\"songs.alphabets.index\":true,\"songs.alphabets.create\":true,\"songs.alphabets.edit\":true,\"songs.alphabets.destroy\":true,\"sortings.sortings.index\":true,\"sortings.sortings.create\":true,\"sortings.sortings.edit\":true,\"sortings.sortings.destroy\":true,\"stories.stories.index\":true,\"stories.stories.create\":true,\"stories.stories.edit\":true,\"stories.stories.destroy\":true,\"tag.tags.index\":true,\"tag.tags.create\":true,\"tag.tags.edit\":true,\"tag.tags.destroy\":true,\"translation.translations.index\":true,\"translation.translations.edit\":true,\"translation.translations.import\":true,\"translation.translations.export\":true,\"user.users.index\":true,\"user.users.create\":true,\"user.users.edit\":true,\"user.users.destroy\":true,\"user.roles.index\":true,\"user.roles.create\":true,\"user.roles.edit\":true,\"user.roles.destroy\":true,\"account.api-keys.index\":true,\"account.api-keys.create\":true,\"account.api-keys.destroy\":true,\"workshop.sidebar.group\":true,\"workshop.modules.index\":true,\"workshop.modules.show\":true,\"workshop.modules.update\":true,\"workshop.modules.disable\":true,\"workshop.modules.enable\":true,\"workshop.modules.publish\":true,\"workshop.themes.index\":true,\"workshop.themes.show\":true,\"workshop.themes.publish\":true}', '2019-01-01 08:31:15', '2019-01-12 09:40:56');
+INSERT INTO `roles` VALUES (1, 'admin', 'Admin', '{\"answer.answers.index\":true,\"answer.answers.create\":true,\"answer.answers.edit\":true,\"answer.answers.destroy\":true,\"categories.categories.index\":true,\"categories.categories.create\":true,\"categories.categories.edit\":true,\"categories.categories.destroy\":true,\"choose.chooses.index\":true,\"choose.chooses.create\":true,\"choose.chooses.edit\":true,\"choose.chooses.destroy\":true,\"core.sidebar.group\":true,\"dashboard.index\":true,\"dashboard.update\":true,\"dashboard.reset\":true,\"frontend.frontends.index\":true,\"frontend.frontends.create\":true,\"frontend.frontends.edit\":true,\"frontend.frontends.destroy\":true,\"games.games.index\":true,\"games.games.create\":true,\"games.games.edit\":true,\"games.games.destroy\":true,\"grammar.grammars.index\":true,\"grammar.grammars.create\":true,\"grammar.grammars.edit\":true,\"grammar.grammars.destroy\":true,\"listening.listenings.index\":true,\"listening.listenings.create\":true,\"listening.listenings.edit\":true,\"listening.listenings.destroy\":true,\"media.medias.index\":true,\"media.medias.create\":true,\"media.medias.edit\":true,\"media.medias.destroy\":true,\"media.folders.index\":true,\"media.folders.create\":true,\"media.folders.edit\":true,\"media.folders.destroy\":true,\"menu.menus.index\":true,\"menu.menus.create\":true,\"menu.menus.edit\":true,\"menu.menus.destroy\":true,\"menu.menuitems.index\":true,\"menu.menuitems.create\":true,\"menu.menuitems.edit\":true,\"menu.menuitems.destroy\":true,\"orderings.orderings.index\":true,\"orderings.orderings.create\":true,\"orderings.orderings.edit\":true,\"orderings.orderings.destroy\":true,\"page.pages.index\":true,\"page.pages.create\":true,\"page.pages.edit\":true,\"page.pages.destroy\":true,\"questions.questions.index\":true,\"questions.questions.create\":true,\"questions.questions.edit\":true,\"questions.questions.destroy\":true,\"results.results.index\":true,\"results.results.create\":true,\"results.results.edit\":true,\"results.results.destroy\":true,\"rules.rules.index\":true,\"rules.rules.create\":true,\"rules.rules.edit\":true,\"rules.rules.destroy\":true,\"setting.settings.index\":true,\"setting.settings.edit\":true,\"songs.songs.index\":true,\"songs.songs.create\":true,\"songs.songs.edit\":true,\"songs.songs.destroy\":true,\"songs.alphabets.index\":true,\"songs.alphabets.create\":true,\"songs.alphabets.edit\":true,\"songs.alphabets.destroy\":true,\"sortings.sortings.index\":true,\"sortings.sortings.create\":true,\"sortings.sortings.edit\":true,\"sortings.sortings.destroy\":true,\"stories.stories.index\":true,\"stories.stories.create\":true,\"stories.stories.edit\":true,\"stories.stories.destroy\":true,\"tag.tags.index\":true,\"tag.tags.create\":true,\"tag.tags.edit\":true,\"tag.tags.destroy\":true,\"translation.translations.index\":true,\"translation.translations.edit\":true,\"translation.translations.import\":true,\"translation.translations.export\":true,\"user.users.index\":true,\"user.users.create\":true,\"user.users.edit\":true,\"user.users.destroy\":true,\"user.roles.index\":true,\"user.roles.create\":true,\"user.roles.edit\":true,\"user.roles.destroy\":true,\"account.api-keys.index\":true,\"account.api-keys.create\":true,\"account.api-keys.destroy\":true,\"workshop.sidebar.group\":true,\"workshop.modules.index\":true,\"workshop.modules.show\":true,\"workshop.modules.update\":true,\"workshop.modules.disable\":true,\"workshop.modules.enable\":true,\"workshop.modules.publish\":true,\"workshop.themes.index\":true,\"workshop.themes.show\":true,\"workshop.themes.publish\":true}', '2019-01-01 08:31:15', '2019-01-13 05:36:54');
 INSERT INTO `roles` VALUES (2, 'user', 'User', NULL, '2019-01-01 08:31:15', '2019-01-01 08:31:15');
 
 -- ----------------------------
@@ -1175,6 +1196,6 @@ CREATE TABLE `users`  (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, 'dinhyensamagada98@gmail.com', '$2y$10$2fmPEE/CRL8z9Do.PuStZ.T0ObA00oKNOxQlLo4T20lngDPuMpHa6', NULL, '2019-01-12 09:41:09', 'kasea', 'kyra', '2019-01-01 08:31:51', '2019-01-12 09:41:09');
+INSERT INTO `users` VALUES (1, 'dinhyensamagada98@gmail.com', '$2y$10$2fmPEE/CRL8z9Do.PuStZ.T0ObA00oKNOxQlLo4T20lngDPuMpHa6', NULL, '2019-01-13 05:36:59', 'kasea', 'kyra', '2019-01-01 08:31:51', '2019-01-13 05:36:59');
 
 SET FOREIGN_KEY_CHECKS = 1;

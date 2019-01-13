@@ -35,28 +35,30 @@
                     <h5 class="txt-cl-1">We say We don't say</h5>
                     <p class="index-p__cl">{{strip_tags($rule->we_say)}}</p>
                 </div>
-                {{--PLAYING GAMES--}}
+                {{-------------------PLAYING GAMES-------------------------}}
                 <div class="my-3 bgc-2 py-2 index-p__cl">
                     <a id="s__btn"><i class="fas fa-caret-right mx-2"></i>Playing Games</a>
                     <div id="s__content">
-                        {!! Form::open(['route' => ['frontend.check.listening'], 'method' => 'post']) !!}
+                        {!! Form::open(['route' => ['frontend.check.grammar'], 'method' => 'post']) !!}
                         <input type="hidden" name="id" value="{{$rule->id}}">
                         <div class="l__body m-5">
-                            <div id="">
-                                <p class="q1 font-weight-bold">1. a / house / we / small / have
-                                </p>
-                                <p class=" ml-4 text-center">
-                                    <input type="text" class="text-center gra_w" name="i1" id="i1">
-                                    <input type="text" class="text-center gra_w" name="i2" id="i2">
-                                    <input type="text" class="text-center gra_w" name="i3" id="i3">
-                                    <input type="text" class="text-center gra_w" name="i4" id="i4">
-                                    <input type="text" class="text-center gra_w" name="i5" id="i5">
-                                </p>
-                            </div> <!-- question1 -->
+                            @foreach($sortings as $sorting)
+                                <div id="">
+                                    <p class="q1 font-weight-bold">{{$sorting->question}}
+                                    </p>
+                                    <p class="ml-4">
+                                        <input type="text" class="text-center gra_w" name="i1" id="i1">
+                                        <input type="text" class="text-center gra_w" name="i2" id="i2">
+                                        <input type="text" class="text-center gra_w" name="i3" id="i3">
+                                        <input type="text" class="text-center gra_w" name="i4" id="i4">
+                                        <input type="text" class="text-center gra_w" name="i5" id="i5">
+                                    </p>
+                                </div> <!-- question1 -->
+                            @endforeach
                         </div>
                         <div class="form-group clearfix l__footer m-5">
                             <button type="submit" class="btn btn-primary float-right ml-3" name="check" id="check">
-                                Check
+                                <i class="fas fa-check mr-1"></i>Check
                             </button>
                             <button type="submit" class="btn btn-primary float-right" name="redo" id="redo"><i
                                         class="fas fa-redo mr-1"></i>Re-do
@@ -64,7 +66,8 @@
                         </div>
                         {!! Form::close() !!}
                     </div>
-                </div> <!-- song's game -->
+                </div>
+                <!--  GAME ENDS -->
             </div> <!-- col-md-9 -->
             <!-- DANH MỤC BÀI VIẾT -->
             <div class="col-md-3">

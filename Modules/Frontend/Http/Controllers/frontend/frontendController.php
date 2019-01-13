@@ -17,6 +17,7 @@ use Modules\Listening\Repositories\ListeningRepository;
 use Modules\Questions\Repositories\QuestionRepository;
 use Modules\Rules\Repositories\RuleRepository;
 use Modules\Songs\Repositories\SongRepository;
+use Modules\Sortings\Repositories\SortingRepository;
 use Modules\Stories\Repositories\StoryRepository;
 use Modules\User\Repositories\UserRepository;
 use App\Http\Controllers\Controller;
@@ -35,6 +36,7 @@ class frontendController extends Controller
     private $answer;
     private $question;
     private $rule;
+    private $sorting;
 
     public function __construct(
         SongRepository $song,
@@ -45,7 +47,8 @@ class frontendController extends Controller
         CategoryRepository $category,
         AnswerRepository $answer,
         QuestionRepository $question,
-        RuleRepository $rule
+        RuleRepository $rule,
+        SortingRepository $sorting
     )
     {
         $this->song = $song;
@@ -57,6 +60,7 @@ class frontendController extends Controller
         $this->answer = $answer;
         $this->question = $question;
         $this->rule = $rule;
+        $this->sorting = $sorting;
     }
 
     public function index()
@@ -118,18 +122,26 @@ class frontendController extends Controller
 
     public function getListeningById(Request $request)
     {
-        $listening = $this->listening->find($request->id);
+        //$listening = $this->listening->find($request->id);
         //dd($listening);
         //$questions = $this->question->where('question_id', $request->id);
-        $questions = DB::table('questions_questions')->where('listening_id', $request->id)->get();
-        dd($questions);
+        //dd($this->listening->find($request->id)->load('question'));
+        //dd($this->listening->find($request->id)->question->load('choose'));
+        //dd($questions);
+        //$chooses = $this->listening->find($request->id)->load('question')->choose/*load('choose')*/;
+        //dd($chooses);
+        $listening = $this->listening->find($request->id);
+        $questions = $this->listening->find($request->id)->question/*load('question')*/
+        ;
         return view('frontend::frontend.listening', compact('listening', 'questions'));
     }
 
     public function getGrammarById(Request $request)
     {
         $rule = $this->rule->find($request->id);
-        return view('frontend::frontend.grammar', compact('rule'));
+        $sortings = $this->rule->find($request->id)->sorting;
+        //dd($sortings);
+        return view('frontend::frontend.grammar', compact('rule', 'sortings'));
     }
 
     public function checkSongAnswer(Request $request)
@@ -163,6 +175,11 @@ class frontendController extends Controller
         }
     }
 
+    public function checkGrammarAnswer(Request $request)
+    {
+
+    }
+
     private function cleanString($string)
     {
         $string = strtolower($string);
@@ -170,10 +187,5 @@ class frontendController extends Controller
         //$string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
 
         return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
-    }
-
-    public function login()
-    {
-        return view('frontend::frontend.comment');
     }
 }

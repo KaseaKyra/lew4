@@ -7,7 +7,7 @@
  */
 ?>
 
-<div class="top-bar bgc-1">
+<div class="top-bar bgc-1 fixed-top">
     {{--        <div class="container">
                 <div class="row align-middle">
     
@@ -16,7 +16,7 @@
                 </div> <!-- row -->
             </div> <!-- container 1 -->--}}
 </div> <!-- top-bar -->
-<div class="container text-center hd--bg mb-5">
+<div class="container text-center hd--bg mb-5 fixed-top" style="margin-top: 40px;">
     <!-- <div class="row"> -->
     <nav class="navbar navbar-expand-lg navbar-light rounded pt-0 col-md-12 row">
         <button class="navbar-toggler row" type="button" data-toggle="collapse" data-target="#navbarsExample10"
