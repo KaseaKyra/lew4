@@ -117,7 +117,10 @@ class frontendController extends Controller
     public function getStoryById(Request $request)
     {
         $story = $this->story->find($request->id);
-        return view('frontend::frontend.story', compact('story'));
+        $ordering = $this->story->find($request->id)->ordering;
+        $result = $this->story->find($request->id)->result;
+        //dd($ordering);
+        return view('frontend::frontend.story', compact('story', 'ordering', 'result'));
     }
 
     public function getListeningById(Request $request)
@@ -131,8 +134,7 @@ class frontendController extends Controller
         //$chooses = $this->listening->find($request->id)->load('question')->choose/*load('choose')*/;
         //dd($chooses);
         $listening = $this->listening->find($request->id);
-        $questions = $this->listening->find($request->id)->question/*load('question')*/
-        ;
+        $questions = $this->listening->find($request->id)->question;/*load('question')*/
         return view('frontend::frontend.listening', compact('listening', 'questions'));
     }
 

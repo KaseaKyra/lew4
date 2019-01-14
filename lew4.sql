@@ -11,7 +11,7 @@
  Target Server Version : 50719
  File Encoding         : 65001
 
- Date: 13/01/2019 14:33:06
+ Date: 14/01/2019 10:56:29
 */
 
 SET NAMES utf8mb4;
@@ -275,7 +275,7 @@ CREATE TABLE `listening__listenings`  (
 -- ----------------------------
 -- Records of listening__listenings
 -- ----------------------------
-INSERT INTO `listening__listenings` VALUES (4, 'Clap clap clap', 'none', '<p><span style=\"left: 95.7998px; top: 239.514px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00141);\">Clap! Clap! Clap! Stamp! Stamp! Stamp! </span><span style=\"left: 95.7998px; top: 266.309px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00113);\">Hear what a lovely noise we make. </span><span style=\"left: 95.7998px; top: 293.104px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00154);\">Stretch up high! Shake! Shake! Shake! </span><span style=\"left: 95.7998px; top: 320.015px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00135);\">Are we wide awake? </span><span style=\"left: 95.7998px; top: 373.605px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00141);\">Clap! Clap! Clap! Stamp! Stamp! Stamp! </span><span style=\"left: 95.7998px; top: 400.517px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00113);\">Hear what a lovely noise we make. </span><span style=\"left: 95.7998px; top: 427.312px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00154);\">Stretch up high! Shake! Shake! Shake! </span><span style=\"left: 95.7998px; top: 454.107px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00135);\">Are we wide awake? </span><span style=\"left: 95.7998px; top: 507.813px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00122);\">Now wiggle your fingers. Scrunchy up your nose. </span><span style=\"left: 95.7998px; top: 534.608px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.01124);\">Touch your head, should</span><span style=\"left: 352.706px; top: 534.608px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00147);\">ers, knees and toes. </span><span style=\"left: 95.7998px; top: 561.403px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00087);\">Dance all around, sing tra-la-la-la-la. </span><span style=\"left: 95.7998px; top: 588.315px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00124);\">Now run on the spot and stop! </span><span style=\"left: 95.7998px; top: 641.905px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00215);\">Brilliant everybody! Let&rsquo;s do it all over again. </span><span style=\"left: 95.7998px; top: 688.81px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00136);\">Clap Clap! Clap! Stamp! Stamp! Stamp! </span><span style=\"left: 95.7998px; top: 715.605px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00113);\">Hear what a lovely noise we make. </span><span style=\"left: 95.7998px; top: 742.4px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00154);\">Stretch up high! Shake! Shake! Shake! </span><span style=\"left: 95.7998px; top: 769.312px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00135);\">Are we wide awake? </span><span style=\"left: 95.7998px; top: 822.902px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00141);\">Clap! Clap! Clap! Stamp! Stamp! Stamp! </span><span style=\"left: 95.7998px; top: 849.813px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00113);\">Hear what a lovely noise we make. </span><span style=\"left: 95.7998px; top: 876.608px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00154);\">Stretch up high! Shake! Shake! Shake! </span><span style=\"left: 95.7998px; top: 903.403px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00135);\">Are we wide awake? </span><span style=\"left: 95.7998px; top: 957.11px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00122);\">Now wiggle your fingers. Scrunchy up your nose. </span><span style=\"left: 95.7998px; top: 983.905px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.01124);\">Touch your head, should</span><span style=\"left: 352.706px; top: 983.905px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00147);\">ers, knees and toes. </span><span style=\"left: 95.7998px; top: 1010.7px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00087);\">Dance all around, sing tra-la-la-la-la. </span><span style=\"left: 95.7998px; top: 1037.61px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00126);\">Now run on the spot and stop!</span></p>', '2019-01-07 21:14:16', '2019-01-07 21:14:16');
+INSERT INTO `listening__listenings` VALUES (4, 'Clap clap clap', 'none', '<p><span style=\"left: 95.7998px; top: 239.514px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00141);\">Clap! Clap! Clap! Stamp! Stamp! Stamp! </span><span style=\"left: 95.7998px; top: 266.309px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00113);\">Hear what a lovely noise we make. </span><span style=\"left: 95.7998px; top: 293.104px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00154);\">Stretch up high! Shake! Shake! Shake! </span><span style=\"left: 95.7998px; top: 320.015px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00135);\">Are we wide awake? </span><span style=\"left: 95.7998px; top: 373.605px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00141);\">Clap! Clap! Clap! Stamp! Stamp! Stamp! </span><span style=\"left: 95.7998px; top: 400.517px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00113);\">Hear what a lovely noise we make. </span><span style=\"left: 95.7998px; top: 427.312px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00154);\">Stretch up high! Shake! Shake! Shake! </span><span style=\"left: 95.7998px; top: 454.107px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00135);\">Are we wide awake? </span><span style=\"left: 95.7998px; top: 507.813px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00122);\">Now wiggle your fingers. Scrunchy up your nose. </span><span style=\"left: 95.7998px; top: 534.608px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.01124);\">Touch your head, should</span><span style=\"left: 352.706px; top: 534.608px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00147);\">ers, knees and toes. </span><span style=\"left: 95.7998px; top: 561.403px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00087);\">Dance all around, sing tra-la-la-la-la. </span><span style=\"left: 95.7998px; top: 588.315px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00124);\">Now run on the spot and stop! </span><span style=\"left: 95.7998px; top: 641.905px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00215);\">Brilliant everybody! Let&rsquo;s do it all over again. </span><span style=\"left: 95.7998px; top: 688.81px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00136);\">Clap Clap! Clap! Stamp! Stamp! Stamp! </span><span style=\"left: 95.7998px; top: 715.605px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00113);\">Hear what a lovely noise we make. </span><span style=\"left: 95.7998px; top: 742.4px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00154);\">Stretch up high! Shake! Shake! Shake! </span><span style=\"left: 95.7998px; top: 769.312px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00135);\">Are we wide awake? </span><span style=\"left: 95.7998px; top: 822.902px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00141);\">Clap! Clap! Clap! Stamp! Stamp! Stamp! </span><span style=\"left: 95.7998px; top: 849.813px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00113);\">Hear what a lovely noise we make. </span><span style=\"left: 95.7998px; top: 876.608px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00154);\">Stretch up high! Shake! Shake! Shake! </span><span style=\"left: 95.7998px; top: 903.403px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00135);\">Are we wide awake? </span><span style=\"left: 95.7998px; top: 957.11px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00122);\">Now wiggle your fingers. Scrunchy up your nose. </span><span style=\"left: 95.7998px; top: 983.905px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.01124);\">Touch your head, should</span><span style=\"left: 352.706px; top: 983.905px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00147);\">ers, knees and toes. </span><span style=\"left: 95.7998px; top: 1010.7px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00087);\">Dance all around, sing tra-la-la-la-la. </span><span style=\"left: 95.7998px; top: 1037.61px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00126);\">Now run on the spot and stop!</span></p>', '2019-01-07 21:14:16', '2019-01-13 20:29:19');
 
 -- ----------------------------
 -- Table structure for media__file_translations
@@ -310,7 +310,12 @@ CREATE TABLE `media__files`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of media__files
+-- ----------------------------
+INSERT INTO `media__files` VALUES (1, 0, '2.jpg', '/assets/media/2.jpg', 'jpg', 'image/jpeg', '4490', '0', '2019-01-13 20:27:19', '2019-01-13 20:27:19');
 
 -- ----------------------------
 -- Table structure for media__imageables
@@ -521,8 +526,8 @@ CREATE TABLE `orderings__orderings`  (
 -- ----------------------------
 -- Records of orderings__orderings
 -- ----------------------------
-INSERT INTO `orderings__orderings` VALUES (1, 2, '2', '1', '1', '1', '1', '1', '1', '1', '2019-01-13 05:40:39', '2019-01-13 05:48:53');
-INSERT INTO `orderings__orderings` VALUES (2, 2, '2', '14', '1', '1', '1', '1', '1', '1', '2019-01-13 05:42:48', '2019-01-13 05:46:15');
+INSERT INTO `orderings__orderings` VALUES (1, 2, 'Clap! Clap! Clap! Stamp! Stamp! Stamp! Hear what a lovely noise we make. Stretch up high! Shake! Shake! Shake! Are we wide awake? Clap! Clap! Clap! Stamp! Stamp! Stamp! Hear what a lovely noise we make. Stretch up high! Shake! Shake! Shake! Are we wide awake? Now wiggle your fingers. Scrunchy up your nose. Touch your head, shoulders, knees and toes. Dance all around, sing tra-la-la-la-la. Now run on the spot and stop! Brilliant everybody! Let’s do it all over again. Clap Clap! Clap! Stamp! Stamp! Stamp! Hear what a lovely noise we make. Stretch up high! Shake! Shake! Shake! Are we wide awake? Clap! Clap! Clap! Stamp! Stamp! Stamp! Hear what a lovely noise we make. Stretch up high! Shake! Shake! Shake! Are we wide awake? Now wiggle your fingers. Scrunchy up your nose. Touch your head, shoulders, knees and toes. Dance all around, sing tra-la-la-la-la. Now run on the spot and stop!', '1jkldfjngjdffjkdfjkgnbfdgk', '1njkfgdfgkdgdg', '1jkfggjkdfjgndfjkdsfjkgfdjgd', '1jondfgnjdfgjfdgjkdfjkdfjkg', '1jknjnkfdgnjfdgnjdfgnjgjnkgjnkgjkngjnk', '1jio;jkdfggjhkdgjhkdfghjkdfjhkgdfjhkfdjkg', '1kl;jdghkjgjkhjfhdjfgkghjkdfhkljdfg', '2019-01-13 05:40:39', '2019-01-13 16:09:36');
+INSERT INTO `orderings__orderings` VALUES (2, 3, '2', '14', '1', '1', '1', '1', '1', '1', '2019-01-13 05:42:48', '2019-01-13 07:47:46');
 
 -- ----------------------------
 -- Table structure for page__page_translations
@@ -585,7 +590,7 @@ CREATE TABLE `persistences`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `persistences_code_unique`(`code`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 116 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 128 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of persistences
@@ -705,6 +710,18 @@ INSERT INTO `persistences` VALUES (112, 1, 'UAeRhIcXwcURZi2WSzXQjKJc0HBKboY1', '
 INSERT INTO `persistences` VALUES (113, 1, 'ZAcyuKFQqpChivsGu9aaIsE9AdbfI6RJ', '2019-01-13 05:36:54', '2019-01-13 05:36:54');
 INSERT INTO `persistences` VALUES (114, 1, '5O52rWThOEOuLM6qmphf6y6dtDRwJD64', '2019-01-13 05:36:55', '2019-01-13 05:36:55');
 INSERT INTO `persistences` VALUES (115, 1, 'VM3eKmfL9N4giNzo2VtongXW6pO0Mtoc', '2019-01-13 05:36:59', '2019-01-13 05:36:59');
+INSERT INTO `persistences` VALUES (116, 1, 'MyampCfHpiXZ0MfImIYGW5E0YpNmwPha', '2019-01-13 14:21:42', '2019-01-13 14:21:42');
+INSERT INTO `persistences` VALUES (117, 1, 'OkH4Eeh3ZqK3UiZ00vTTcju5ozzWST40', '2019-01-13 17:05:06', '2019-01-13 17:05:06');
+INSERT INTO `persistences` VALUES (118, 1, 'w5FphBL5zlCOTvxinDcSvOegBvqAQINz', '2019-01-13 20:25:44', '2019-01-13 20:25:44');
+INSERT INTO `persistences` VALUES (119, 1, 'ELXZcZk0ishxU3dn6FPuKQSlYgfGsegS', '2019-01-13 20:26:33', '2019-01-13 20:26:33');
+INSERT INTO `persistences` VALUES (120, 1, 'G68mI1HFEtglbyKiqU8ccopmP1T6OlL7', '2019-01-13 20:27:18', '2019-01-13 20:27:18');
+INSERT INTO `persistences` VALUES (121, 1, 'SSZXUbsNDTz9q1QFwnBz5hQxDADPIQKn', '2019-01-13 20:27:22', '2019-01-13 20:27:22');
+INSERT INTO `persistences` VALUES (122, 1, 'xZZaGuSGrTfyxDdLTgzHDJbnIpNxJ2MJ', '2019-01-14 00:54:46', '2019-01-14 00:54:46');
+INSERT INTO `persistences` VALUES (123, 1, 'xDvX1v4BDVso6ziJdOuihbvhulaRa1Is', '2019-01-14 00:56:20', '2019-01-14 00:56:20');
+INSERT INTO `persistences` VALUES (124, 1, 'byiAsvXzdo03NCt8LQ9aXvKEGaFsM0KH', '2019-01-14 00:58:08', '2019-01-14 00:58:08');
+INSERT INTO `persistences` VALUES (125, 1, 'Bio6kFNVLzrUhdikEgywVMzX4SOVAsoD', '2019-01-14 00:58:28', '2019-01-14 00:58:28');
+INSERT INTO `persistences` VALUES (126, 1, '9Rscw7ZO5ieOYim8bU0INMDpMYFWiaSr', '2019-01-14 00:58:29', '2019-01-14 00:58:29');
+INSERT INTO `persistences` VALUES (127, 1, 'awhkCiiBEtgPaVzLkHIK03HV5Q4SozvZ', '2019-01-14 03:45:16', '2019-01-14 03:45:16');
 
 -- ----------------------------
 -- Table structure for questions__question_translations
@@ -1041,12 +1058,13 @@ CREATE TABLE `stories__stories`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of stories__stories
 -- ----------------------------
 INSERT INTO `stories__stories` VALUES (2, 'A dog\'s life', '<p>Hi. I&rsquo;m Dino, the family dog. I help keep people safe, especially on the roads. Take a look at my diary to see what I did last week. Sunday Some children really don&rsquo;t think. Our neighbour&rsquo;s boy ran in front of a car to get his ball. The car almost hit him. I saved him though. Remember, always look and listen. Monday Walking on the street at night can be very dangerous, especially if you wear dark clothes. Car drivers can&rsquo;t see you very well, just like these two I had to take home. Luckily I never go out without my reflective jacket and collar. Remember, BE SEEN! Tuesday People can get very angry when driving, usually for silly reasons. One driver started shouting at Mum today when she stopped to let some children cross the road. I soon made him stop. Wednesday One thing makes me really mad. Grrrrrr. People walking on a dangerous road when they can walk on the safe pavement. I saw two girls doing that today but I soon made them change their minds. Thursday Seat belts can save your life! I make sure everyone in our car wears their seat belt. If they forget, I soon remind them. Even I&rsquo;ve got one. Friday I like Fridays. The roads are quieter. But you still have to be careful. I caught Dad talking on his mobile phone while driving. I soon stopped him though. Don&rsquo;t worry, he got his phone back. Saturday Today Mum took me for a walk. One car was parked in a very dangerous place. It was right on the corner of the street. Don&rsquo;t worry though. I left him a message!</p>', '2019-01-07 20:10:59', '2019-01-07 20:10:59');
+INSERT INTO `stories__stories` VALUES (3, 'Cinderella', '<p>content</p>\r\n\r\n<p>&nbsp;</p>', '2019-01-13 07:47:23', '2019-01-13 07:47:23');
 
 -- ----------------------------
 -- Table structure for stories__story_translations
@@ -1196,6 +1214,6 @@ CREATE TABLE `users`  (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, 'dinhyensamagada98@gmail.com', '$2y$10$2fmPEE/CRL8z9Do.PuStZ.T0ObA00oKNOxQlLo4T20lngDPuMpHa6', NULL, '2019-01-13 05:36:59', 'kasea', 'kyra', '2019-01-01 08:31:51', '2019-01-13 05:36:59');
+INSERT INTO `users` VALUES (1, 'dinhyensamagada98@gmail.com', '$2y$10$2fmPEE/CRL8z9Do.PuStZ.T0ObA00oKNOxQlLo4T20lngDPuMpHa6', NULL, '2019-01-14 03:45:16', 'kasea', 'kyra', '2019-01-01 08:31:51', '2019-01-14 03:45:16');
 
 SET FOREIGN_KEY_CHECKS = 1;

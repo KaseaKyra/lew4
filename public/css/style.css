@@ -93,16 +93,11 @@ CAROUSEL
     color: #000;
 }
 
-/*.card__bg-cl {
-    background-color: #f9f9f9;
-}*/
-
 .gra_w {
     width: 100px;
 }
 
-/*.gra_bor {
-    border-top: none;
-    border-left: none;
-    border-right: none;
-}*/
+.story_w {
+    width: 50px;
+}
+

@@ -56,42 +56,42 @@
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.orderings.ordering.edit', [$ordering->id]) }}">
-                                        {{ $ordering->order1 }}
+                                        {{ str_limit($ordering->order1, 20) }}
                                     </a>
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.orderings.ordering.edit', [$ordering->id]) }}">
-                                        {{ $ordering->order2 }}
+                                        {{ str_limit($ordering->order2, 20) }}
                                     </a>
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.orderings.ordering.edit', [$ordering->id]) }}">
-                                        {{ $ordering->order3 }}
+                                        {{ str_limit($ordering->order3, 20) }}
                                     </a>
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.orderings.ordering.edit', [$ordering->id]) }}">
-                                        {{ $ordering->order4 }}
+                                        {{ str_limit($ordering->order4, 20 ) }}
                                     </a>
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.orderings.ordering.edit', [$ordering->id]) }}">
-                                        {{ $ordering->order5 }}
+                                        {{ str_limit($ordering->order5, 20) }}
                                     </a>
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.orderings.ordering.edit', [$ordering->id]) }}">
-                                        {{ $ordering->order6 }}
+                                        {{ str_limit($ordering->order6, 20) }}
                                     </a>
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.orderings.ordering.edit', [$ordering->id]) }}">
-                                        {{ $ordering->order7 }}
+                                        {{ str_limit($ordering->order7, 20) }}
                                     </a>
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.orderings.ordering.edit', [$ordering->id]) }}">
-                                        {{ $ordering->order8 }}
+                                        {{ str_limit($ordering->order8, 20) }}
                                     </a>
                                 </td>
                                 <td>

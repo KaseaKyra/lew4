@@ -13,43 +13,82 @@
 @stop
 
 @section('content')
-
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-                <h2 class="font-weight-bold">Lorem ipsum dolor sit.</h2>
+                <h2 class="font-weight-bold index-p__cl">{{$story->name}}</h2>
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item"
                             src="https://www.youtube.com/embed/tgbNymZ7vqY?playlist=tgbNymZ7vqY&loop=0" allowfullscreen>
                     </iframe>
                 </div>
-                <div class="mt-3 bgc-2 py-2">
+                <div class="mt-3 bgc-2 py-2 index-p__cl">
                     <a id="s__btn"><i class="fas fa-caret-right mx-2"></i>Game</a>
                     <div id="s__content">
-                        <form method="post" action="" class="mx-3">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="s__id-1" name="s__name-1">
-                                <input type="text" class="form-control" id="s__id-2" name="s__name-2">
-                                <input type="text" class="form-control" id="s__id-3" name="s__name-3">
-                                <input type="text" class="form-control" id="s__id-4" name="s__name-4">
-                                <input type="text" class="form-control" id="s__id-5" name="s__name-5">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus excepturi recusandae
-                                nam magnam quam nihil eius soluta quae expedita illo accusamus, commodi explicabo
-                                sapiente, sit deleniti labore fugiat! Unde rem accusamus atque ipsum quis quidem
-                                obcaecati aspernatur, dolor veniam recusandae natus libero, porro repudiandae earum
-                                numquam repellat eius nihil? Sapiente, cumque sint amet. Nam, esse!
+                        {!! Form::open(['route' => ['frontend.check.story'], 'method' => 'post']) !!}
+                        <input type="hidden" name="id" value="{{$story->id}}">
+                        <div class="form-group mx-5">
+                            <div class="row">
+                                <div class="col-md-9"><span class="font-weight-bold mr-3">A</span>
+                                    .{{$ordering->order1}}<br></div>
+                                <div class="col-md-3"><input type="text" class="story_w text-center" id="" name="result1"> <br>
+                                </div>
                             </div>
-                            <div class="form-group clearfix">
-                                <button type="submit" class="btn btn-primary float-right ml-3" name="check" id="check">
-                                    <i class="fas fa-check mr-1"></i>Check
-                                </button>
-                                <button type="submit" class="btn btn-primary float-right" name="redo" id="redo">
-                                    <i class="fas fa-redo mr-1"></i>Re-do
-                                </button>
+                            <div class="row">
+                                <div class="col-md-9"><span class="font-weight-bold mr-3">B</span>.{{$ordering->order2}}
+                                    <br></div>
+                                <div class="col-md-3"><input type="text" class="story_w text-center" id=""
+                                                             name="result2"><br></div>
                             </div>
-                        </form>
+                            <div class="row">
+                                <div class="col-md-9"><span class="font-weight-bold mr-3">C</span>.{{$ordering->order3}}
+                                    <br></div>
+                                <div class="col-md-3"><input type="text" class="story_w text-center" id=""
+                                                             name="result3"><br></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9"><span class="font-weight-bold mr-3">C</span>.{{$ordering->order4}}
+                                    <br></div>
+                                <div class="col-md-3"><input type="text" class="story_w text-center" id=""
+                                                             name="result4"><br></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9"><span class="font-weight-bold mr-3">Y</span>.{{$ordering->order5}}
+                                    <br></div>
+                                <div class="col-md-3"><input type="text" class="story_w text-center" id=""
+                                                             name="result5"><br></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9"><span class="font-weight-bold mr-3">F</span>.{{$ordering->order6}}
+                                    <br></div>
+                                <div class="col-md-3"><input type="text" class="story_w text-center" id=""
+                                                             name="result6"><br></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9"><span class="font-weight-bold mr-3">J</span>.{{$ordering->order7}}
+                                    <br></div>
+                                <div class="col-md-3"><input type="text" class="story_w text-center" id=""
+                                                             name="result7"><br></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9"><span class="font-weight-bold mr-3">H</span>.{{$ordering->order8}}
+                                    <br></div>
+                                <div class="col-md-3"><input type="text" class="story_w text-center" id=""
+                                                             name="result8"><br></div>
+                            </div>
+                        </div>
+                        <div class="form-group clearfix mx-5">
+                            <button type="submit" class="btn btn-primary float-right ml-3" name="check" id="check">
+                                <i class="fas fa-check mr-1"></i>Check
+                            </button>
+                            <button type="submit" class="btn btn-primary float-right" name="redo" id="redo">
+                                <i class="fas fa-redo mr-1"></i>Re-do
+                            </button>
+                        </div>
+                        {!! Form::close() !!}
                     </div>
-                </div> <!-- song's game -->
+                </div>
+                <!-- STORY'S GAME -->
             </div> <!-- col-md-9 -->
             <!-- DANH MỤC BÀI VIẾT -->
             <div class="col-md-3">

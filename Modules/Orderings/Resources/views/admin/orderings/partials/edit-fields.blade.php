@@ -6,14 +6,14 @@
 </div>
 --}}
 <div class="box-body">
-    <div class="form-group">
+{{--    <div class="form-group">
         <label for="story_id" class="text-capitalize">Story</label>
         <select class="form-control" id="story_id" name="story_id">
             @foreach($stories as $story)
                 <option value="{{$story->id}}">{{$story->name}}</option>
             @endforeach
         </select>
-    </div>
+    </div>--}}
     {!! Form:: normalInput('order1', 'Order 1', $errors, $ordering) !!}
     {!! Form:: normalInput('order2', 'Order 2', $errors, $ordering) !!}
     {!! Form:: normalInput('order3', 'Order 3', $errors, $ordering) !!}
