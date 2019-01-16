@@ -9,6 +9,7 @@ use Modules\Listening\Http\Requests\CreateListeningRequest;
 use Modules\Listening\Http\Requests\UpdateListeningRequest;
 use Modules\Listening\Repositories\ListeningRepository;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
+use Modules\Media\Repositories\FileRepository;
 
 class ListeningController extends AdminBaseController
 {
@@ -54,6 +55,7 @@ class ListeningController extends AdminBaseController
      */
     public function store(CreateListeningRequest $request)
     {
+        //dd($request->all());
         $this->listening->create($request->all());
 
         return redirect()->route('admin.listening.listening.index')
@@ -66,9 +68,12 @@ class ListeningController extends AdminBaseController
      * @param  Listening $listening
      * @return Response
      */
-    public function edit(Listening $listening)
+    public function edit(Listening $listening, FileRepository $file)
     {
-        return view('listening::admin.listenings.edit', compact('listening'));
+        $featured_image = $file->findFileByZoneForEntity('featured_image', $listening);
+        $gallery = $file->findMultipleFilesByZoneForEntity('gallery', $listening);
+
+        return view('listening::admin.listenings.edit', compact('listening', 'featured_image', 'gallery'));
     }
 
     /**

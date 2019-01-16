@@ -26,6 +26,9 @@
                         </div>
                     @endforeach
 
+                        @mediaSingle('featured_image', $listening)
+                        @mediaMultiple('gallery', $listening)
+
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary btn-flat">{{ trans('core::core.button.update') }}</button>
                         <a class="btn btn-danger pull-right btn-flat" href="{{ route('admin.listening.listening.index')}}"><i class="fa fa-times"></i> {{ trans('core::core.button.cancel') }}</a>
@@ -34,6 +37,7 @@
             </div> {{-- end nav-tabs-custom --}}
         </div>
     </div>
+
     {!! Form::close() !!}
 @stop
 

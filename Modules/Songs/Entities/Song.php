@@ -5,10 +5,11 @@ namespace Modules\Songs\Entities;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Answer\Entities\Answer;
+use Modules\Media\Support\Traits\MediaRelation;
 
 class Song extends Model
 {
-    use Translatable;
+    use Translatable, MediaRelation;
 
     protected $table = 'songs__songs';
     public $translatedAttributes = [];

@@ -39,35 +39,50 @@
                 <div class="my-3 bgc-2 py-2 index-p__cl">
                     <a id="s__btn"><i class="fas fa-caret-right mx-2"></i>Playing Games</a>
                     <div id="s__content">
-                        {!! Form::open(['route' => ['frontend.check.grammar'], 'method' => 'post']) !!}
+                        {!! Form::open(['route' => ['frontend.check.grammar', $sortings->first()->id], 'method' =>
+                        'post']) !!}
                         <input type="hidden" name="id" value="{{$rule->id}}">
                         <div class="l__body m-5">
-                            @foreach($sortings as $sorting)
-                                <div id="">
-                                    <p class="q1 font-weight-bold">{{$sorting->question}}
-                                    </p>
-                                    <p class="ml-4">
-                                        <input type="text" class="text-center gra_w" name="i1" id="i1">
-                                        <input type="text" class="text-center gra_w" name="i2" id="i2">
-                                        <input type="text" class="text-center gra_w" name="i3" id="i3">
-                                        <input type="text" class="text-center gra_w" name="i4" id="i4">
-                                        <input type="text" class="text-center gra_w" name="i5" id="i5">
-                                    </p>
-                                </div> <!-- question1 -->
-                            @endforeach
+                            {{--                            @foreach($sortings as $sorting)
+                                                            <div id="">
+                                                                <p class="q1 font-weight-bold">{{$sorting->question}}
+                                                                </p>
+                                                                <p class="ml-4">
+                                                                    <input type="text" class="text-center gra_w" name="i1" id="i1">
+                                                                    <input type="text" class="text-center gra_w" name="i2" id="i2">
+                                                                    <input type="text" class="text-center gra_w" name="i3" id="i3">
+                                                                    <input type="text" class="text-center gra_w" name="i4" id="i4">
+                                                                    <input type="text" class="text-center gra_w" name="i5" id="i5">
+                                                                </p>
+                                                            </div> <!-- question1 -->
+                                                        @endforeach--}}
+                            {{------------------cau hoi dau tien------------------}}
+                            <div id="">
+                                <p class="q1 font-weight-bold">{{$sortings->first()->question}}
+                                </p>
+                                <p class="ml-4">
+                                    <input type="text" class="text-center gra_w" name="i1" id="i1">
+                                    <input type="text" class="text-center gra_w" name="i2" id="i2">
+                                    <input type="text" class="text-center gra_w" name="i3" id="i3">
+                                    <input type="text" class="text-center gra_w" name="i4" id="i4">
+                                    <input type="text" class="text-center gra_w" name="i5" id="i5">
+                                </p>
+                            </div> <!-- question1 -->
                         </div>
                         <div class="form-group clearfix l__footer m-5">
                             <button type="submit" class="btn btn-primary float-right ml-3" name="check" id="check">
                                 <i class="fas fa-check mr-1"></i>Check
                             </button>
-                            <button type="submit" class="btn btn-primary float-right" name="redo" id="redo"><i
-                                        class="fas fa-redo mr-1"></i>Re-do
-                            </button>
+                            <a href="" type="button" class="btn btn-primary float-right">
+                                <i class="fas fa-redo mr-1"></i>Re-do
+                            </a>
                         </div>
+                        <div onclick="checkGrammar()">
+                            <button>huhjhjhj</button></div>
                         {!! Form::close() !!}
                     </div>
                 </div>
-                <!--  GAME ENDS -->
+                <!-----------------  GAME ENDS ------------------------>
             </div> <!-- col-md-9 -->
             <!-- DANH MỤC BÀI VIẾT -->
             <div class="col-md-3">

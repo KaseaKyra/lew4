@@ -31,8 +31,7 @@
                 <div class="row">
                     @foreach($rules as $rule)
                         <div class="col-md-3 text-center hvr-grow">
-                            <a href="{{route('frontend.item.grammar', $rule->id)}}" class="td"
-                               target="_blank">
+                            <a href="{{route('frontend.item.grammar', $rule->id)}}" class="td">
                                 <img src="img/grammar/{{$rule->id}}.jpg" alt="{{$rule->title}}"
                                      class="img-thumbnai">
                                 <p class="my-3 font-weight-bold hd_font txt-cl-1">{{$rule->title}}</p>

@@ -37,8 +37,7 @@
                                         </div>--}}
                     @foreach($songs as $song)
                         <div class="col-md-3 text-center hvr-grow">
-                            <a href="{{route('frontend.item.song', $song->id)}}" class="td"
-                               target="_blank">
+                            <a href="{{route('frontend.item.song', $song->id)}}" class="td">
                                 <img src="img/songs/{{$song->id}}.jpg" alt="{{$song->name}}" class="img-thumbnai">
                                 <p class="my-3 font-weight-bold hd_font txt-cl-1">{{$song->name}}</p>
                             </a>

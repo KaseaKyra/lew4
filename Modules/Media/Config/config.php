@@ -10,6 +10,7 @@ return [
     | Supported: "local", "s3"
     */
     'filesystem' => 'local',
+    /*'filesystem' => 's3',*/
     /*
     |--------------------------------------------------------------------------
     | The path where the media files will be uploaded

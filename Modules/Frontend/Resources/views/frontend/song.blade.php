@@ -47,9 +47,9 @@
                             <button type="submit" class="btn btn-primary float-right ml-3" name="check" id="check">
                                 <i class="fas fa-check mr-1"></i>Check
                             </button>
-                            <button type="submit" class="btn btn-primary float-right" name="redo" id="redo"><i
-                                        class="fas fa-redo mr-1"></i>Re-do
-                            </button>
+                            <a href="" type="button" class="btn btn-primary float-right">
+                                <i class="fas fa-redo mr-1"></i>Re-do
+                            </a>
                         </div>
                         {!! Form::close() !!}
                     </div>

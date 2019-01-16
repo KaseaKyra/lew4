@@ -29,7 +29,7 @@
 
 @include('frontend::frontend.partials.header')
 
-<div style="margin-top: 180px;">
+<div {{--style="margin-top: 180px;"--}}>
     @yield('content')
 </div>
 

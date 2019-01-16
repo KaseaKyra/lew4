@@ -69,11 +69,6 @@ class frontendController extends Controller
         return view('frontend::frontend.index', compact('categories'));
     }
 
-    /*    public function checkSong()
-        {
-            dd(123);
-        }*/
-
     public function getSongList()
     {
         $songs = $this->song->all();
@@ -98,6 +93,16 @@ class frontendController extends Controller
     public function getGame()
     {
         return view('frontend::frontend.game');
+    }
+
+    public function getBlog()
+    {
+        return view('frontend::frontend.blog');
+    }
+
+    public function getAboutUs()
+    {
+        return view('frontend::frontend.about_us');
     }
 
     public function getGrammarList()
@@ -175,11 +180,32 @@ class frontendController extends Controller
                 }
             }
         }
+        return (1);
     }
 
     public function checkGrammarAnswer(Request $request)
     {
+        $flag = 0;
+        $i1 =  $request->i1;
+        $i2 =  $request->i2;
+        $i3 =  $request->i3;
+        $i4 =  $request->i4;
+        $i5 =  $request->i5;
 
+        $rule = $this->rule->find($request->id);
+        $input = $this->rule->find($request->id)->sorting->first();
+        dd($rule);
+        if ($input->i1 === $i1
+            && $input->i2 === $i2
+            && $input->i3 === $i3
+            && $input->i4 === $i4
+            && $input->i5 === $i5
+        )
+        {
+            $flag = 1;
+        }
+
+        return view('frontend::frontend.grammar', compact('flag'));
     }
 
     private function cleanString($string)

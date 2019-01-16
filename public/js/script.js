@@ -10,3 +10,7 @@ $('#blogCarousel').carousel({
     interval: 4000
 });
 
+function checkGrammar() {
+    alert("Hello! I am an alert box!");
+}
+

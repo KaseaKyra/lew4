@@ -26,6 +26,9 @@
                         </div>
                     @endforeach
 
+                        @mediaSingle('featured_image')
+                        @mediaMultiple('gallery')
+
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary btn-flat">{{ trans('core::core.button.create') }}</button>
                         <a class="btn btn-danger pull-right btn-flat" href="{{ route('admin.songs.song.index')}}"><i class="fa fa-times"></i> {{ trans('core::core.button.cancel') }}</a>
