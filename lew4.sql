@@ -11,7 +11,7 @@
  Target Server Version : 50719
  File Encoding         : 65001
 
- Date: 16/01/2019 15:22:47
+ Date: 18/01/2019 21:47:41
 */
 
 SET NAMES utf8mb4;
@@ -72,6 +72,41 @@ CREATE TABLE `answer__answers`  (
 -- Records of answer__answers
 -- ----------------------------
 INSERT INTO `answer__answers` VALUES (1, 'thousand', 'down', 'hill', 'fast', 'gate', 8, '2019-01-09 15:31:12', '2019-01-10 04:25:44');
+
+-- ----------------------------
+-- Table structure for blogs__blog_translations
+-- ----------------------------
+DROP TABLE IF EXISTS `blogs__blog_translations`;
+CREATE TABLE `blogs__blog_translations`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `blog_id` int(10) UNSIGNED NOT NULL,
+  `locale` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `blogs__blog_translations_blog_id_locale_unique`(`blog_id`, `locale`) USING BTREE,
+  INDEX `blogs__blog_translations_locale_index`(`locale`) USING BTREE,
+  CONSTRAINT `blogs__blog_translations_blog_id_foreign` FOREIGN KEY (`blog_id`) REFERENCES `blogs__blogs` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for blogs__blogs
+-- ----------------------------
+DROP TABLE IF EXISTS `blogs__blogs`;
+CREATE TABLE `blogs__blogs`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `title` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `link` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of blogs__blogs
+-- ----------------------------
+INSERT INTO `blogs__blogs` VALUES (1, 'Adjectives', 'jghdfskghdfkghdfkghdfkgjhd', 'shhighghggighigghkgh', '<p>kl;kl;</p>', '2019-01-18 14:21:23', '2019-01-18 14:21:23');
+INSERT INTO `blogs__blogs` VALUES (2, 'verbs', 'jghdfskghdfkghdfkghdfkgjhd', 'none', '<p>kkklkl</p>', '2019-01-18 14:40:04', '2019-01-18 14:40:04');
 
 -- ----------------------------
 -- Table structure for categories__categories
@@ -145,7 +180,7 @@ CREATE TABLE `choose__chooses`  (
 -- ----------------------------
 INSERT INTO `choose__chooses` VALUES (1, 4, '10:00', '11:00', '12:00', '2019-01-10 09:02:29', '2019-01-10 09:13:50');
 INSERT INTO `choose__chooses` VALUES (2, 5, 'Ho Chi Minh city', 'Hanoi', 'Danang', '2019-01-10 09:15:35', '2019-01-10 09:15:35');
-INSERT INTO `choose__chooses` VALUES (3, 3, '10', '20', '30', '2019-01-10 09:15:51', '2019-01-10 09:15:51');
+INSERT INTO `choose__chooses` VALUES (3, 5, '10', '20', '30', '2019-01-10 09:15:51', '2019-01-18 04:34:23');
 
 -- ----------------------------
 -- Table structure for dashboard__widgets
@@ -270,13 +305,14 @@ CREATE TABLE `listening__listenings`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of listening__listenings
 -- ----------------------------
 INSERT INTO `listening__listenings` VALUES (4, 'Clap clap clap', 'none', '<p><span style=\"left: 95.7998px; top: 239.514px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00141);\">Clap! Clap! Clap! Stamp! Stamp! Stamp! </span><span style=\"left: 95.7998px; top: 266.309px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00113);\">Hear what a lovely noise we make. </span><span style=\"left: 95.7998px; top: 293.104px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00154);\">Stretch up high! Shake! Shake! Shake! </span><span style=\"left: 95.7998px; top: 320.015px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00135);\">Are we wide awake? </span><span style=\"left: 95.7998px; top: 373.605px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00141);\">Clap! Clap! Clap! Stamp! Stamp! Stamp! </span><span style=\"left: 95.7998px; top: 400.517px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00113);\">Hear what a lovely noise we make. </span><span style=\"left: 95.7998px; top: 427.312px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00154);\">Stretch up high! Shake! Shake! Shake! </span><span style=\"left: 95.7998px; top: 454.107px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00135);\">Are we wide awake? </span><span style=\"left: 95.7998px; top: 507.813px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00122);\">Now wiggle your fingers. Scrunchy up your nose. </span><span style=\"left: 95.7998px; top: 534.608px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.01124);\">Touch your head, should</span><span style=\"left: 352.706px; top: 534.608px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00147);\">ers, knees and toes. </span><span style=\"left: 95.7998px; top: 561.403px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00087);\">Dance all around, sing tra-la-la-la-la. </span><span style=\"left: 95.7998px; top: 588.315px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00124);\">Now run on the spot and stop! </span><span style=\"left: 95.7998px; top: 641.905px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00215);\">Brilliant everybody! Let&rsquo;s do it all over again. </span><span style=\"left: 95.7998px; top: 688.81px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00136);\">Clap Clap! Clap! Stamp! Stamp! Stamp! </span><span style=\"left: 95.7998px; top: 715.605px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00113);\">Hear what a lovely noise we make. </span><span style=\"left: 95.7998px; top: 742.4px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00154);\">Stretch up high! Shake! Shake! Shake! </span><span style=\"left: 95.7998px; top: 769.312px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00135);\">Are we wide awake? </span><span style=\"left: 95.7998px; top: 822.902px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00141);\">Clap! Clap! Clap! Stamp! Stamp! Stamp! </span><span style=\"left: 95.7998px; top: 849.813px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00113);\">Hear what a lovely noise we make. </span><span style=\"left: 95.7998px; top: 876.608px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00154);\">Stretch up high! Shake! Shake! Shake! </span><span style=\"left: 95.7998px; top: 903.403px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00135);\">Are we wide awake? </span><span style=\"left: 95.7998px; top: 957.11px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00122);\">Now wiggle your fingers. Scrunchy up your nose. </span><span style=\"left: 95.7998px; top: 983.905px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.01124);\">Touch your head, should</span><span style=\"left: 352.706px; top: 983.905px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00147);\">ers, knees and toes. </span><span style=\"left: 95.7998px; top: 1010.7px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00087);\">Dance all around, sing tra-la-la-la-la. </span><span style=\"left: 95.7998px; top: 1037.61px; font-size: 23.3px; font-family: sans-serif; transform: scaleX(1.00126);\">Now run on the spot and stop!</span></p>', '2019-01-07 21:14:16', '2019-01-13 20:29:19');
 INSERT INTO `listening__listenings` VALUES (9, 'Button up', 'KGvEQTQaTbQ', '<p>Button up your coats. It&#39;s time to play! What English game will Sam and Pam play today?</p>', '2019-01-15 14:59:59', '2019-01-15 14:59:59');
+INSERT INTO `listening__listenings` VALUES (10, 'Christmas', 'shhighghggighigghkgh', '<p>gcvfchvshfvshf</p>', '2019-01-18 00:35:45', '2019-01-18 00:35:45');
 
 -- ----------------------------
 -- Table structure for media__file_translations
@@ -345,7 +381,7 @@ CREATE TABLE `media__imageables`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of media__imageables
@@ -354,6 +390,13 @@ INSERT INTO `media__imageables` VALUES (8, 24, 9, 'Modules\\Listening\\Entities\
 INSERT INTO `media__imageables` VALUES (9, 23, 4, 'Modules\\Listening\\Entities\\Listening', 'featured_image', NULL, '2019-01-16 06:17:05', '2019-01-16 06:19:18');
 INSERT INTO `media__imageables` VALUES (10, 26, 4, 'Modules\\Listening\\Entities\\Listening', 'gallery', 0, '2019-01-16 06:18:48', '2019-01-16 06:19:18');
 INSERT INTO `media__imageables` VALUES (11, 23, 4, 'Modules\\Listening\\Entities\\Listening', 'gallery', 1, '2019-01-16 06:18:48', '2019-01-16 06:19:18');
+INSERT INTO `media__imageables` VALUES (12, 38, 8, 'Modules\\Songs\\Entities\\Song', 'featured_image', NULL, '2019-01-16 10:13:40', '2019-01-16 10:53:13');
+INSERT INTO `media__imageables` VALUES (13, 31, 2, 'Modules\\Stories\\Entities\\Story', 'featured_image', NULL, '2019-01-16 10:54:18', '2019-01-16 10:54:35');
+INSERT INTO `media__imageables` VALUES (14, 38, 1, 'Modules\\Rules\\Entities\\Rule', 'featured_image', NULL, '2019-01-16 11:09:53', '2019-01-16 11:10:07');
+INSERT INTO `media__imageables` VALUES (15, 38, 9, 'Modules\\Songs\\Entities\\Song', 'featured_image', NULL, '2019-01-17 04:12:02', '2019-01-17 04:12:02');
+INSERT INTO `media__imageables` VALUES (16, 38, 10, 'Modules\\Listening\\Entities\\Listening', 'featured_image', NULL, '2019-01-18 00:35:46', '2019-01-18 00:35:46');
+INSERT INTO `media__imageables` VALUES (17, 38, 1, 'Modules\\Blogs\\Entities\\Blog', 'featured_image', NULL, '2019-01-18 14:21:23', '2019-01-18 14:23:43');
+INSERT INTO `media__imageables` VALUES (18, 37, 2, 'Modules\\Blogs\\Entities\\Blog', 'featured_image', NULL, '2019-01-18 14:40:04', '2019-01-18 14:40:04');
 
 -- ----------------------------
 -- Table structure for menu__menu_translations
@@ -441,7 +484,7 @@ CREATE TABLE `migrations`  (
   `migration` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 71 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 73 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of migrations
@@ -510,6 +553,8 @@ INSERT INTO `migrations` VALUES (67, '2019_01_13_050758819147_create_orderings_o
 INSERT INTO `migrations` VALUES (68, '2019_01_13_050759138591_create_orderings_ordering_translations_table', 19);
 INSERT INTO `migrations` VALUES (69, '2019_01_13_050821877088_create_results_results_table', 19);
 INSERT INTO `migrations` VALUES (70, '2019_01_13_050822150006_create_results_result_translations_table', 19);
+INSERT INTO `migrations` VALUES (71, '2019_01_18_135409387747_create_blogs_blogs_table', 20);
+INSERT INTO `migrations` VALUES (72, '2019_01_18_135409689775_create_blogs_blog_translations_table', 20);
 
 -- ----------------------------
 -- Table structure for orderings__ordering_translations
@@ -612,7 +657,7 @@ CREATE TABLE `persistences`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `persistences_code_unique`(`code`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 383 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 405 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of persistences
@@ -999,6 +1044,28 @@ INSERT INTO `persistences` VALUES (379, 1, 'tP41vDSWWII2Yd4ERlXfkHJh1X5G11Fl', '
 INSERT INTO `persistences` VALUES (380, 1, 'RHkKLD000vnAdpXOJa8o3RlXlgQukz1l', '2019-01-16 06:50:16', '2019-01-16 06:50:16');
 INSERT INTO `persistences` VALUES (381, 1, 'MNN0zLqB0jxE5CQ7cAP2i40bhBaCXOH2', '2019-01-16 06:50:17', '2019-01-16 06:50:17');
 INSERT INTO `persistences` VALUES (382, 1, 'wadFqjsqlEkGwpAdS3EMgMctkEo8A7M1', '2019-01-16 06:50:18', '2019-01-16 06:50:18');
+INSERT INTO `persistences` VALUES (383, 1, 'r7efL8hDjfWixjHb8DHWacLOfQAK1Dmx', '2019-01-16 09:44:31', '2019-01-16 09:44:31');
+INSERT INTO `persistences` VALUES (384, 1, 'R9TmhW2YFfDhhcRYBW8Nn1JBnFZi6rXf', '2019-01-17 02:30:42', '2019-01-17 02:30:42');
+INSERT INTO `persistences` VALUES (385, 1, 'iM2us9FmKHVx955JDqSEkZHyhh8WafmQ', '2019-01-18 00:11:03', '2019-01-18 00:11:03');
+INSERT INTO `persistences` VALUES (386, 1, 'ZKyrzC3hCODXKoFzkV3LCuCKfpZDeFFQ', '2019-01-18 00:11:13', '2019-01-18 00:11:13');
+INSERT INTO `persistences` VALUES (387, 1, 'ItnHi8v9e0RDCF48wINTjfYguSQ4Z2wy', '2019-01-18 04:04:29', '2019-01-18 04:04:29');
+INSERT INTO `persistences` VALUES (388, 1, 'IdpsiMgjOOR7hK0pw2X4tgFddkpJS962', '2019-01-18 04:04:34', '2019-01-18 04:04:34');
+INSERT INTO `persistences` VALUES (389, 1, 'oIYT0HicJmtTuI6hUOkkDN6ujfyC4cij', '2019-01-18 04:04:35', '2019-01-18 04:04:35');
+INSERT INTO `persistences` VALUES (390, 1, 'nvLp9QMmJptIlBx8qus7vnXVdvCXgy7Y', '2019-01-18 04:05:16', '2019-01-18 04:05:16');
+INSERT INTO `persistences` VALUES (391, 1, 'M5pnO0fE5jWy4JXIWDeWMGzkYp7clK7a', '2019-01-18 04:06:14', '2019-01-18 04:06:14');
+INSERT INTO `persistences` VALUES (392, 1, 'KcljgaaCJBArXYfB5EnyrtxVF81eAQBM', '2019-01-18 04:06:26', '2019-01-18 04:06:26');
+INSERT INTO `persistences` VALUES (393, 1, 'knazLpgTeazU5JSjq0Kto6eObGFMAR5Q', '2019-01-18 04:06:26', '2019-01-18 04:06:26');
+INSERT INTO `persistences` VALUES (394, 1, 'CxwxFhahHitWW2RQT8rbKgEo4Gsfc8uO', '2019-01-18 04:06:31', '2019-01-18 04:06:31');
+INSERT INTO `persistences` VALUES (395, 1, 'M2ZQVfNAGfozBCgfPaKdEOa5XtLTC0uD', '2019-01-18 04:06:59', '2019-01-18 04:06:59');
+INSERT INTO `persistences` VALUES (396, 1, 'V3EwFkVXHkQzT18q4tLuoxFxsVLUG9Yr', '2019-01-18 04:06:59', '2019-01-18 04:06:59');
+INSERT INTO `persistences` VALUES (397, 1, 'AK0A7r1prL8qgJnAUFhajx8Itu8IaZ90', '2019-01-18 08:43:22', '2019-01-18 08:43:22');
+INSERT INTO `persistences` VALUES (398, 1, 'xxwES9Sukcrpdw1ySgx9VAH3oVus5Lrv', '2019-01-18 14:20:15', '2019-01-18 14:20:15');
+INSERT INTO `persistences` VALUES (399, 1, '9utfwSwjXA8BWgUcQUGaxa4QapbX6KCq', '2019-01-18 14:20:21', '2019-01-18 14:20:21');
+INSERT INTO `persistences` VALUES (400, 1, 'AWszcXfc0xs6SMBWfaWQSfMbn7kgxG4X', '2019-01-18 14:20:27', '2019-01-18 14:20:27');
+INSERT INTO `persistences` VALUES (401, 1, '4tl3MKCZlksP8J2gROVaHpgPsue6bLTD', '2019-01-18 14:20:27', '2019-01-18 14:20:27');
+INSERT INTO `persistences` VALUES (402, 1, '1hMiI5BAyOsJkwIheO7ncdeYJPCjuuyN', '2019-01-18 14:20:36', '2019-01-18 14:20:36');
+INSERT INTO `persistences` VALUES (403, 1, 'B9b53fYb4GbbNW2bzcyev2SHdeSXJMxE', '2019-01-18 14:20:38', '2019-01-18 14:20:38');
+INSERT INTO `persistences` VALUES (404, 1, 'a77tuA8oFCtGCH6q6uKgcBcdqS45KWWx', '2019-01-18 14:20:46', '2019-01-18 14:20:46');
 
 -- ----------------------------
 -- Table structure for questions__question_translations
@@ -1032,8 +1099,8 @@ CREATE TABLE `questions__questions`  (
 -- Records of questions__questions
 -- ----------------------------
 INSERT INTO `questions__questions` VALUES (3, 4, '<p>How old are you?</p>', '<p>I am 20.</p>', '2019-01-10 09:01:51', '2019-01-10 09:01:51');
-INSERT INTO `questions__questions` VALUES (4, 4, '<p>What time is it?</p>', '<p>It&#39;s 10:00.</p>', '2019-01-10 09:04:06', '2019-01-10 09:04:06');
-INSERT INTO `questions__questions` VALUES (5, 4, '<p>Where do you live?</p>', '<p>Hanoi</p>', '2019-01-10 09:12:13', '2019-01-10 09:12:13');
+INSERT INTO `questions__questions` VALUES (4, 10, '<p>What time is it?</p>', '<p>10:00.</p>', '2019-01-10 09:04:06', '2019-01-18 04:03:30');
+INSERT INTO `questions__questions` VALUES (5, 9, '<p>Where do you live?</p>', '<p>Hanoi</p>', '2019-01-10 09:12:13', '2019-01-18 00:37:01');
 
 -- ----------------------------
 -- Table structure for reminders
@@ -1142,7 +1209,7 @@ CREATE TABLE `roles`  (
 -- ----------------------------
 -- Records of roles
 -- ----------------------------
-INSERT INTO `roles` VALUES (1, 'admin', 'Admin', '{\"answer.answers.index\":true,\"answer.answers.create\":true,\"answer.answers.edit\":true,\"answer.answers.destroy\":true,\"categories.categories.index\":true,\"categories.categories.create\":true,\"categories.categories.edit\":true,\"categories.categories.destroy\":true,\"choose.chooses.index\":true,\"choose.chooses.create\":true,\"choose.chooses.edit\":true,\"choose.chooses.destroy\":true,\"core.sidebar.group\":true,\"dashboard.index\":true,\"dashboard.update\":true,\"dashboard.reset\":true,\"frontend.frontends.index\":true,\"frontend.frontends.create\":true,\"frontend.frontends.edit\":true,\"frontend.frontends.destroy\":true,\"games.games.index\":true,\"games.games.create\":true,\"games.games.edit\":true,\"games.games.destroy\":true,\"grammar.grammars.index\":true,\"grammar.grammars.create\":true,\"grammar.grammars.edit\":true,\"grammar.grammars.destroy\":true,\"listening.listenings.index\":true,\"listening.listenings.create\":true,\"listening.listenings.edit\":true,\"listening.listenings.destroy\":true,\"media.medias.index\":true,\"media.medias.create\":true,\"media.medias.edit\":true,\"media.medias.destroy\":true,\"media.folders.index\":true,\"media.folders.create\":true,\"media.folders.edit\":true,\"media.folders.destroy\":true,\"menu.menus.index\":true,\"menu.menus.create\":true,\"menu.menus.edit\":true,\"menu.menus.destroy\":true,\"menu.menuitems.index\":true,\"menu.menuitems.create\":true,\"menu.menuitems.edit\":true,\"menu.menuitems.destroy\":true,\"orderings.orderings.index\":true,\"orderings.orderings.create\":true,\"orderings.orderings.edit\":true,\"orderings.orderings.destroy\":true,\"page.pages.index\":true,\"page.pages.create\":true,\"page.pages.edit\":true,\"page.pages.destroy\":true,\"questions.questions.index\":true,\"questions.questions.create\":true,\"questions.questions.edit\":true,\"questions.questions.destroy\":true,\"results.results.index\":true,\"results.results.create\":true,\"results.results.edit\":true,\"results.results.destroy\":true,\"rules.rules.index\":true,\"rules.rules.create\":true,\"rules.rules.edit\":true,\"rules.rules.destroy\":true,\"setting.settings.index\":true,\"setting.settings.edit\":true,\"songs.songs.index\":true,\"songs.songs.create\":true,\"songs.songs.edit\":true,\"songs.songs.destroy\":true,\"songs.alphabets.index\":true,\"songs.alphabets.create\":true,\"songs.alphabets.edit\":true,\"songs.alphabets.destroy\":true,\"sortings.sortings.index\":true,\"sortings.sortings.create\":true,\"sortings.sortings.edit\":true,\"sortings.sortings.destroy\":true,\"stories.stories.index\":true,\"stories.stories.create\":true,\"stories.stories.edit\":true,\"stories.stories.destroy\":true,\"tag.tags.index\":true,\"tag.tags.create\":true,\"tag.tags.edit\":true,\"tag.tags.destroy\":true,\"translation.translations.index\":true,\"translation.translations.edit\":true,\"translation.translations.import\":true,\"translation.translations.export\":true,\"user.users.index\":true,\"user.users.create\":true,\"user.users.edit\":true,\"user.users.destroy\":true,\"user.roles.index\":true,\"user.roles.create\":true,\"user.roles.edit\":true,\"user.roles.destroy\":true,\"account.api-keys.index\":true,\"account.api-keys.create\":true,\"account.api-keys.destroy\":true,\"workshop.sidebar.group\":true,\"workshop.modules.index\":true,\"workshop.modules.show\":true,\"workshop.modules.update\":true,\"workshop.modules.disable\":true,\"workshop.modules.enable\":true,\"workshop.modules.publish\":true,\"workshop.themes.index\":true,\"workshop.themes.show\":true,\"workshop.themes.publish\":true}', '2019-01-01 08:31:15', '2019-01-13 05:36:54');
+INSERT INTO `roles` VALUES (1, 'admin', 'Admin', '{\"answer.answers.index\":true,\"answer.answers.create\":true,\"answer.answers.edit\":true,\"answer.answers.destroy\":true,\"blogs.blogs.index\":true,\"blogs.blogs.create\":true,\"blogs.blogs.edit\":true,\"blogs.blogs.destroy\":true,\"categories.categories.index\":true,\"categories.categories.create\":true,\"categories.categories.edit\":true,\"categories.categories.destroy\":true,\"choose.chooses.index\":true,\"choose.chooses.create\":true,\"choose.chooses.edit\":true,\"choose.chooses.destroy\":true,\"core.sidebar.group\":true,\"dashboard.index\":true,\"dashboard.update\":true,\"dashboard.reset\":true,\"frontend.frontends.index\":true,\"frontend.frontends.create\":true,\"frontend.frontends.edit\":true,\"frontend.frontends.destroy\":true,\"games.games.index\":true,\"games.games.create\":true,\"games.games.edit\":true,\"games.games.destroy\":true,\"grammar.grammars.index\":true,\"grammar.grammars.create\":true,\"grammar.grammars.edit\":true,\"grammar.grammars.destroy\":true,\"listening.listenings.index\":true,\"listening.listenings.create\":true,\"listening.listenings.edit\":true,\"listening.listenings.destroy\":true,\"media.medias.index\":true,\"media.medias.create\":true,\"media.medias.edit\":true,\"media.medias.destroy\":true,\"media.folders.index\":true,\"media.folders.create\":true,\"media.folders.edit\":true,\"media.folders.destroy\":true,\"menu.menus.index\":true,\"menu.menus.create\":true,\"menu.menus.edit\":true,\"menu.menus.destroy\":true,\"menu.menuitems.index\":true,\"menu.menuitems.create\":true,\"menu.menuitems.edit\":true,\"menu.menuitems.destroy\":true,\"orderings.orderings.index\":true,\"orderings.orderings.create\":true,\"orderings.orderings.edit\":true,\"orderings.orderings.destroy\":true,\"page.pages.index\":true,\"page.pages.create\":true,\"page.pages.edit\":true,\"page.pages.destroy\":true,\"questions.questions.index\":true,\"questions.questions.create\":true,\"questions.questions.edit\":true,\"questions.questions.destroy\":true,\"results.results.index\":true,\"results.results.create\":true,\"results.results.edit\":true,\"results.results.destroy\":true,\"rules.rules.index\":true,\"rules.rules.create\":true,\"rules.rules.edit\":true,\"rules.rules.destroy\":true,\"setting.settings.index\":true,\"setting.settings.edit\":true,\"songs.songs.index\":true,\"songs.songs.create\":true,\"songs.songs.edit\":true,\"songs.songs.destroy\":true,\"songs.alphabets.index\":true,\"songs.alphabets.create\":true,\"songs.alphabets.edit\":true,\"songs.alphabets.destroy\":true,\"sortings.sortings.index\":true,\"sortings.sortings.create\":true,\"sortings.sortings.edit\":true,\"sortings.sortings.destroy\":true,\"stories.stories.index\":true,\"stories.stories.create\":true,\"stories.stories.edit\":true,\"stories.stories.destroy\":true,\"tag.tags.index\":true,\"tag.tags.create\":true,\"tag.tags.edit\":true,\"tag.tags.destroy\":true,\"translation.translations.index\":true,\"translation.translations.edit\":true,\"translation.translations.import\":true,\"translation.translations.export\":true,\"user.users.index\":true,\"user.users.create\":true,\"user.users.edit\":true,\"user.users.destroy\":true,\"user.roles.index\":true,\"user.roles.create\":true,\"user.roles.edit\":true,\"user.roles.destroy\":true,\"account.api-keys.index\":true,\"account.api-keys.create\":true,\"account.api-keys.destroy\":true,\"workshop.sidebar.group\":true,\"workshop.modules.index\":true,\"workshop.modules.show\":true,\"workshop.modules.update\":true,\"workshop.modules.disable\":true,\"workshop.modules.enable\":true,\"workshop.modules.publish\":true,\"workshop.themes.index\":true,\"workshop.themes.show\":true,\"workshop.themes.publish\":true}', '2019-01-01 08:31:15', '2019-01-18 14:20:36');
 INSERT INTO `roles` VALUES (2, 'user', 'User', NULL, '2019-01-01 08:31:15', '2019-01-01 08:31:15');
 
 -- ----------------------------
@@ -1174,12 +1241,14 @@ CREATE TABLE `rules__rules`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of rules__rules
 -- ----------------------------
 INSERT INTO `rules__rules` VALUES (1, 'Adjectives', '<p>We have a small car.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>I saw a white bird.</p>\r\n\r\n<p>She watched an old film.</p>', '<p>Adjectives don&#39;t have a plural form.</p>\r\n\r\n<p>We have two small cars.</p>\r\n\r\n<p>I saw five white birds.</p>\r\n\r\n<p>She watched some old films.</p>', '<p>Size before colour.</p>\r\n\r\n<p>We have a small, blue car.</p>\r\n\r\n<p>I saw a large, white bird.</p>', '<p>We have a small, blue car. (NOT We have a small and blue car.)</p>\r\n\r\n<p>I saw five large, white birds. (NOT I saw five large and white birds.)</p>', '<p>Do you want to practise using adjectives in English?</p>', '2019-01-12 07:01:41', '2019-01-12 07:36:10');
+INSERT INTO `rules__rules` VALUES (2, 'adverbs', '<p>kofjgsdfjfgjufid</p>', '<p>dfl;gkdfjklgdfjkl</p>', '<p>iko;jkbjodfjhikdfbj</p>', '<p>fdbjknljgkffdgbjkndfgkl</p>', '<p>l;k,kldfghfdgklfdgklfd</p>', '2019-01-18 10:21:02', '2019-01-18 10:21:02');
+INSERT INTO `rules__rules` VALUES (3, 'verbs', '<p>kjfdkjfgkj</p>', '<p>ikojjkiodfgjifgdjidfgs</p>', '<p>kmldfgkldfbkldfgklgkgk</p>', '<p>kopdfgkfgkdfgkgdf</p>', '<p>okpdfkjogjfklfgdjklfdgjkl</p>', '2019-01-18 10:21:56', '2019-01-18 10:21:56');
 
 -- ----------------------------
 -- Table structure for setting__setting_translations
@@ -1271,7 +1340,7 @@ CREATE TABLE `songs__songs`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of songs__songs
@@ -1284,6 +1353,7 @@ INSERT INTO `songs__songs` VALUES (5, 'People work', 'U8v16WEVszM', '<p>Nigel Na
 INSERT INTO `songs__songs` VALUES (6, 'Don\'t put your trousers in your head', 'MF5pbroiSoA', '<p>Don&#39;t put your trousers on your head, Fred You know you should put your legs in those Fasten up your buttons and your zip, Pip That&#39;s the way to wear your clothes. Velcro fasteners, buttons or zip Got to do them up or you will trip If you run around with shoes undone You&#39;re going to fall and it&#39;s not much fun! Don&#39;t put the zipper round the back, Jack The hood will cover up your face And don&#39;t wear gloves upon your feet, Pete You&#39;ll be last in every race. Velcro fasteners, buttons or zip Got to do them up or you will trip If you run around with shoes undone You&#39;re going to fall and it&#39;s not much fun! A belt for your skirt is very handy, Mandy It stops it falling to your knees And when you know just what to do, Sue You&#39;ll be as neat as you can be. Velcro fasteners, buttons or zip Got to do them up or you will trip If you run around with shoes undone You&#39;re going to fall and it&#39;s not much fun! Don&#39;t put your trousers on your head!</p>', NULL, '2019-01-05 10:04:25', '2019-01-10 06:28:47');
 INSERT INTO `songs__songs` VALUES (7, 'Flying from the sun to the stars', '_Q9mBoqlzKQ', '<p>We&rsquo;re flying from the sun to the stars Through this solar system of ours. Mercury, Venus, Earth and Mars Flying from the sun to the stars. Mercury&rsquo;s hot and Venus is bright Earth is where we live and Mars is red at night Flying from the sun to the stars. Jupiter, Saturn, Uranus and Neptune Last of all is little biddy Pluto. Flying from the sun to the stars Through this solar system of ours Flying from the sun to the stars. Mercury, Venus, Earth and Mars Flying from the sun to the stars. Mercury&rsquo;s hot and Venus is bright Earth is where we live and Mars is red at night Flying from the sun to the stars Jupiter, Saturn, Uranus and Neptune Last of all is little biddy Pluto. Flying from the sun to the stars Flying from the sun to the stars Flying from the sun to the stars Flying from the sun to the stars Flying from the sun to the stars Flying from the sun to the stars.</p>', NULL, '2019-01-05 10:15:58', '2019-01-10 06:25:11');
 INSERT INTO `songs__songs` VALUES (8, 'Grand Old Duke', 'KGvEQTQaTbQ', '<p>Oh the Grand Old Duke of York He had ten (1).......... men He marched them up to the top of the hill And he marched them down again.</p>\r\n\r\n<p>And when they were up they were up And when they were down they were (2).......... And when they were only halfway up They were neither up nor down. Oh the Grand Old Duke of York He had ten thousand men They tiptoed up to the top of the (3).......... To see the dragon in his den.</p>\r\n\r\n<p>But when the dragon saw them it roared When the dragon saw them it roared When the dragon saw them it roared so loud They came running down again. Run, run, don&rsquo;t wait! Run, run, don&rsquo;t wait! Run, run as (4).......... as you can And can the last one shut the (5)..........? &lsquo;Ssshhh,&rsquo; the Duchess said &lsquo;Ssshhh,&rsquo; the Duchess said</p>\r\n\r\n<p>The Grand Old Duke and all of his men Are hiding in their beds.</p>', NULL, '2019-01-05 10:16:39', '2019-01-10 03:57:48');
+INSERT INTO `songs__songs` VALUES (9, 'Songs', 'shhighghggighigghkgh', '<p>sdffdsfds</p>', '<p>fgfg</p>', '2019-01-17 04:12:02', '2019-01-17 04:12:02');
 
 -- ----------------------------
 -- Table structure for sortings__sorting_translations
@@ -1321,8 +1391,8 @@ CREATE TABLE `sortings__sortings`  (
 -- Records of sortings__sortings
 -- ----------------------------
 INSERT INTO `sortings__sortings` VALUES (1, 1, 'a / house / we / small / have', 'we', 'have', 'a', 'small', 'house', '2019-01-12 09:42:03', '2019-01-12 09:49:06');
-INSERT INTO `sortings__sortings` VALUES (2, 1, 'bird / a / I / saw / white', 'i', 'saw', 'a', 'white', 'bird', '2019-01-12 09:45:40', '2019-01-12 09:49:39');
-INSERT INTO `sortings__sortings` VALUES (3, 1, 'an / we / old / film / watched', 'we', 'watched', 'an', 'old', 'film', '2019-01-12 09:52:16', '2019-01-12 09:52:16');
+INSERT INTO `sortings__sortings` VALUES (2, 2, 'bird / a / I / saw / white', 'i', 'saw', 'a', 'white', 'bird', '2019-01-12 09:45:40', '2019-01-18 10:22:31');
+INSERT INTO `sortings__sortings` VALUES (3, 3, 'an / we / old / film / watched', 'we', 'watched', 'an', 'old', 'film', '2019-01-12 09:52:16', '2019-01-18 10:22:53');
 
 -- ----------------------------
 -- Table structure for stories__stories
@@ -1497,6 +1567,6 @@ CREATE TABLE `users`  (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, 'dinhyensamagada98@gmail.com', '$2y$10$2fmPEE/CRL8z9Do.PuStZ.T0ObA00oKNOxQlLo4T20lngDPuMpHa6', NULL, '2019-01-16 06:50:18', 'kasea', 'kyra', '2019-01-01 08:31:51', '2019-01-16 06:50:18');
+INSERT INTO `users` VALUES (1, 'dinhyensamagada98@gmail.com', '$2y$10$2fmPEE/CRL8z9Do.PuStZ.T0ObA00oKNOxQlLo4T20lngDPuMpHa6', NULL, '2019-01-18 14:20:46', 'kasea', 'kyra', '2019-01-01 08:31:51', '2019-01-18 14:20:46');
 
 SET FOREIGN_KEY_CHECKS = 1;

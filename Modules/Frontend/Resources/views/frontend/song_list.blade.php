@@ -53,7 +53,7 @@
             </div> {{--end col-md-9--}}
             <div class="col-md-3">
                 <div class="card img-bd-cl">
-                    <div class="card-header text-uppercase font-weight-bold  index-p__cl img-bd-cl align-middle text-center">
+                    <div class="card-header text-uppercase font-weight-bold index-p__cl img-bd-cl align-middle text-center">
                         Categories
                     </div>
                     <ul class="list-group list-group-flush">

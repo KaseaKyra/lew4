@@ -14,7 +14,7 @@
             @endforeach
         </select>
     </div>
-    {!! Form:: normalInput('option1', 'Option 1', $errors, $question) !!}
-    {!! Form:: normalInput('option2', 'Option 2', $errors, $question) !!}
-    {!! Form:: normalInput('option3', 'Option 3', $errors, $question) !!}
+    {!! Form:: normalInput('option1', 'Option 1', $errors, $choose) !!}
+    {!! Form:: normalInput('option2', 'Option 2', $errors, $choose) !!}
+    {!! Form:: normalInput('option3', 'Option 3', $errors, $choose) !!}
 </div>

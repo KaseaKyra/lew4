@@ -17,7 +17,7 @@ class Listening extends Model
 
     public function question()
     {
-        return $this->hasMany(Question::class, 'listening_id', 'id');
+        return $this->hasOne(Question::class, 'listening_id', 'id');
     }
 
     public function getProfilePictureAttribute()

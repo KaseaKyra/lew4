@@ -22,13 +22,11 @@ class SongWasCreated implements StoringMedia
      * @var array
      */
     private $data;
-
     public function __construct(Song $song, array $data)
     {
         $this->song = $song;
         $this->data = $data;
     }
-
     /**
      * Return the entity
      * @return \Illuminate\Database\Eloquent\Model
@@ -37,7 +35,6 @@ class SongWasCreated implements StoringMedia
     {
         return $this->song;
     }
-
     /**
      * Return the ALL data sent
      * @return array

@@ -28,5 +28,5 @@ $router->get('/grammar-item/{id}', 'frontend\\frontendController@getGrammarById'
 //$router->post('/login','frontend\\frontendController@login')->name('login');
 $router->post('/check-song', 'frontend\\frontendController@checkSongAnswer')->name('frontend.check.song');
 $router->post('/check-listening', 'frontend\\frontendController@checkListeningAnswer')->name('frontend.check.listening');
-$router->post('/check-grammar/{id}', 'frontend\\frontendController@checkGrammarAnswer')->name('frontend.check.grammar');
+$router->post('/check-grammar', 'frontend\\frontendController@checkGrammarAnswer')->name('frontend.check.grammar');
 $router->post('/check-story', 'frontend\\frontendController@checkStoryAnswer')->name('frontend.check.story');

@@ -31,7 +31,8 @@
                             <div class="row">
                                 <div class="col-md-9"><span class="font-weight-bold mr-3">A</span>
                                     .{{$ordering->order1}}<br></div>
-                                <div class="col-md-3"><input type="text" class="story_w text-center" id="" name="result1"> <br>
+                                <div class="col-md-3"><input type="text" class="story_w text-center" id=""
+                                                             name="result1"> <br>
                                 </div>
                             </div>
                             <div class="row">
@@ -81,9 +82,6 @@
                             <button type="submit" class="btn btn-primary float-right ml-3" name="check" id="check">
                                 <i class="fas fa-check mr-1"></i>Check
                             </button>
-                            <a href="" type="button" class="btn btn-primary float-right">
-                                <i class="fas fa-redo mr-1"></i>Re-do
-                            </a>
                         </div>
                         {!! Form::close() !!}
                     </div>

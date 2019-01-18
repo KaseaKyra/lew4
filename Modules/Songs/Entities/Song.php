@@ -19,4 +19,9 @@ class Song extends Model
     {
         return $this->hasOne(Answer::class, 'song_id', 'id');
     }
+
+    public function getProfilePictureAttribute()
+    {
+        return $this->filesByZone('profile_image')->first();
+    }
 }

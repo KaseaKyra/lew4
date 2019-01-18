@@ -11,10 +11,12 @@ namespace Modules\Frontend\Http\Controllers\frontend;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Modules\Answer\Repositories\AnswerRepository;
+use Modules\Blogs\Repositories\BlogRepository;
 use Modules\Categories\Repositories\CategoryRepository;
 use Modules\Grammar\Repositories\GrammarRepository;
 use Modules\Listening\Repositories\ListeningRepository;
 use Modules\Questions\Repositories\QuestionRepository;
+use Modules\Results\Repositories\ResultRepository;
 use Modules\Rules\Repositories\RuleRepository;
 use Modules\Songs\Repositories\SongRepository;
 use Modules\Sortings\Repositories\SortingRepository;
@@ -37,6 +39,7 @@ class frontendController extends Controller
     private $question;
     private $rule;
     private $sorting;
+    private $blog;
 
     public function __construct(
         SongRepository $song,
@@ -48,7 +51,9 @@ class frontendController extends Controller
         AnswerRepository $answer,
         QuestionRepository $question,
         RuleRepository $rule,
-        SortingRepository $sorting
+        SortingRepository $sorting,
+        ResultRepository $result,
+        BlogRepository $blog
     )
     {
         $this->song = $song;
@@ -61,6 +66,8 @@ class frontendController extends Controller
         $this->question = $question;
         $this->rule = $rule;
         $this->sorting = $sorting;
+        $this->result = $result;
+        $this->blog = $blog;
     }
 
     public function index()
@@ -97,7 +104,8 @@ class frontendController extends Controller
 
     public function getBlog()
     {
-        return view('frontend::frontend.blog');
+        $blogs = $this->blog->all();
+        return view('frontend::frontend.blog', compact('blogs'));
     }
 
     public function getAboutUs()
@@ -116,6 +124,8 @@ class frontendController extends Controller
     public function getSongById(Request $request)
     {
         $song = $this->song->find($request->id);
+        /*dd($song->answer);
+        $answer = $this->answer->find($request->id);*/
         return view('frontend::frontend.song', compact('song'));
     }
 
@@ -139,16 +149,18 @@ class frontendController extends Controller
         //$chooses = $this->listening->find($request->id)->load('question')->choose/*load('choose')*/;
         //dd($chooses);
         $listening = $this->listening->find($request->id);
-        $questions = $this->listening->find($request->id)->question;/*load('question')*/
-        return view('frontend::frontend.listening', compact('listening', 'questions'));
+        $question = $this->listening->find($request->id)->question;
+        //$question = $this->listening->find($request->id)->load('question');
+        //dd($question);
+        return view('frontend::frontend.listening', compact('listening', 'question'));
     }
 
     public function getGrammarById(Request $request)
     {
         $rule = $this->rule->find($request->id);
-        $sortings = $this->rule->find($request->id)->sorting;
+        $sorting = $this->rule->find($request->id)->sorting;
         //dd($sortings);
-        return view('frontend::frontend.grammar', compact('rule', 'sortings'));
+        return view('frontend::frontend.grammar', compact('rule', 'sorting'));
     }
 
     public function checkSongAnswer(Request $request)
@@ -162,6 +174,11 @@ class frontendController extends Controller
         //dd($answer->a1);
         /*echo ($a1);*/
 
+        $result = 0;
+        $song = $this->song->find($request->id);
+        //dd($request->id);
+        // dd($song);
+
         $answer = $this->song->find($request->id)->answer;
         $a1 = $this->cleanString($request->a1);
         $a2 = $this->cleanString($request->a2);
@@ -174,38 +191,111 @@ class frontendController extends Controller
                 if ($answer->a3 === $a3) {
                     if ($answer->a4 === $a4) {
                         if ($answer->a5 === $a5) {
-                            return view('frontend::frontend.game');
+                            $result = 1;
                         }
                     }
                 }
             }
         }
-        return (1);
+
+        //dd($result);
+        return view('frontend::frontend.check_song', compact('song', 'answer', 'request', 'result'));
     }
 
     public function checkGrammarAnswer(Request $request)
     {
-        $flag = 0;
-        $i1 =  $request->i1;
-        $i2 =  $request->i2;
-        $i3 =  $request->i3;
-        $i4 =  $request->i4;
-        $i5 =  $request->i5;
+        $check = 0;
+        $i1 = $request->i1;
+        $i2 = $request->i2;
+        $i3 = $request->i3;
+        $i4 = $request->i4;
+        $i5 = $request->i5;
 
         $rule = $this->rule->find($request->id);
-        $input = $this->rule->find($request->id)->sorting->first();
-        dd($rule);
-        if ($input->i1 === $i1
-            && $input->i2 === $i2
-            && $input->i3 === $i3
-            && $input->i4 === $i4
-            && $input->i5 === $i5
-        )
-        {
-            $flag = 1;
+        $sorting = $this->rule->find($request->id)->sorting;
+        $answerString = $sorting->i1 . ' '
+            . $sorting->i2 . ' '
+            . $sorting->i3 . ' '
+            . $sorting->i4 . ' '
+            . $sorting->i5;
+
+        if ($sorting->i1 === $i1
+            && $sorting->i2 === $i2
+            && $sorting->i3 === $i3
+            && $sorting->i4 === $i4
+            && $sorting->i5 === $i5
+        ) {
+            $check = 1;
         }
 
-        return view('frontend::frontend.grammar', compact('flag'));
+        return view('frontend::frontend.check_grammar', compact('request', 'rule', 'sorting', 'check', 'answerString'));
+    }
+
+    public function checkListeningAnswer(Request $request)
+    {
+        $question = $this->question->find($request->id);
+        $listening = $this->listening->find($request->id);
+        //dd($listening);
+        //dd($request);
+        dd($question);
+        return view('frontend::frontend.check_listening', compact('request', 'question', 'listening'));
+    }
+
+    public function checkStoryAnswer(Request $request)
+    {
+        //dd($request);
+        $count = 0;
+        $result = $this->story->find($request->id)->result;
+        $story = $this->story->find($request->id);
+        $ordering = $this->story->find($request->id)->ordering;
+        //dd($result);
+
+        $result1 = $this->cleanString($request->result1);
+        $result2 = $this->cleanString($request->result2);
+        $result3 = $this->cleanString($request->result3);
+        $result4 = $this->cleanString($request->result4);
+        $result5 = $this->cleanString($request->result5);
+        $result6 = $this->cleanString($request->result6);
+        $result7 = $this->cleanString($request->result7);
+        $result8 = $this->cleanString($request->result8);
+
+        if ($result1 === $result->result1) {
+            $count = 1;
+            if ($result2 === $result->result2) {
+                $count = 2;
+                if ($result3 === $result->result3) {
+                    $count = 3;
+                    if ($result4 === $result->result4) {
+                        $count = 4;
+                        if ($result5 === $result->result5) {
+                            $count = 5;
+                            if ($result5 === $result->result5) {
+                                $count = 6;
+                                if ($result7 === $result->result7) {
+                                    $count = 7;
+                                    if ($result8 === $result->result8) {
+                                        $count = 8;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        $answerString = $result->result1 . '-'
+            . $result->result2 . '-'
+            . $result->result3 . '-'
+            . $result->result4 . '-'
+            . $result->result5 . '-'
+            . $result->result6 . '-'
+            . $result->result7 . '-'
+            . $result->result8;
+        //dd($answerString);
+
+        return view('frontend::frontend.check_story',
+            compact('request', 'result', 'story', 'ordering', 'answerString', 'count'));
     }
 
     private function cleanString($string)

@@ -8,30 +8,38 @@
     padding: 0;
     margin: 0;
 }
+
 /*remove text-decoration*/
 .td:hover {
     text-decoration: none;
 }
+
 /*text-color */
 .txt-cl-1 {
     color: #c14300;
 }
+
 .img-bd-cl {
     border-color: #c14300;
     border-width: 2px;
 }
+
 .bgc-1 {
     background-color: #c34e00;
 }
+
 .bgc-2 {
     background-color: #fde5b5;
 }
+
 .img__hover:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 .txt-cl-2, .txt-cl-2:hover {
     color: #fff;
 }
+
 /**
  * CSS HEADER
  */
@@ -40,31 +48,38 @@
     height: 40px;
     line-height: 40px;
 }
+
 .top-bar a {
     display: block;
 }
+
 /*main menu*/
 .hd__img {
     max-width: 60px;
     max-height: 60px;
 }
+
 .hd--bg {
     background-color: #fea203;
 }
+
 /*CSS - LIST*/
 .l__img {
     width: 300px;
     height: 200px;
 }
+
 /**
  * CSS - SONG
  */
 #s__btn {
     display: block;
 }
+
 #s__content {
     display: none;
 }
+
 /**
 CAROUSEL
  */
@@ -73,6 +88,7 @@ CAROUSEL
     top: auto;
     bottom: -40px;
 }
+
 /* The colour of the indicators */
 .blog .carousel-indicators li {
     background: #a3a3a3;
@@ -80,6 +96,7 @@ CAROUSEL
     width: 8px;
     height: 8px;
 }
+
 .blog .carousel-indicators .active {
     background: #707070;
 }
@@ -99,5 +116,10 @@ CAROUSEL
 
 .story_w {
     width: 50px;
+}
+
+#blog_img {
+    width: 250px;
+    height: 250px;
 }
 

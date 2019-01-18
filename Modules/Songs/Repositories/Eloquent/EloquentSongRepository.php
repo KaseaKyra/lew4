@@ -2,6 +2,9 @@
 
 namespace Modules\Songs\Repositories\Eloquent;
 
+use Modules\Songs\Events\SongWasCreated;
+use Modules\Songs\Events\SongWasDeleted;
+use Modules\Songs\Events\SongWasUpdated;
 use Modules\Songs\Repositories\SongRepository;
 use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
 

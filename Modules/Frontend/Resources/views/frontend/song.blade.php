@@ -51,6 +51,7 @@
                                 <i class="fas fa-redo mr-1"></i>Re-do
                             </a>
                         </div>
+
                         {!! Form::close() !!}
                     </div>
                 </div> <!-- song's game -->
